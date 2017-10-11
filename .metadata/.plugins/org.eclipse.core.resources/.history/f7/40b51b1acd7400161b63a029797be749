@@ -1,0 +1,13 @@
+package com.markit.demo;
+
+public class DemoClass {
+
+	public void getAge( ){ 
+		System.out.println("Welcome to Selenium Basic Training"  ); 
+	}
+
+	public static void main(String []args){
+		DemoClass demoObj = new DemoClass();
+		demoObj.getAge();
+	} 
+}

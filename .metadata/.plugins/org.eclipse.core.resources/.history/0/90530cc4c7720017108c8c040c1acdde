@@ -1,0 +1,117 @@
+package com.markit.common.framework.runtestsuit;
+
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+import atu.testng.reports.listeners.ATUReportsListener;
+import atu.testng.reports.listeners.ConfigurationListener;
+import atu.testng.reports.listeners.MethodListener;
+
+import com.markit.common.framework.util.Config;
+import com.markit.common.framework.util.DBConnection;
+import com.markit.common.framework.util.Email;
+import com.markit.common.framework.util.ExcelUtil;
+import com.markit.common.framework.util.ReportUtil;
+import com.markit.common.framework.util.WebUtil;
+import com.markit.common.framework.util.XPath;
+import com.markit.framework.mcpm.pageMethods.MCPMLoginpage;
+import com.markit.framework.mcpm.pageMethods.NavigationPage;
+import com.markit.framework.mcpm.pageMethods.SDLPage;
+import com.markit.mcpm.framework.testcases.EntityTC;
+import com.markit.mcpm.framework.testcases.MCPMLoginTC;
+import com.markit.mcpm.framework.testcases.SDLTC;
+
+@Listeners({ ATUReportsListener.class, ConfigurationListener.class,
+	MethodListener.class,
+	com.markit.common.framework.util.Listener_ExcelReportGenerator.class })
+
+public class SDL {
+	{
+		System.setProperty("atu.reporter.config",
+				"src/testdata/Reporter.properties");
+	}
+
+	public static WebDriver driver;
+	static List<String> cpEntitiesName=new ArrayList<String>();
+	static String mcpmCPCompName=null;
+	static String myEntityName=null;
+	@BeforeSuite
+	public void init() throws IOException{
+		String xpathPropFile = "src/testdata/XPath.properties";
+		XPath.init(xpathPropFile);	
+		Map<String,String> dbConfig=Config.loadConfig("src/testdata/DBconfig.properties");
+		DBConnection.getDBInstance(dbConfig, "MCPM");	
+		Email.initMailConfig("src/testdata/Mail.properties");
+		ExcelUtil.removeAllRowsExceptHeader("src/testdata/testWorkbook.xlsx", "MethodTestStatus");
+	}
+
+
+	/*@Test(priority=1)
+	public void createCPEntities()
+	{   SDLTC sdl=new SDLTC();
+		driver=MCPMLoginTC.tc_03_Login_MCPM("tc_Login_SDL_SS","src/testdata/testWorkbook.xlsx","Login");
+		mcpmCPCompName=MCPMLoginpage.companyName;
+		cpEntitiesName=sdl.tc_createCPEnt(driver, cpEntitiesName);
+		WebUtil.closeBrowser(driver);
+	}
+
+	@Test(priority=2)
+	public void createMyEntity()
+	{
+		SDLTC sdl=new SDLTC();
+		EntityTC entTc=new EntityTC();
+		driver=MCPMLoginTC.tc_03_Login_MCPM("tc_Login_SDL","src/testdata/testWorkbook.xlsx","Login");
+		myEntityName=entTc.createEntity(driver);	
+		sdl.tc_createCPRelForMyEntity(driver, myEntityName, "SDL SS 1",cpEntitiesName.get(0));
+	}*/
+
+	@Test(priority=3)
+
+	public void testSDL(){
+		myEntityName="gourav entity";
+		driver = MCPMLoginTC.tc_03_Login_MCPM("tc_Login_SDL","src/testdata/testWorkbook.xlsx", "Login");
+		SDLTC sdl=new SDLTC();
+		SDLPage page=new SDLPage();
+		NavigationPage.setMcpmFrame(driver);
+		NavigationPage np=new NavigationPage();
+		//np.navigateToSDL(driver);
+		
+		//sdl.fillSDLEntityData(driver,myEntityName);
+		 sdl.tc_fillDetailsAndVerifyEntityScreenerwithProducerDashbaord(driver, myEntityName);
+		page.navigateToSDLProducer(driver);
+		//WebUtil.click("SDL.xpath.ExportLink");
+		//ReportUtil.reportStringMatch("Verify exported results", "count:1", "count:1"); 
+	
+		
+		/*sdl.fillSDLEntityData(driver);
+		sdl.tc_fillSDLQuest(driver);	
+		sdl.tc_addRelQuest(driver);
+		sdl.tc_addSignatory(driver, myEntityName);	
+		Map<String,List<String>>	blueIcons=sdl.tc_verifySDLGrid(driver, myEntityName);
+		sdl.tc_signAndShare(driver);	
+        sdl.tc_verifyIconsAfterSignShare(driver, blueIcons);*/
+
+		/*final Map<String,List<String>> greenIcons=page.getCenterTableDataOnSDLProducer(driver);
+		sdl.tc_unShare(driver);	
+		sdl.tc_verifyIconsAfterUnshare(driver, greenIcons);
+		sdl.tc_signAndShare(driver);	*/
+		
+		//sdl.tc_editEntDetails(driver);
+		//validation
+		//sdl.tc_editGeneralReg(driver);
+		//all blue& blank
+
+		
+	}
+
+
+}
+

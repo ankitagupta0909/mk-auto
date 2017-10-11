@@ -1,0 +1,210 @@
+package com.markit.framework.kyc.pageMethods;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class HomePage {
+	
+	public static void main(String[] args) throws InterruptedException
+	{
+			
+		System.setProperty("webdriver.chrome.driver", "src/drivers/chromedriver.exe");
+		WebDriver driver =new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://productsuat.markit.com");
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		WebElement username=driver.findElement(By.xpath("//*[@id='username']"));
+		username.click();
+		username.sendKeys("21sep@markit.com");
+		WebElement password=driver.findElement(By.xpath("//*[@id='password']"));
+		
+		password.sendKeys("Welcome19#");
+		WebElement login=driver.findElement(By.xpath("//fieldset[@id='loginActions']/a"));
+		login.click();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		/*driver.close();
+		driver.quit();*/
+		
+		//WebUtil.closeBrowser(driver);
+	}
+		
+
+	}	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//pre account opening legend entity number
+		//WebElement element = driver.findElement(By.xpath("//*[@id='annual-review-status']/ul/li[1]/span[2]"));
+	/*	WebElement element = driver.findElement(By.xpath("//*[@id='annual-review-status']/ul/li[1]"));
+		String elementval = element.getText();
+		System.out.println(elementval);*/
+
+		//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//This code is working
+	
+/*	WebElement parent = driver.findElement(By.xpath("//*[local-name() = 'path'][@fill='#005690']"));
+    WebElement parent = driver.findElement(By.xpath("//*[local-name() = 'path'][@fill='#005690']"))
+        parent.click();
+        Actions mousehover = new Actions(driver);
+        mousehover.moveToElement(parent).perform();*/
+     
+			
+	/*	WebElement parent=driver.findElement(By.xpath("//*[local-name() = 'path'][@fill='#D24628']"));
+		 Actions mousehover = new Actions(driver);
+	        mousehover.moveToElement(parent).perform();		
+	        mousehover.click(parent).build().perform();
+*/
+/////////////////////////////////////////////////////////////
+
+
+
+
+/*			String i1="'#005690'";
+WebElement parent = driver.findElement(By.xpath("//*[local-name() = 'path'][@fill="+ i1 +"]"));
+Actions mousehover = new Actions(driver);
+mousehover.moveToElement(parent).perform();		
+mousehover.click(parent).build().perform();*/
+
+////////////////////////////////////////////////////////////////
+/*String i2="'#D24628'";
+WebElement parent1 = driver.findElement(By.xpath("//*[local-name() = 'path'][@fill="+ i2 +"]"));
+Actions mousehover1 = new Actions(driver);
+mousehover1.moveToElement(parent1).perform();		
+mousehover1.click(parent1).build().perform();*/
+
+/*WebElement theparent = driver.findElement(By.id("annual-review-status"));
+WebElement parent = theparent.findElement(By.className("highcharts-tooltip"));
+WebElement parent1 = theparent.findElement(By.className("highcharts-custom-tooltip"));
+WebElement parent2 = parent1.findElement(By.tagName("b"));*/
+
+		////tried for #D24628 and #00A7CE
+/*		
+String i2="'#8497A6'";// for annual review
+//String i2="'#8A8B8D'";//for entities in progress
+//WebElement parent1 = driver.findElement(By.xpath("//*[local-name() = 'path'][@fill="+ i2 +"]"));
+//WebElement parent1 = driver.findElement(By.xpath("//*[@id='reviewed-entities']/div[1]/div[1]/svg/g[1]/g[1]/path[2]"));
+
+WebElement parent2=driver.findElement(By.cssSelector("#highcharts-0 > svg > g.highcharts-series-group > g.highcharts-series.highcharts-tracker > path:nth-child(2)"));
+//WebElement parent1=WebUtil.findElement("Reviewed.xpath.rejected", driver);
+
+Actions mousehover1 = new Actions(driver);
+mousehover1.click(parent2);
+		
+
+//WebElement parent2 = driver.findElement(By.xpath("//div[@id='entities-in-progress']/div[1]/div[1]/div[1]/span/div[1]"));
+//WebElement parent2 = driver.findElement(By.xpath("//div[@id='annual-review-status']/div[1]/div[1]/div[1]/span/div[1]"));
+String tagname=parent2.getText();
+
+WebElement click2=driver.findElement(By.xpath("//div[@class='row-first']"));
+click2.click();
+
+boolean value= tagname.contains(elementval);
+System.out.println(value);
+if(value){
+	
+}
+
+
+//System.out.println(tagname);
+
+StringTokenizer st = new StringTokenizer(tagname,"/n");  
+while (st.hasMoreTokens()) {  
+    System.out.println(st.nextToken());  
+}  
+
+
+String str=new String(tagname);
+String str1[]=str.split("\\n");
+String a[]=str1[1].split(" ");
+System.out.println(a[0]);
+
+for (String retva:str.split(" ",0))
+{System.out.println(retva);
+	}
+
+
+String r2="'#014878'";//for entities in progress
+WebElement parent11 = driver.findElement(By.xpath("//*[local-name() = 'rect'][@fill="+ r2 +"]"));
+Actions mousehover11 = new Actions(driver);
+mousehover11.moveToElement(parent11).perform();	
+		
+///////*******WebElement parent2 = driver.findElement(By.xpath("//div[@id='annual-review-status']/div[1]/div[1]/div[1]/span/div[1]"));
+WebElement parent22 = driver.findElement(By.xpath("//div[@id='completed-profiles']/div[3]/div[1]/div[1]/span/div[1]"));
+String tagname1=parent22.getText();
+System.out.println(tagname1);*/
+
+////////////////////////////////////////////////////////////////
+/*String i3="'#00A7CE'";
+WebElement parent2 = driver.findElement(By.xpath("//*[local-name() = 'path'][@fill="+ i3 +"]"));
+Actions mousehover2 = new Actions(driver);
+mousehover2.moveToElement(parent2).perform();		
+mousehover2.click(parent2).build().perform();*/
+///////////////////////////////////////////////////////////////////////////////////////////////////				 
+/*		WebElement theparent = driver.findElement(By.id("annual-review-status"));
+		WebElement parent = theparent.findElement(By.className("highcharts-series-group"));
+        List<WebElement> children = parent.findElements(By.tagName("path"));
+        
+        int elemSize=children.size();
+        System.out.println(elemSize);
+       
+        for (int a=0;a<elemSize;a++) {
+    		//String colorval=myElement.getCssValue("fill");
+    		//System.out.print(colorval);
+            // WebElement Elem =
+        	String b=children.get(a).getText();
+        	System.out.println(b);
+             children.get(a).click();
+           //  Elem.click();
+    		 
+            	
+    	}
+        
+		*/
+/*		WebElement theparen	t = driver.findElement(By.id("completed-profiles"));
+		WebElement parent = theparent.findElement(By.className("highcharts-series-group"));
+        List<WebElement> children = parent.findElements(By.tagName("rect"));
+for (WebElement myElement : children) {
+	       
+		 Actions mousehover = new Actions(driver);
+		 mousehover.moveToElement(myElement).perform(); 
+		 mousehover.click(myElement).build().perform();
+        	
+	}*/

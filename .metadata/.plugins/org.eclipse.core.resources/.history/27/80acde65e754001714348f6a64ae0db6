@@ -1,0 +1,127 @@
+package com.markit.framework.api.testcases;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.jfree.util.Log;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.markit.common.framework.util.Config;
+import com.markit.common.framework.util.ReportUtil;
+import com.markit.framework.api.pageMethods.Authentication;
+import com.markit.framework.api.pageMethods.SDLAPI;
+
+public class SDLAPI_TC extends SDLAPI {
+
+	public  Map<String,String> apiConfig=Config.loadConfig("src/testdata/API.properties");	
+	
+	public StringBuffer tc_getSDLAPI_relId(String token,String relationshipId) throws ClientProtocolException, IOException, InterruptedException, JSONException,
+	KeyManagementException, NoSuchAlgorithmException, KeyStoreException {	
+		String url=apiConfig.get("sdlRelIdURL")+"/"+relationshipId;
+		StringBuffer result=tc_sendReqAndGetResponse(url, token);
+		System.out.println(result);
+		return result;	
+	}
+	
+	public StringBuffer tc_sendReqAndGetResponse(String url,String token) throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException, ClientProtocolException, IOException{
+		Authentication au=new Authentication();
+		HttpClient client = au.acceptUntrustedCerts();
+		HttpGet get = new HttpGet(url);
+		// add request header
+		get.addHeader("Authorization", "Bearer " + token);
+		HttpResponse response = client.execute(get);
+
+		System.out.println("\n Sending 'GET' request to URL :" + url);
+		System.out.println("Response Code : " + response.getStatusLine().getStatusCode());
+
+		Charset encoding=StandardCharsets.UTF_8;
+		BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent(),encoding));
+		StringBuffer result = new StringBuffer();
+		String line = "";
+		while ((line = rd.readLine()) != null) {
+			result.append(line);
+		}
+		return result;
+	}
+	
+	public void tc_readAndWriteAPIResponse(StringBuffer result,String wbPath,String sheetName) throws JSONException{
+		Map<String, Object> relationMap=readAPIResponse(result);
+		List<String> keys=readAPIKeysFromExcel(wbPath, sheetName);
+		writeAPIResponseInExcel(relationMap, keys,wbPath,sheetName);
+	}
+	
+	public void tc_getSDLTimestampAPI(String token,String timestamp,String next) throws ClientProtocolException, IOException, InterruptedException, JSONException,
+	KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
+
+		Authentication au=new Authentication();
+		String url=apiConfig.get("sdlRelIdURL")+"?fromTimestamp="+timestamp+"&next="+next;
+		HttpClient client = au.acceptUntrustedCerts();
+		HttpGet get = new HttpGet(url);
+
+		// add request header
+		get.addHeader("Authorization", "Bearer " + token);
+		HttpResponse response = client.execute(get);
+		BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+		StringBuffer result = new StringBuffer();
+		String line = "";
+		while ((line = rd.readLine()) != null) {
+			result.append(line);
+		}
+		System.out.println(result);
+
+		JSONObject root = new JSONObject(result.toString().trim());		
+		int fullCount=0;
+		int countPerPage=0;
+		JSONArray rowssArray=null;
+		try{
+		rowssArray=root.getJSONArray("relationshipList");
+		}catch(JSONException e){
+		ReportUtil.reportWebElement("RelationshipList not found: "+e.getMessage(), false);
+		}
+		for(int rowNo=0;rowNo<rowssArray.length();rowNo++)
+	      {
+				JSONObject RespArray = rowssArray.getJSONObject(rowNo);
+				String relId=RespArray.getString("relationshipId");
+				if(relId!=null){
+					countPerPage++;
+				}
+	      }		
+		if(countPerPage==100){
+			fullCount=fullCount+countPerPage;
+			System.out.println("pas"+countPerPage+ "records");	
+			}
+		else{
+			
+		}
+		String ts=null;
+		String nxt=null;
+		try{
+			JSONObject nextReqObj= root.getJSONObject("nextRequest");
+			nxt= nextReqObj.getString("next");
+			ts = nextReqObj.getString("fromTimestamp");
+			ReportUtil.reportWebElement("Timestamp: "+ts+" and Next Request: "+nxt, true);
+		}catch(Exception e){
+			Log.info("Last Page, Next and fromTimestamp does not exist");
+			ReportUtil.reportWebElement("Total No. of records in Timestamp: "+fullCount, true);
+		}		
+		
+		Thread.sleep(10);
+		if(ts!=null && nxt!=null){
+		tc_getSDLTimestampAPI(token,ts,nxt);
+		}
+	}
+}

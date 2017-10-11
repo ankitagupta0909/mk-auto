@@ -1,0 +1,22 @@
+package com.markit.demo;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Login {
+
+	@Test
+	public void login(){
+        WebDriver driver = new FirefoxDriver();
+        driver.get("http://mc.stage.markit.com");
+        WebElement id = driver.findElement(By.name("username"));
+        WebElement pass = driver.findElement(By.name("password"));
+        WebElement button = driver.findElement(By.xpath("/html/body/div/div/div[2]/div/form/p[3]/input"));         
+
+        id.sendKeys("tuser991@yahoo.co.in");
+        pass.sendKeys("abc123");
+        button.submit();
+	}
+}

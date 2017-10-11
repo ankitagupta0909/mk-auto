@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;PEGATestCases.java&apos; to &apos;Framework/src/com.markit.framework.pega.testcases&apos;&#x0D;&#x0A;- Original project: &apos;Framework&apos;&#x0D;&#x0A;- Destination element: &apos;Framework/src/com.markit.framework.pega.testcases&apos;&#x0D;&#x0A;- Original element: &apos;com.markit.framework.pega.testcases.PEGATestCases.java&apos;" description="Copy compilation unit" destination="/src&lt;com.markit.framework.pega.testcases" element1="/src&lt;com.markit.framework.pega.testcases{PEGATestCases.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1458296188575" units="1" version="1.0"/>
+</session>

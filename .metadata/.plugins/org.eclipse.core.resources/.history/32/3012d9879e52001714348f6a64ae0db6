@@ -1,0 +1,37 @@
+package com.markit.demo;
+
+public class LUR {
+
+	public static void main(String[] args){
+/*	int arr[]={4,5,1,2,3};
+	
+	for(int i=0;i<arr.length;i++){
+		if(arr[i]>arr[i+1]){
+			System.out.println(arr[i]);
+			break;
+		}		
+	}
+	
+	*/
+		
+		String orig="catty";
+		String anag="actt";
+		
+		for(int i=0;i<orig.length();i++){			
+			if(anag.charAt(i)==orig.charAt(i)){
+				orig.replace(orig.charAt(i), ' ');
+				anag.replace(anag.charAt(i), ' ');
+			}					
+			}
+		
+		if(anag.equals("")){
+			System.out.println("anagram");
+		}else{
+			System.out.println("Not an anagram");			
+		}
+			
+			
+		}
+		
+		
+	}	

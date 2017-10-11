@@ -1,0 +1,22 @@
+package com.markit.common.framework.runtestsuit;
+
+import org.testng.annotations.Listeners;
+
+import atu.testng.reports.listeners.ATUReportsListener;
+import atu.testng.reports.listeners.ConfigurationListener;
+import atu.testng.reports.listeners.MethodListener;
+
+
+@Listeners({ ATUReportsListener.class, ConfigurationListener.class,
+	MethodListener.class,
+	com.markit.common.framework.util.Listener_ExcelReportGenerator.class })
+
+public class TimestampAPI_RunTestSuit {
+
+	{
+		System.setProperty("atu.reporter.config","src/testdata/Reporter.properties");
+		
+	}
+	
+	
+}

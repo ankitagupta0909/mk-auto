@@ -1,0 +1,1988 @@
+
+ # KYC Login Page 
+Login.id.username=username
+Login.id.password=password
+Login.xpath.loginbtn=//fieldset[@id='loginActions']/a/span
+#//fieldset[@id='loginActions']//span
+Login.xpath.logoutlink=//div[1]/div[1]/div[1]/div/ul/li[2]/a
+#KYCHome.xpath.Logout=//div[1]/div[1]/div[1]/div/ul/li[2]/a
+Login.xpath.AccessDenied=//h1[contains(text(),'Access forbidden!')]
+Login.xpath.MCSissue=//div[@class='gwt-PopupPanel']
+MCPM.name.DefousMenu=inputItem
+
+Login.xpath.Refresh=//input[@id='txtLogin']
+
+#//div[@class='bubble-title' and contains(text(), 'Cover')]
+
+#MCPM Login Page
+ # MCPM Login Page 
+MCPMLogin.id.username=username
+MCPMLogin.id.password=password
+MCPMLogin.xpath.loginbtn=//button[@type='submit']
+MCPMLogin.xpath.password=//input[@id='password']
+
+MCPM.xpath.logout=//a[@id='logOut']
+
+MCPMLogin.xpath.username=//input[@name="username"]
+
+MCPMLogin.xpath.PageElement=//h3[contains(text(),'Entities')]
+MCPMLogin.xpath.LoginOutButton=ai
+MCPMLogin.xpath.PageElement=//h3[contains(text(),'Entities')]
+MCPMLogin.xpath.LogoutLink=//a[contains(text(),'Logout')]
+
+KYCLogin.xpath.Terms=//a[contains(text(),'Terms of Use Agreement')]
+KYCLogin.xpath.Support=//a[contains(text(),'support page.')]
+KYCLogin.xpath.SupportMail=//a[contains(text(),'support@markit.com')]
+KYCLogin.xpath.FooterTOU=.//*[@id='loginFooter']/ul/li[1]/a
+KYCLogin.xpath.FooterPrivacy=.//*[@id='loginFooter']/ul/li[2]/a
+KYCLogin.xpath.FooterDisclaimer=.//*[@id='loginFooter']/ul/li[3]/a
+
+KYC.xpath.DashboardChartHeading=//div[@id='onboarding-status-aging']/div[1]/div
+MCPM.ufeqa.iframe=MFrame
+ThunderHeadDoc.ufeqa.iframe=dashboardIFrame
+ThunderHeadInterview.ufeqa.iframe=interviewFrame
+
+Dashboard.xpath.Navigate=//div[1]/div[1]/div[3]/div/ul[1]/li[1]/a
+Entity.linkText.Navigate=Entities
+Notific.xpath.Navigate=//div[1]/div[1]/div[3]/div/ul[1]/li[3]/a
+
+####################PEGA Login#########################
+
+PEGALogin.xpath.username=//input[@id='txtUserID']
+PEGALogin.xpath.password=//input[@id='txtPassword']
+PEGALogin.xpath.LoginButton=//button[@id='sub']
+
+PEGA.xpath.Logout=//a[contains(text(),'Log Out')]
+
+#####################KYC Entity Screener##########################
+EntityScreener.xpath.Clear=//button[@class='btn clear-filters']
+EntityScreener.xpath.matches=//div[@class='actions pull-right']/span
+EntityScreener.xpath.FilterResultTable=//div[@class='table-part-center']/div
+EntityScreener.xpath.EntityFilterResultTable=//div[@class='table-part-left']
+
+#################### Entity Screener View Subscribed page########################
+EntityScreener.xpath.KYCLabel=//div[1]/div[1]/div[3]/div/ul[@class='nav navbar-nav navbar-right']/li
+
+EntityScreener.xpath.EntNameLabel=//ul[@class='filters']/li[1]//button
+EntityScreener.xpath.EntNameTextBox=//input[@type='text'][1]
+EntityScreener.xpath.EntNameChkbox=//div[@class='results']//ul//li//i
+
+EntityScreener.xpath.MEILabel=//ul[@class='filters']/li[2]//button
+EntityScreener.xpath.MEIFltrTextBox=//li[2]/div/div/div[2]/div/div[2]/div/form/input
+EntityScreener.xpath.MEIChkbox=//span[contains(text(),'AE0M000079')]
+
+EntityScreener.xpath.LEILabel=//ul[@class='filters']/li[3]//button
+EntityScreener.xpath.LEITextBox=//li[3]/div/div/div/div/div/div/form/input
+EntityScreener.xpath.LEIChkbox=//span[contains(text(),'74810598339487300000')]
+
+EntityScreener.xpath.TaxIDLabel=//ul[@class='filters']/li[4]//button
+EntityScreener.xpath.TaxIDFltrTextBox=//li[4]/div/div/div[2]/div/div[2]/div/form/input
+EntityScreener.xpath.TaxIDChkbox=//span[contains(text(),'00289197RK')]
+
+EntityScreener.xpath.BillingEntLabel=//ul[@class='filters']/li[17]//button
+EntityScreener.xpath.BillingEntChkbox=//span[contains(text(),'Test Billing Entity 1')]
+
+###############Entity Screener View Individuals page###########################
+
+EntityScreener.xpath.Entities=//a[contains(text(),'Entities')]
+EntityScreener.xpath.ViewIndividuals=//span[contains(text(),'View Individuals')]
+EntityScreener.xpath.Fliterbutton=//button[@class='btn hide-filters ng-binding']
+EntityScreener.xpath.filters=//div[@class='content col-sm-12 ng-scope']/div/div[2]
+
+EntityScreener.xpath.IndividualNameLabel=//ul[@class='filters']/li[1]//button
+EntityScreener.xpath.IndividualNameText=//li[1]/div/div/div/div/div/div/form/input
+EntityScreener.xpath.IndividualNameChkbx=//span[contains(text(),'Beckham')]
+
+EntityScreener.xpath.IndividualMEILabel=//ul[@class='filters']/li[2]//button
+EntityScreener.xpath.IndividualMEIText=//li[2]/div/div/div/div/div/div/form/input
+EntityScreener.xpath.IndividualMEIChkbx=//span[contains(text(),'P000000015')]
+
+EntityScreener.xpath.CountryLabel=//ul[@class='filters']/li[3]//button
+EntityScreener.xpath.CountryText=//li[3]/div/div/div/div/div/div/form/input
+EntityScreener.xpath.CountryChkbx=//span[contains(text(),'Afghanistan')]
+
+EntityScreener.xpath.RoleLabel=//ul[@class='filters']/li[4]//button
+EntityScreener.xpath.RoleChkbx=//span[contains(text(),'Beneficial Owners')]
+
+EntityScreener.xpath.EntityNameLabel=//ul[@class='filters']/li[5]//button
+EntityScreener.xpath.EntityNameText=//li[5]/div/div/div/div/div/div/form/input
+EntityScreener.xpath.EntityNameChkbx=//span[contains(text(),'2E2 INVESTMENTS LIMITED')]
+
+EntityScreener.xpath.EntityMEILabel=//ul[@class='filters']/li[6]//button
+EntityScreener.xpath.EntityMEIText=//li[6]/div/div/div/div/div/div/form/input
+EntityScreener.xpath.EntityMEIChkbx=//span[contains(text(),'US1L538258')]
+
+EntityScreener.xpath.DefocusFilter=//div[@class='row screener']
+
+#//div[@class='clearfix filters-controls ng-scope']
+
+####################Entity Screener Search Unsubscribed Page##################################
+EntityScreener.xpath.SrchUnsub=//span[contains(text(),'Search Unsubscribed')]
+EntityScreener.xpath.EnterEntText=//div[contains(text(),'Please enter at least 3 characters')]
+EntityScreener.xpath.SearchEName=//option[contains(text(),'Entity Name')]
+EntityScreener.xpath.SearchLEI=//option[contains(text(),'LEI')]
+EntityScreener.xpath.SearchMEI=//option[contains(text(),'MEI')]
+EntityScreener.xpath.SearchTax=//option[contains(text(),'Tax ID / EIN')]
+EntityScreener.xpath.SearchReg=//option[contains(text(),'Registration ID')]
+EntityScreener.xpath.EnterText=//span[@class='input-container']/input
+EntityScreener.xpath.Srchbtn=//input[@type='submit']
+
+#KYC Headers Xpath
+Header.xpath.Welcome=//ul[@class='nav navbar-nav navbar-right']//a
+Header.xpath.UserName=//ul[@class='nav navbar-nav navbar-right']//span
+Header.xpath.Logout=//a[contains(text(),'Log out')]
+Header.xpath.Support=//a[contains(text(),'Support')]
+
+#KYC footer Xpath
+Footer.xpath.Teams=//a[contains(text(),'Terms of Use')]
+Footer.xpath.Privacy=//a[contains(text(),'Privacy and Cookie Policy')]
+Footer.xpath.Disclaimer=//a[contains(text(),'Disclaimer')]
+home.xpath.footer=//*[@id='annual-review-status']/ul/li[1]/span[2]
+
+#KYC Dashboard
+
+# 1. Annual Review chart Legends
+PreAccOp.xpath.legend=//*[@id='annual-review-status']/ul/li[1]
+AccOpInProg.xpath.legend=//*[@id='annual-review-status']/ul/li[2]
+ReadyforRev.xpath.legend=//*[@id='annual-review-status']/ul/li[3]
+InProg.xpath.legend=//*[@id='annual-review-status']/ul/li[4]
+Reviewed.xpath.legend=//*[@id='annual-review-status']/ul/li[5]
+
+hover.xpath.release=//div[@class='row-first']
+
+# 2. Annual Review chart Fill IDs
+AnnualReview.preAccount.fillid="#005690"
+AnnualReview.accountOpening.fillid="#D24628"
+AnnualReview.readyforReview.fillid="#00A7CE"
+AnnualReview.inProgress.fillid="#6D6E71"
+AnnualReview.reviewed.fillid="#092F4D"
+
+# 3. In Progress chart Legends
+DueDilig.xpath.legend=//*[@id='entities-in-progress']/ul/li[1]
+Outreach.xpath.legend=//*[@id='entities-in-progress']/ul/li[2]
+QA.xpath.legend=//*[@id='entities-in-progress']/ul/li[3]
+
+# 4. In Progress chart Fill IDs
+
+InProg.DD.fillid="#6D6E71"
+InProg.Outreach.fillid="#8A8B8D"
+InProg.QA.fillid="#C5C5C6"
+
+# 5. Reviewed chart Legends
+Completed.xpath.legend=//*[@id='reviewed-entities']/ul/li[1]
+Rejected.xpath.legend=//*[@id='reviewed-entities']/ul/li[2]
+
+# 6. Reviewed chart Fill IDs
+Reviewed.comp.fillid="#092F4D"
+Reviewed.rej.fillid="#8497A6"
+Reviewed.xpath.rejected=//*[@id='reviewed-entities']/div[1]/div[1]/svg/g[1]/g[1]/path[2]
+# Dashboard ToolTips
+Annualreview.xpath.toolTip=//div[@id='annual-review-status']/div[1]/div[1]/div[1]/span/div[1]
+EntitiesInProg.xpath.toolTip=//div[@id='entities-in-progress']/div[1]/div[1]/div[1]/span/div[1]
+ReviewedEntities.xpath.toolTip=//div[@id='reviewed-entities']/div[1]/div[1]/div[1]/span/div[1]
+
+CompletedProfiles.xpath.toolTip=//div[@id='completed-profiles']/div[3]/div[1]/div[1]/span/div[1]
+SchedForCompletion.xpath.toolTip=//div[@id='for-completion-profiles']/div[1]/div[1]/div[1]/span/div[1]
+
+
+#MenuBar of MCPM
+Menu.xpath.Create=//span[contains(text(),'Create')]
+Menu.xpath.KYCServices=//span[contains(text(),'KYC Services')]
+#SubMenu.xpath.NewEntity=//li[@class='mdeCssInsideLI'][1]/a
+SubMenu.xpath.ManageKYC=//a[contains(text(),'Manage KYC Entities')]
+
+Menu.xpath.RFA=//span[contains(text(),'Request For Amendment')]
+SubMenu.xpath.RFA=//li[@class='mdeCssInsideLI']/a[contains(text(),'Request For Amendment')]
+
+SubMenu.xpath.NewEntity=//li[@class='mdeCssInsideLI']/a[contains(text(),'New Entity')]
+Menu.xpath.Manage=//span[contains(text(),'Manage']
+SubMenu.xpath.ManageEntities=//li[@class='mdeCssInsideLI']/a[contains(text(),'Entities')]
+MCPM.name.MEIFilter=flt_umbrella
+
+
+Menu.xpath.IsdaAmend=//span[contains(text(),'ISDA Amend')]
+SubMenu.xpath.Sdl=//a[contains(text(),'Self Disclosure')]
+SubMenu.xpath.Vm=//a[contains(text(),'Variation Margin')]
+
+#Create Entity MCPM
+Entity.xpath.LegalName=//input[@name='legalName']
+Entity.xpath.DisplayName=//input[@name='nameToUse']
+Entity.xpath.TrueLegal=//li[contains(text(),'True/Legal Name')]
+Entity.xpath.Country=//input[@name='domicileCountryCd']
+Entity.xpath.India=//li[contains(text(),'India')]
+Entity.xpath.EntityType=//input[@name='legalType']
+Entity.xpath.CI=//input[@name='monikerName']
+Entity.xpath.LEI=//input[@name='lei']
+Entity.xpath.MEI=//input[@name='mei']
+Entity.xpath.EntitySubType=//input[@name='entitySubtype']
+Entity.xpath.Broker=/li[contains(text(),'Broker / Dealer')]
+Entity.xpath.SavePopUP=//span[@id='component-1003']
+
+
+Entity.xpath.Save=//span[contains(text(),'Save')]
+Entity.xpath.Ok=//div[@id='button-1009']//button
+Entity.xpath.Exit=//span[contains(text(),'Exit')]
+
+Entity.name.LegalName=legalName
+Entity.name.DisplayName=nameToUse
+Entity.name.CI=monikerName
+Entity.name.Country=domicileCountryCd
+Entity.name.EntityType=legalType
+Entity.name.EntitySubType=entitySubtype
+Entity.xpath.list1=//li[contains(text(),'
+Entity.xpath.list2=')]
+#//div[@class='x-field x-form-item x-field-default']//input[@name='
+Entity.name.LegalNameFilter=flt_legalname
+Entity.xpath.ApplyFilter=//div[@id='mde_app_entity_main_panel']//span[@class='x-btn-icon mde-ApplyFilter']
+#//span[contains(text(),'Apply')]
+Entity.xpath.WebTable=//div[contains(@id,'headercontainer-')]//span[@class='x-column-header-text']
+Entity.xpath.ResultGrid=//table[@class='x-grid-table x-grid-table-resizer']/tbody
+Entity.xpath.SelectChkbox=//table[@class='x-grid-table x-grid-table-resizer']/tbody/tr[2]/td[1]/div[@class='x-grid-cell-inner x-unselectable']
+Entity.xpath.EditEntity=//span[contains(text(),'Edit')]
+
+
+#@class='x-btn-icon mde-Email'
+ 
+# AUM
+
+SubMenu.xpath.ManageAUM=//li[@class='mdeCssInsideLI']/a[contains(text(),'AUM')]
+
+
+################## MCPM Document Email Functionality##########################
+Doc.xpath.EmailButton=//span[@class='x-btn-icon mde-Email']/parent::button
+#//span[contains(text(),'Email')]
+EmailDoc.xpath.To=//span[contains(text(),'To...')]
+EmailDoc.xpath.EnterSearchName=//input[@name='globalSearch']
+EmailDoc.xpath.DistType=//div[@class='list-ct']/ul/li[3]
+EmailDoc.xpath.Okbutton=//div[@class='x-window x-window-default x-layer']//span[contains(text(),'OK')]
+EmailDoc.xpath.Sendbutton=//span[contains(text(),'Send')]
+EmailDoc.xpath.ClickDistType=//div[contains(@class,'x-form-arrow-trigger')]
+
+EmailDoc.xpath.TypeDistInp=//input[@name='type']
+EmailDoc.xpath.selectType=//div[@class='list-ct']/ul/li
+
+#EmailDoc.xpath.SelectRecord=//div[contains(@class,'x-panel-body-default x-layout-fit')]/div[contains(@id,'gridview')]/table[@class='x-grid-table x-grid-table-resizer']/tbody
+EmailDoc.xpath.SelectRecord=//table[@class='x-grid-table x-grid-table-resizer']/tbody
+EmailDoc.xpath.SentOK=//div[contains(@id,'messagebox')]//img[@class='x-tool-close']
+
+
+
+#div[@class='x-column-header-inner']
+#KYC Dashboard
+KYCDashboard.xpath.KYCTask=//span[contains(text(),'KYC Tasks')]
+KYCDashboard.xpath.EntityFilter=//button[@class='filter-button'][1]
+KYCDashboard.xpath.EntityEdit=//input[@class='input ng-pristine ng-valid'][1]
+KYCDashboard.xpath.Checkbox=//ul[@class='list values ng-scope'][1]//span
+KYCDashboard.xpath.Defocus=//ul[@class='nav nav-tabs']
+KYCDashboard.xpath.EntityLink=//td[@class='entity-name-result-cell'][1]/a
+KYCDashboard.xpath.TableHeader=//table[@class='table ng-scope']//th
+KYCDashboard.xpath.TableContent=//table[@class='table ng-scope']//tr//td
+KYCDashboard.xpath.ActionRequiredLink=//table[@class='table ng-scope']//td[3]/a
+KYCDashboard.xpath.Readiness=//div[@class='dashboard-stacked-column-value']
+KYCDashboard.xpath.CP=//div[@class='container-fluid ng-scope']/ul//li[2]
+KYCDashbaord.xpath.ClearFilter=//button[contains(text(),'Clear Filters')]
+#//button[@ng-click='entities.clearFilters()']
+#//div[@id='highcharts-2']//span/div
+#//div[contains(text(),'Action')]/preceding-sibling::div
+#//div[@class='dashboard-stacked-column-value']
+
+#KYC Entity Details page 
+KYCEntityDetail.xpath.PreQuestionnaireElement=//ul[@class='nav nav-tabs sub-tabs ng-scope']//a[1]
+KYCEntityDetail.xpath.EntityName=//div[@class='container-fluid container-with-right-bar']//h1
+KYCEntityDetail.xpath.MEIName=//div[@class='large-details-value ng-binding'][1]
+KYCEntityDetail.xpath.LEIName=//div[@class='large-details-cell'][2]//div[2]
+KYCEntityDetail.xpath.EntityType=//div[@class='large-details-cell type'][1]//div[2]
+KYCEntityDetail.xpath.CI=//div[@class='large-details-cell type'][2]//div[2]
+KYCEntityDetail.xpath.Country=//div[@class='large-details-cell'][3]//div[2]
+KYCEntityDetail.xpath.EditLink=//a[@ng-click='showEditModal()']
+KYCEntityDetail.xpath.Tabs=//ul[@class='nav nav-tabs sub-tabs ng-scope']//a
+KYCEntityDetail.xpath.SelectButtons=//div[@class='question red-asterisks']//button
+KYCEntityDetail.xpath.Yes=//ul[@ng-show='opened']//li
+KYCEntityDetail.xpath.Austria=//div[contains(text(),'Austria')]
+KYCEntityDetail.xpath.BearerShares=//div[@class='question red-asterisks last']//button
+KYCEntityDetail.xpath.YesOption=//div[@class='question red-asterisks last']//li
+KYCEntityDetail.xpath.Save=//button[@class='btn btn-fat btn-primary']
+KYCEntityDetails.xpath.MEI=//div[contains(text(),'MEI')]
+KYCEntityDetails.xpath.CounterParty=//a[contains(text(),'Counterparty Manager')]
+#//li[contains(text(),'Yes')]
+#//ul[@class='select-options']//li[1]
+#Edit Entity Window
+KYCEditEntity.xpath.EditWindow=window-//div[@class='modal-content']
+KYCEditEntity.xpath.EditEntityTitle=//h2[contains(text(),'Edit Entity Details')]
+KYCEditEntity.xpath.CloseButton=//button[@class='close']
+KYCEditEntity.xpath.SaveButton=//button[contains(text(),'Save')]
+
+KYCEditEntity.xpath.EntityType=//select[contains(@ng-model,'ENTITYTYPE')]
+KYCEditEntity.xpath.Country=//select[contains(@ng-model,'COUNTRY')]
+KYCEditEntity.xpath.Defocus=//div[@class='modal-content']
+KYC.xpath.BackToDashboard=//a[@class='back']
+KYCEditEntity.xpath.CloseAfterSave=//a[@class='close-modal ng-scope']/i
+
+#Upload KYC Document Page
+KYCDocumentUpload.xpath.UploadButton=//table[@class='simple-table']//tr[3]//td[3]/a
+KYCDocumentUpload.xpath.UploadWindow=//div[@class='modal-content']
+KYCDocumentUpload.xpath.Browser=//form[@name='uploadDocForm']//label[@class='uploadbutton']//div[contains(text(),'Browse')]
+KYCDocumentUpload.xpath.PreQuesstionnaireStatus=//div[@class='status ng-scope status-kyc']//span
+KYCDocumentUpload.xpath.ValidateElement=//h3[contains(text(),'Recommended KYC Documents')]
+KYCDocumentUpload.xpath.Continue=//button[contains(text(),'Continue')]
+#//[@ng-click='documents.next()']
+#
+KYCDocumentUpload.xpath.File=//input[@type='file']
+KYCDocumentUpload.xpath.FileSave=//form[@name='uploadDocForm']//div[@class='modal-footer']//button[contains(text(),'Save')]
+KYCDocumentUpload.xpath.DownloadFile=//table[@class='simple-table']//tr/td[2]/a
+#//a[@class='doc-icon active ng-scope'][1]
+KYCDocumentUpload.xpath.UploadedBy=//span[@ng-bind='doc.UPLOADEDBY']
+KYCDocumentUpload.xpath.UploadedDate=//span[@ng-bind='doc.UPLOADEDDATE']
+#//div[@class='modal-content']//label[2]/div[2]
+
+#Permission Page of KYC
+KYCPermission.xpath.ValidateElement=//div[contains(text(),'Permissioned Counterparties')]
+KYCPermission.xpath.DocumentStatus=//div[@class='kyc-status ng-scope']//div[2]//span
+KYCPermission.xpath.SearchInput=//div[@class='search-field']//input
+KYCPermission.xpath.SearchButton=//div[@class='search']/i
+KYCPermission.xpath.RequestKYCButton=//div[@class='request btn-type-animated request-enabled']//a
+KYCPermission.xpath.PopUp=//div[@class='modal-content']//div
+KYCPermission.xpath.PopUpCancelButton=//div[@class='modal-content']//a
+KYCPermission.xpath.PermissionStatus=//div[@class='status last status-kyc']//span
+KYCPermission.xpath.ReadinessStatus=//table[@class='table ng-scope']//td[3]//span
+KYCPermission.xpath.BackToDashBoard=//a[contains(text(),' Back to Dashboard')]
+
+
+#KYC Graphs
+KYCDashboard.css.TenDaysGraph=g.highcharts-series.highcharts-tracker > rect
+KYCDashboard.css.TentoThirtyDaysGraph=g.highcharts-series-group g:nth-of-type(3)>rect
+KYCDashboard.css.TenOnetoNinetyDaysGraph=g.highcharts-series-group g:nth-of-type(5)>rect
+KYCDashboard.css.ActionRequiredGraph=rect[fill='#A0EBFE']
+#div.highcharts-container > svg > g.highcharts-series-group > g.highcharts-series.highcharts-tracker > rect
+KYCDashboard.css.PermissionRequestGraph=span.task-description.ng-binding
+KYCDashboard.xpath.DocumentRequestGraph=//span[contains(text(),'Document Request')]
+KYCDashboard.xpath.OutreachQuestionsGraph=//span[contains(text(),'Outreach Questions')]
+KYCDashboard.xpath.AuthorisedSignatoryRequestGraph=//span[contains(text(),'Authorised Signatory Request')]
+KYCDashboard.xpath.IdentityDetailRequestGraph=//span[contains(text(),'Identity Detail Request')]
+KYCDashboard.xpath.OwnershipStructureRequestGraph=//span[contains(text(),'Ownership Structure Request')]
+KYCDashboard.xpath.ConfirmAnswersGraph=//span[contains(text(),'Confirm Answers')]
+KYCDashboard.xpath.InternalConfirmationGraph=//span[contains(text(),'Internal Confirmation')]
+KYCDashboard.xpath.AMLQuestionnaireGraph=//span[contains(text(),'AML Questionnaire')]
+KYCDashboard.xpath.CountriesGraph=//span[contains(text(),'Countries & Industries Assessment')]
+KYCDashboard.css.KYCPrepGraph=rect[fill='#02AAD1']
+KYCDashboard.css.InProgressGraph=rect[fill='#F0B893']
+KYCDashboard.css.RejectedGraph=rect[fill='#E4813F']
+KYCDashboard.css.CompletedGraph=rect[fill='#B9591A']
+KYCDashboard.xpath.NoRecords=//div[@class='container-fluid ng-scope'][2]//div
+KYCDashboard.xpath.KYCReviewStatusAvilable=//div[@click='entityStatusClick(status)']/div[@class='highcharts-container']
+KYCDashboard.xpath.Close=//div[@class='modal-dialog']//button[@class='close']
+
+
+
+
+#KYCDashboard.css.TenDaysGraphLabel=g.highcharts-axis-labels.highcharts-xaxis-labels > text > tspan
+KYCDashboard.xpath.TenDaysGraphLabel=//div[@class='dashboard-stacked-column-label']
+#KYCDashboard.css.TentoThirtyDaysGraphLabel=g.highcharts-axis-labels.highcharts-xaxis-labels > text:nth-of-type(2) > tspan
+KYCDashboard.xpath.TentoThirtyDaysGraphLabel=//div[@class='highcharts-data-labels'][2]//div[@class='dashboard-stacked-column-label']
+#KYCDashboard.css.ThirtyOnetoNinetyDaysGraphLabel=g.highcharts-axis-labels.highcharts-xaxis-labels > text:nth-of-type(3) > tspan
+KYCDashboard.xpath.ThirtyOnetoNinetyDaysGraphLabel=//div[@class='highcharts-data-labels'][3]//div[@class='dashboard-stacked-column-label']
+KYCDashboard.xpath.PermissionRequestLabel=//div[@class='col-md-6 col-lg-4 tasks-panel-cell ng-scope'][1]//span
+KYCDashboard.xpath.DocumentRequestLabel=//div[@class='col-md-6 col-lg-4 tasks-panel-cell ng-scope'][3]//span
+KYCDashboard.xpath.OutreachQuestionsLabel=//div[@class='col-md-6 col-lg-4 tasks-panel-cell ng-scope'][6]//span
+KYCDashboard.xpath.AuthorisedSignatoryRequestLabel=//div[@class='col-md-6 col-lg-4 tasks-panel-cell ng-scope'][2]//span
+KYCDashboard.xpath.IdentityDetailRequestLabel=//div[@class='col-md-6 col-lg-4 tasks-panel-cell ng-scope'][4]//span
+KYCDashboard.xpath.OwnershipStructureRequestLabel=//div[@class='col-md-6 col-lg-4 tasks-panel-cell ng-scope'][7]//span
+KYCDashboard.xpath.ConfirmAnswersLabel=//div[@class='col-xs-4 tasks-panel-cell ng-scope'][3]//span
+KYCDashboard.xpath.InternalConfirmationLabel=//div[@class='col-md-6 col-lg-4 tasks-panel-cell ng-scope'][5]//span
+KYCDashboard.xpath.AMLQuestionnaireLabel=//div[@class='col-md-6 col-lg-4 tasks-panel-cell ng-scope'][8]//span
+KYCDashboard.xpath.CountriesLabel=//div[@class='col-md-6 col-lg-4 tasks-panel-cell ng-scope'][9]//span
+KYCDashboard.xpath.ActionRequiredLabel=//div[@class='dashboard-stacked-column-label']
+KYCDashboard.xpath.ActionRequiredCount=//div[@class='dashboard-stacked-column-value']
+KYCDashboard.xpath.KYCPrepLabel=//div[contains(text(),'KYC Prep')]
+KYCDashboard.xpath.KYCPrepCount=//div[@class='highcharts-data-labels'][2]//div[@class='dashboard-stacked-column-value']
+KYCDashboard.xpath.InProgressLabel=//div[@class='col-xs-6 col-sm-3 col-md-2'][2]//div[@class='dashboard-stacked-column-label']
+KYCDashboard.xpath.InProgressCount=//div[@class='col-xs-6 col-sm-3 col-md-2'][2]//div[@class='dashboard-stacked-column-value']
+KYCDashboard.xpath.RejectedLabel=//div[@class='col-xs-6 col-sm-3 col-md-2'][2]//div[@class='highcharts-data-labels'][2]/div//div[2]
+KYCDashboard.xpath.RejectedCount=//div[@class='col-xs-6 col-sm-3 col-md-2'][2]//div[@class='highcharts-data-labels'][2]/div//div[1]
+KYCDashboard.xpath.CompletedLabel=//div[@data='entitiesByStatus']//div[@class='highcharts-data-labels'][2]//span//div[2]
+#//div[@class='col-xs-6 col-sm-3 col-md-2'][2]//div[@class='highcharts-data-labels'][3]/div//div[2]
+KYCDashboard.xpath.CompletedCount=//div[@data='entitiesByStatus']//div[@class='highcharts-data-labels'][2]//span//div[1]
+#//div[@class='col-xs-6 col-sm-3 col-md-2'][2]//div[@class='highcharts-data-labels'][3]/div//div[1]
+
+
+
+KYCDashboard.xpath.PriorityTaskHeader=//h4[contains(text(),'Priority Tasks View')]
+KYCDashboard.xpath.KYCTaskHeader=//span[contains(text(),'KYC Tasks')]
+KYCDashboard.xpath.KYCReadinessHeader=//h4[contains(text(),'KYC Readiness')]
+KYCDashboard.xpath.KYCReviewHeader=//h4[contains(text(),'KYC Review Status')]
+KYCDashboard.xpath.KYCDashboardTabs=//ul[@class='nav nav-tabs']
+KYCDashboard.xpath.DueDateFilter=//div[@class='filter-outer ng-scope ng-isolate-scope active']//button/span
+KYCDashboard.xpath.TaskStateFilter=//div[@class='one-eighth-col filter-cell ng-scope last-in-row last-in-short-row']//button/span
+KYCDashboard.xpath.TaskTypeFilter=//div[@class='one-eighth-col filter-cell ng-scope'][2]//button/span
+KYCDashboard.xpath.KYCReadinessFilter=//div[@class='one-eighth-col filter-cell ng-scope last-in-short-row']//button/span
+KYCDashboard.xpath.KYCReviewStatusFilter=//div[@class='filter-outer ng-isolate-scope active']//button/span
+KYCDashboard.xpath.ClearFilter=//button[contains(text(),'Clear Filters')]
+#KYCDashboard.xpath.TaskStateFilter=//div[@class='one-eighth-col filter-cell ng-scope last-in-row last-in-short-row']//button/span
+
+#KYCDashboard.css.TenDaysCount=g.highcharts-data-labels.highcharts-tracker > g >text
+KYCDashboard.xpath.TenDaysCount=//div[@class='dashboard-stacked-column-value']
+#KYCDashboard.css.TentoThirtyDaysCount=g.highcharts-data-labels.highcharts-tracker > g:nth-of-type(2) >text
+KYCDashboard.xpath.TentoThirtyDaysCount=//div[@class='highcharts-data-labels'][2]//div[@class='dashboard-stacked-column-value']
+#KYCDashboard.css.ThirtyOnetoNinetyDaysCount=g.highcharts-data-labels.highcharts-tracker > g:nth-of-type(3) >text
+KYCDashboard.xpath.ThirtyOnetoNinetyDaysCount=//div[@class='highcharts-data-labels'][3]//div[@class='dashboard-stacked-column-value']
+KYCDashboard.xpath.FilterMatches=//div[@class='pull-right']/span
+KYCDashboard.xpath.Table=//table[@class='table ng-scope']
+KYCDashbaord.xpath.CheckCheckBoxofFileter=//ul[@ng-if='values.length']//li//i
+
+
+
+#//div[7]/div/div/div[2]/button/span
+#//div[@class='filter-outer ng-scope ng-isolate-scope active']//button/span
+
+##########Ownership Structure##########
+KYCDashboard.Tasks.iframe=MFrame
+KYCDashboardTasks.xpath.OwnershipStructureRequest=//span[contains(text(),'Ownership Structure Request')]
+KYCTaskOSR.xpath.AddBO=//a[@ng-click='add(node)']
+
+KYCTaskOSR.xpath.SelectType=//form[@name='beneowner']//select
+KYCTaskOSR.xpath.SelectIndividualType=//option[@value='1']
+KYCTaskOSR.xpath.SelectNonIndividualType=//option[@value='0']
+
+KYCTaskOSR.xpath.FirstName=//input[contains(@ng-model, 'Individual.firstName')]
+KYCTaskOSR.xpath.LastName=//input[contains(@ng-model, 'Individual.lastName')]
+KYCTaskOSR.xpath.EntityNominee=//select[contains(@ng-model, 'Company.beneficialOwner.nominee')]
+KYCTaskOSR.xpath.SelectEntityNominee=//option[contains(text(),'Yes')]
+
+KYCTaskOSR.xpath.ClickCountry=//button[@class='dropdown-button']
+KYCTaskOSR.xpath.CountryInputBox=//input[@ng-model='query']
+
+KYCTaskOSR.xpath.SelectCountry=//span[contains(text(),'Afghanistan')]
+KYCTaskOSR.xpath.IndiSelectCountry=//li[@ng-click='select(item)']//span[contains(text(),'Afghanistan')]
+
+#KYCTaskOSR.xpath.SelectCountry=//span[contains(text(),'United States')]
+KYCTaskOSR.xpath.SelectCountry=//span[contains(text(),'Afghanistan')]
+
+
+KYCTaskOSR.xpath.defocusCountry=//h2[@class='modal-title']
+KYCTaskOSR.xpath.SourceWealth=//input[contains(@ng-model, 'Individual.wealthSource')]
+KYCTaskOSR.xpath.OwnershipPercentage=//input[contains(@ng-model, 'entity.percentage')]
+KYCTaskOSR.xpath.Submit=//form[@name='beneowner']//input[@value='Submit']
+KYCTaskOSR.xpath.IndiSubmit=//div[@class='modal-footer']//input[@value='Submit']
+
+KYCTaskOSR.xpath.VerifyBOCreated=//div[@nd-bind='node.entityName']
+
+KYCTaskOSR.xpath.NILegalName=//input[contains(@ng-model, 'Company.entityName')]
+KYCTaskOSR.xpath.NIPublicExchange=//select[contains(@ng-model, 'Company.listedInfo.isPubliclyListed')]
+KYCTaskOSR.xpath.NIPercentageOwnership=//input[contains(@ng-model, 'entity.percentage')]
+KYCTaskOSR.xpath.NIPrimaryLineofBusiness=//input[contains(@ng-model, 'Company.businessActivity.natureOfBusiness')]
+KYCTaskOSR.xpath.NILegalForm=//input[contains(@ng-model, 'legalForms.string')]
+KYCTaskOSR.xpath.NIEntityNominee=//select[contains(@ng-model, 'Company.beneficialOwner.nominee')]
+KYCTaskOSR.xpath.NIAddressLine1=//input[contains(@ng-model, 'Company.addresses.addressLine1')]
+KYCTaskOSR.xpath.NICity=//input[contains(@ng-model, 'Company.addresses.city')]
+KYCTaskOSR.xpath.NIState=//select[contains(@ng-model, 'Company.addresses.state')]
+KYCTaskOSR.xpath.NIZip=//input[contains(@ng-model, 'Company.addresses.zip')]
+KYCTaskOSR.xpath.OSRSubmit=//input[@ng-click='beneowners.submit()']
+
+KYCTaskOSR.xpath.SubmitFinal=//input[@value='Submit']
+################################# RFA #############################################
+
+#################### RFA home page#########################
+RFA.xpath.defocusFilter=//div[@class='container-fluid filters']
+RFAhome.xpath.FilterResultTable=//div[@class='table-contayner ng-scope']//table[@class='table table-hover table-responsive ng-scope']
+
+RFA.xpath.Refdate=//div[@class='filter-container ng-scope'][1]//div[@class='viewed-value ng-binding']
+RFA.xpath.RefdateText=//div[@class='filter-container ng-scope'][1]//input[@type='text']
+RFA.xpath.RefdateChkbx=//div[@class='filter-container ng-scope'][1]//div[@class='custom-checkbox']
+
+RFA.xpath.MasId=//div[@class='filter-container ng-scope'][2]//div[@class='viewed-value ng-binding']
+RFA.xpath.MasIdText=//div[@class='filter-container ng-scope'][2]//input[@type='text']
+RFA.xpath.MasIdChkbx=//div[@class='filter-container ng-scope'][2]//div[@class='custom-checkbox']
+
+RFA.xpath.PartyA=//div[@class='filter-container ng-scope'][3]//div[@class='viewed-value ng-binding']
+RFA.xpath.PartyAText=//div[@class='filter-container ng-scope'][3]//input[@type='text']
+RFA.xpath.PartyAChkbx=//div[@class='filter-container ng-scope'][3]//div[@class='custom-checkbox']
+
+RFA.xpath.ReqStatus=//div[@class='filter-container ng-scope'][6]//div[@class='viewed-value ng-binding']
+RFA.xpath.ReqStatusText=//div[@class='filter-container ng-scope'][6]//input[@type='text']
+RFA.xpath.ReqStatusChkbx=//div[@class='filter-container ng-scope'][6]//li[1]//div[@class='custom-checkbox']
+
+RFA.xpath.ClearFilter=//button[contains(text(),'Clear Filters')]
+
+# Chart Fill ids
+RFAStatus.Draft.fillid="#00598C"
+RFAStatus.Submitted.fillid="#00552b"
+RFAStatus.Completed.fillid="#22B5D7"
+RFAStatus.PartCompleted.fillid="#545E6B"
+RFAStatus.Recalled.fillid="#DC7231"
+RFAStatus.Rejected.fillid="#FF0000"
+
+RFAStatus.css.draft=g.highcharts-series.highcharts-tracker > path
+#g.highcharts-series.highcharts-tracker > path
+#path[fill='#00598C']
+RFAStatus.css.submitted=path[fill='#00552b']
+
+RFAStatus.xpath.toolTip=//div[@class='highcharts-container']/span
+
+RFA.xpath.RFAlabel=//button[@class='btn btn-total pull-right']/span[1]
+
+##############################RFA Create RFA################################
+RFA.xpath.CreateRFAlink=//a[contains(text(),'Create Request for Amendment')]
+RFA.xpath.CreateViaPartyA=//a[contains(text(),'Party A')]
+RFA.xpath.CreateViaPartyB=//a[contains(text(),'Party B')]
+
+RFA.xpath.SelectPartyARel=//div[@class='row step2-items ng-scope']/div[@class='col-xs-2 text-center']/label/span
+				
+RFA.xpath.CreateRFANextButton=//div[@class='modal-footer']/button[@class='btn btn-success']
+
+RFA.xpath.SelectPartyARel_part1=//div[contains(text(),'
+#12 aprIM
+RFA.xpath.SelectPartyARel_part2=')]/following-sibling::div//span
+
+RFA.xpath.SelectLetterTemp=//span[@class='dropdown']/a/p
+RFA.xpath.ChooseLetterTemp=//ul/li/a[contains(text(),
+
+RFA.xpath.SearchPartyB=//div[@class='searchHolder']/input
+RFA.xpath.AddPartyB=//a[contains(text(),'+')]
+RFA.xpath.DeletePartyB=//a[contains(text(),'-')]
+RFA.xpath.ModifyPartyB=//a[contains(@ng-click,'ModificationPartyB')]
+
+RFA.xpath.CreatedRfaSave=//button[@class='btn btn-success']
+RFA.xpath.CloseRFApopup=//button[contains(text(),'Close')]
+
+RFA.xpath.SelectModTypeBoth=//div[@class='form-group']/select/option[@label='Both']
+RFA.xpath.EVCcomments=//textarea[@name='exhibitValueChange.comment.0']
+RFA.xpath.LegalNameChange=//input[@name='fundNameChange.currentTrueLegalName.0']
+
+###################Edit Linked Exhibit#########################################
+RFA.xpath.EditLinkExhib=//button[@tooltip-html-unsafe='Edit Linked Exhibit']
+RFA.xpath.ExhibTable=//div[@class='col-xs-12']//table[@id='exhibit-columns']/tbody
+
+RFA.xpath.ExhibScrollRight=//div[@class='col-xs-12']//tr[1]/td[@class='scroll-buttons']/i[@class='fa fa-caret-right']
+RFA.xpath.ExhibSave=//div[@class='row']//button[@class='btn btn-success']
+
+RFA.xpath.linkExhbRadio1=//div[contains(text(),'
+RFA.xpath.linkExhbRadio2=')]/parent::div//div[5]//span
+######################### RFA ESIGN############################################
+
+RFAEsign.xpath.esignbutton=//button[@tooltip-html-unsafe='E-Sign']
+RFAEsign.xpath.BSsignCheckbx=//label[@class='for-checkbox nowrap ng-binding']/span
+RFAEsign.xpath.Accept=//label[@class='agreement']/label[1]/span[@class='btn sprite-radio']
+#//label[contains(text(),'Accept']/span
+RFAEsign.xpath.Title=//input[@id='title']
+RFAEsign.xpath.Date=//span[@class='input-group-btn']/button
+RFAEsign.xpath.Confirm=//button[@ng-click='saveChanges()']
+
+RFAEsign.elemId.Scroll=pdf-holder
+
+RFA.xpath.SendRFA=//button[@tooltip-html-unsafe='Send RFA']
+
+
+####################### SS EDIT RESPONSE###############################
+
+RFA.xpath.EditResp=//button[@tooltip-html-unsafe='Edit Response']
+RFA.xpath.Accept=//span[@class='ng-scope']/label[1]/span
+RFA.xpath.SaveRespSS=//a[@ng-click='save()']
+#############REJECT RFA####################
+RFA.xpath.SSRejectRFA=//button[@tooltip-html-unsafe='Reject RFA']
+RFA.xpath.RFARejectionReason=//textarea[@name='reasonField']
+RFA.xpath.Confirm=//div[@class='modal-footer']/input[@class='btn btn-success']
+
+#############RECALL RFA####################
+RFA.xpath.BSRecallRFA=//button[@tooltip-html-unsafe='Recall Request for Amendment']
+RFA.xpath.BSRecallbutton=//div[@class='modal-footer ng-scope']/button[contains(text(),'Recall')]
+
+############ EDIT RFA##############
+
+RFA.xpath.EDITRFA=//button[@ng-if='request.nextActions.editRFA']
+#RFA.xpath.ExhibSave=//div[@class='row']//button[@class='btn btn-success']
+RFA.xpath.CloseAfterSave=//button[@class='btn btn-danger']
+#################### RFA LETTER TEMPLATE LIBRARY#########################
+
+RFA.xpath.NavigLetterTemp=//a[contains(text(),'Letter Template Library')]
+RFA.xpath.NavigCreateLetterTemp=//a[contains(text(),'Create Letter Template')]
+
+#RFACreateLetterTemp.xpath.PartyARelation=//a[contains(@ng-class,'partyARelations')]
+#RFACreateLetterTemp.xpath.PartyBAddition=//a[contains(@ng-class,'partyBAddition')]
+#RFACreateLetterTemp.xpath.PartyBRemoval=//a[contains(@ng-class,'partyBRemoval')]
+#RFACreateLetterTemp.xpath.FundNameChange=//a[contains(@ng-class,'fund_name_change')]
+#RFACreateLetterTemp.xpath.ExhibitValueChange=//a[contains(@ng-class,'exhibit_value_change')]
+#RFACreateLetterTemp.xpath.BSsign=//a[contains(@ng-class,'bs_signature')]
+#RFACreateLetterTemp.xpath.SSsign=//a[contains(@ng-class,'ss_signature')]
+#RFACreateLetterTemp.xpath.SaveTemplate=//button[contains(text(),'Save Template')]
+RFACreateLetterTemp.xpath.PartyARelation=//a[contains(text(),' Party A Relation')]
+RFACreateLetterTemp.xpath.PartyBAddition=//a[contains(text(),' Party B Addition')]
+RFACreateLetterTemp.xpath.PartyBRemoval=//a[contains(text(),' Party B Removal')]
+RFACreateLetterTemp.xpath.FundNameChange=//a[contains(text(),' Fund Name Change')]
+RFACreateLetterTemp.xpath.ExhibitValueChange=//a[contains(text(),' Exhibit Value Change')]
+RFACreateLetterTemp.xpath.BSsign=//a[contains(text(),' Buyside Signature')]
+RFACreateLetterTemp.xpath.SSsign=//a[contains(text(),' Sellside Signature')]
+
+RFACreateLetterTemp.xpath.SaveTemplate=//button[contains(text(),'Save')]
+RFACreateLetterTemp.xpath.AddTextClick=//div[contains(@id,'mce-editor')]
+RFACreateLetterTemp.xpath.EnterTempName=//div[@class='modal-body ng-scope']/input[@type='text']
+RFACreateLetterTemp.xpath.Save=//div[@class='modal-footer ng-scope']/button[@class='btn btn-success']
+RFACreateLetterTemp.xpath.ConfirmTempCreated=//div[@class='modal-header ng-scope']/h3
+RFACreateLetterTemp.xpath.Closepopup=//button[contains(text(),'Close')]
+
+RFAletter.xpath.FilterResultTable=//div[@class='table-contayner ng-scope']//table[@class='table table-hover ng-scope']
+RFAletter.xpath.defocusFilter=//div[@class='row screener']
+
+RFAletter.xpath.DeleteTemp=//button[@title='Delete letter template']
+RFAletter.xpath.NoResults=//div[@class='table-no-results ng-scope']/span
+##################### RFA EXHIBIT TEMPLATE LIBRARY###########################
+
+RFA.xpath.NavigExhibTemp=//a[contains(text(),'Exhibit Template Library')]
+RFA.xpath.NavigCreateExhibitTemp=//a[contains(text(),'Create Exhibit Template')]
+
+RFACreateExTemp.xpath.colHeader=//input[@ng-model='cell.name']
+RFACreateExTemp.xpath.EnterTempName=//div[@class='modal-body']/input[@type='text']
+RFACreateExTemp.xpath.Save=//div[@class='modal-footer']/input[@class='btn btn-success']
+RFACreateExTemp.xpath.CancelLinkMast=//div[@class='modal-footer']/button[contains(text(),'Cancel')]
+
+RFAEx.xpath.LinkMastbutton=//button[@tooltip-html-unsafe='Link Exhibit-Masterlist']
+
+RFACreateExTemp.xpath.LinkRadiobutton=//div[@class='row step2-items ng-scope']/div[@class='col-xs-1 text-right long-holder']/label/span
+RFACreateExTemp.xpath.LinkAndSave=//div[@class='modal-footer']/button[@class='btn btn-success']
+
+RFAExhib.xpath.defocusFilter=//h1[contains(text(),'Exhibit Template Library')]
+RFAExhib.xpath.FilterResultTable=//div[@class='table-contayner ng-scope']//table[@class='table table-hover ng-scope']
+
+RFAEx.xpath.RefDate=//div[@class='filter-container ng-scope'][4]//div[@class='viewed-value ng-binding']
+RFAEx.xpath.RefDateText=//div[@class='filter-container ng-scope'][4]//input[@type='text']
+RFAEx.xpath.RefDateChkbx=//div[@class='filter-container ng-scope'][4]//div[@class='custom-checkbox']
+
+RFAEx.xpath.MasId=//div[@class='filter-container ng-scope'][5]//div[@class='viewed-value ng-binding']
+RFAEx.xpath.MasIdText=//div[@class='filter-container ng-scope'][5]//input[@type='text']
+RFAEx.xpath.MasIdChkbx=//div[@class='filter-container ng-scope'][5]//div[@class='custom-checkbox']
+
+
+RFAEx.xpath.DeleteTemp=//button[@tooltip-html-unsafe='Delete Exhibit Template']
+RFAEx.xpath.BackToDash=//a[contains(text(),'Back to Dashboard')]
+
+
+##################### RFA MASTERLIST ###########################
+
+RFA.xpath.NavigMasterlist=//a[contains(text(),'Masterlists')]
+RFAMast.xpath.defocusFilter=//h2[contains(text(),'Masterlist')]
+
+RFAMast.xpath.FilterResultTable=//div[@class='table-contayner ng-scope']//table[@class='table table-hover table-master-list ng-scope']
+
+#############################RFA Pending Task###########################
+
+RFAPendingTask.xpath.ExhibitCompletion=//span[contains(text(),'Exhibit Completion')]
+RFAPendingTask.xpath.SendRFA=//span[contains(text(),'Send RFA')]
+RFAPendingTask.xpath.ElectronicSign=//span[contains(text(),'Electronic Signature')]
+RFAPendingTask.xpath.ExhibitCompletionlabel=//tasks-pending[1]/div/div/div/span
+RFAPendingTask.xpath.SendRFALabel=//tasks-pending[3]/div/div/div/span
+RFAPendingTask.xpath.ElectronicSignLabel=//tasks-pending[2]/div/div/div/span
+RFAPendingTask.xpath.NextStep=//button[@class='btn btn-default sprite-button-link_edit ng-scope']
+RFANoResult.xpath.NoResult=//div[@class='table-no-results ng-scope']/span
+
+################################RFA Party B Account Column Values###############
+
+RFATable.xpath.PartyBAccount=//td[@class='text-left longtooltips']/a[1]
+
+######################PEGA########################################
+## Fetch Case
+PEGA.xpath.ToolsLink=//div[@node_name='KYCPortalNavigation']//div[@class='pzbtn-mid']
+PEGA.xpath.CreateCase=//span[contains(text(),'Create Cases')]
+
+PEGA.xpath.SearchCasebyName=//input[@id='CreateLegalName']
+PEGA.xpath.CreateCasebyId=//input[@id='CreateCaseID']
+
+PEGA.xpath.SearchCasebutton=//div[@node_name='CreateCasesForm']//div[@class='pzbtn-mid']
+PEGA.xpath.SelectCaseToCreate=//table[@class='gridTable ']/tbody/tr[2]/td[1]//input[@type='checkbox']
+PEGA.xpath.CreateCaseButton=//button[@name='CreateCasesButtons_pyWorkPage_3']//div[@class='pzbtn-mid']
+
+## Assign Case
+PEGA.xpath.ClickCaseIdFilter=//table[@id='bodyTbl_right']/tbody/tr[@class='cellCont']/th[1]//a
+PEGA.xpath.ClickEntityFilter=//table[@id='bodyTbl_right']/tbody/tr[@class='cellCont']/th[2]//a
+PEGA.xpath.SearchTextFilter=//div[@node_name='pzGridFilterRangeFields']//input[@id='pySearchText']
+PEGA.xpath.ApplyFilter=//li[@id='pob0']//div/button[1]//div[@class='pzbtn-mid']
+PEGA.xpath.ActionsButton=//table[@id='bodyTbl_right']/tbody/tr[2]/td[12]//div[@class='pzbtn-mid']
+PEGA.xpath.ClaimButton=//span[contains(text(),'Claim')]
+
+##Entity Name Tab
+PEGA.xpath.ENBusinessAs=//textarea[contains(@name,'pTradingAs$pValue')]
+PEGA.xpath.ENLegalName=//textarea[contains(@name,'PreviousLegalName')]
+
+
+
+PEGA.unassignedCases.iFrame=PegaGadget0Ifr
+PEGA.Cases.iFrame=PegaGadget1Ifr
+PEGA.StartCases.iFrame=PegaGadget2Ifr
+PEGA.StartCases.iFrame=PegaGadget3Ifr
+PEGA.Cases.iFrame0=PegaGadget0Ifr
+PEGA.Cases.iFrame1=PegaGadget1Ifr
+PEGA.Cases.iFrame2=PegaGadget2Ifr
+PEGA.Cases.iFrame3=PegaGadget3Ifr
+PEGA.Cases.iFrame4=PegaGadget4Ifr
+
+PEGACases.xpath.Actionsbutton=//table[@id='bodyTbl_right']/tbody/tr[2]/td[14]//div[@class='pzbtn-mid']
+PEGACases.xpath.StartCase=//ul[@class='menu menu-format-standard menu-regular']/li/a/span
+#//span[contains(text(),'Start')]
+
+
+#Entity name tab
+
+PEGA.xpath.ENBusinessAs=//textarea[@name='$PpyWorkPage$pKYCTypes$l1$pTradingAs$pValue']
+PEGA.xpath.ENLegalName=//textarea[contains(@name,'PreviousLegalName')]
+PEGA.xpath.ENShortName=//textarea[contains(@name,'ShortName')]
+PEGA.xpath.ENPrevLegalDate=//img[contains(@title,'Change the date')]
+PEGA.xpath.ENSelMonth=//select[@title='Month']
+PEGA.xpath.ENSelDay=//select[@title='Day']
+PEGA.xpath.ENSelYear=//select[@title='Year']
+PEGA.xpath.CaseTabTitle=//a[@tabtitle='Case']
+PEGA.xpath.ENEntContExist=//select[contains(@name,'OngoingExistance')]
+
+#LegalFormation
+PEGA.xpath.LFLegalName=//textarea[contains(@name,'LegalName')]
+PEGA.xpath.LFLegalForm=//select[contains(@name,'LegalForm$pValue')]
+PEGA.xpath.EntityType=//div[@class='content-item content-sub_section item-4   ']//select
+PEGA.xpath.LFOwnershipType=//select[contains(@name,'OwnershipType$pValue')]
+PEGA.xpath.LFOperStatus=//select[contains(@name,'OperatingStatus$pValue')]
+PEGA.xpath.LFEntStructure=//select[contains(@name,'EntityStructure')]
+PEGA.xpath.LFArticleCollected=//select[contains(@name,'ArticlesCollected')]
+PEGA.xpath.LFCertIncorCollected=//select[contains(@name,'pCertificateOfIncorporationCollected')]
+
+#Corporate Registration
+PEGA.xpath.CRAuthName=//textarea[contains(@name,'NameOfAuthority')]
+PEGA.xpath.CRCountry=//input[contains(@name,'Country')]
+PEGA.xpath.CRCountryOption=//ul//table//table//span[contains(text(),'United States')]
+PEGA.xpath.CRState=//input[contains(@name,'State')]
+PEGA.xpath.CRDate=//img[contains(@name,'FormationDate_3')]
+PEGA.xpath.CRAgentName=//input[contains(@name,'AgentName')]
+PEGA.xpath.CRAddGovIdInfo=//button[contains(@name,'GovernmentIDInformations')]
+PEGA.xpath.CRIdType=//select[contains(@name,'IssuedIDType')]
+PEGA.xpath.CRIdNo=//input[contains(@name,'IssuedIDNumber')]
+
+#Key Controller Individual
+
+PEGAAddControllerI.xpath.canThisIndivControl=//select[contains(@name,'AreAnyIndividualsCanControl')]
+PEGAAddControllerI.xpath.FirstName=//input[contains(@name,'FirstName')]
+PEGAAddControllerI.xpath.MidName=//input[contains(@name,'MiddleName')]
+PEGAAddControllerI.xpath.LastName=//input[contains(@name,'LastName')]
+PEGAAddControllerI.xpath.indTitle=//select[contains(@name,'Title')]
+PEGAAddControllerI.xpath.suffix=//input[contains(@name,'Suffix')]
+PEGAAddControllerI.xpath.alias=//input[contains(@name,'Aliases')]
+PEGAAddControllerI.xpath.gender=//select[contains(@name,'Gender')]
+PEGAAddControllerI.xpath.AddcountryOfCitizenship=//button[contains(@name,'CountriesOfCitizenship')]
+PEGAAddControllerI.xpath.countryOfCitizenship=//input[contains(@name,'CountriesOfCitizenship')]
+PEGAAddControllerI.xpath.clickDate=//img[contains(@name,'DateOfBirth')]
+#Key controller
+PEGAAddController.xpath.SelectControllerType=//select[contains(@name,'ControllersAndDirectors')]
+PEGAAddController.xpath.addressal1=//input[contains(@name,'Line1')]
+PEGAAddController.xpath.addressal2=//input[contains(@name,'Line2')]
+PEGAAddController.xpath.addresscity=//input[contains(@name,'City')]
+PEGAAddController.xpath.addresscountry=//input[contains(@name,'Addresses$l1$pCountry')]
+PEGAAddController.xpath.addressstate=//input[contains(@name,'Addresses$l1$pState')]
+PEGAAddController.xpath.addresszip=//input[contains(@name,'Addresses$l1$pZIPCode')]
+
+
+############## PEGA Key Controller and Add Ben Owner##########################
+PEGACase.xpath.AddKeyControllerButton=//button[contains(data-click,'AddInnerControllerOrDirectorKYCType')]
+PEGACase.xpath.AddKeyController=//div[contains(text(),'Add Controller Or Director')]
+PEGACase.xpath.KeyControllerType=//option[@value='Company']
+
+PEGACaseAddController.xpath.legalName=//textarea[contains(@data-change, 'LegalName')]
+PEGACaseAddController.xpath.Country=//input[contains(@data-change, 'Country')]
+PEGACaseAddController.xpath.SelectCountry=//span[contains(text(),'Afghanistan')]
+PEGACaseAddController.xpath.State=//input[contains(@data-change, 'State')]
+PEGACaseAddController.xpath.Save=//div[contains(text(),'Save Controller Or Director')]
+PEGACaseAddController.xpath.PositionRole=//input[contains(@data-change, 'PositionOrRole')]
+
+PEGACase.xpath.AddOwner=//div[contains(text(),'Add Owner')]
+PEGACaseAddOwner.xpath.PercentOwnership=//input[contains(@data-change,'OwnershipPercentage')]
+PEGACaseAddOwner.xpath.Save=//div[contains(text(),'Save Owner')]
+PEGACase.xpath.SearchMEIButton=//div[contains(text(),'Search')]
+PEGACase.xpath.MEIText=//span[@class='kyctextlabel11']
+
+PEGACase.xpath.AMLQuestionnaireSelect=//select[contains(@name,'WolfsbergQuestionnaireProvided')]
+#OutreachRequest
+
+PEGACases.xpath.COLink1=//button[contains(@name,'ItemList(1)_3')]
+PEGACases.xpath.COLink2=//button[contains(@name,'ItemList(2)_3')]
+PEGACases.xpath.COLink3=//button[contains(@name,'ItemList(3)_3')]
+PEGACases.xpath.COLink4=//button[contains(@name,'ItemList(4)_3')]
+PEGACases.xpath.COLink5=//button[contains(@name,'ItemList(5)_3')]
+PEGACases.xpath.COLink6=//button[contains(@name,'ItemList(6)_3')]
+PEGACases.xpath.COLink7=//button[contains(@name,'ItemList(7)_3')]
+PEGACases.xpath.COLink8=//button[contains(@name,'ItemList(8)_3')]
+
+PEGACases.xpath.PrevLegNameCOLink=//button[contains(@name,'PreviousLegalName(1).ItemList(1)_3')]
+PEGACases.xpath.PrevLegNameICLink=//img[contains(@name,'PreviousLegalName(1).ItemList(1)_1')]
+PEGACases.xpath.PrevLegDateCOLink=//button[contains(@name,'PreviousLegalName(1).ItemList(2)_3')]
+PEGACases.xpath.PrevLegDateICLink=//img[contains(@name,'PreviousLegalName(1).ItemList(2)_1')]
+
+PEGACases.xpath.ACentAddCOLink1=//button[contains(@name,'Addresses(1)_3')]
+PEGACases.xpath.ACentAddICLink1=//img[contains(@name,'Addresses(1)_1')]
+PEGACases.xpath.CRgovIdCOLink=//button[contains(@name,'GovernmentIDInformations(1)_3')]
+PEGACases.xpath.CRgovIdICLink=//img[contains(@name,'GovernmentIDInformations(1)_1')]
+PEGACases.xpath.NBindCodeCOLink=//button[contains(@name,'EntityIndustryCodes(1)_3')]
+PEGACases.xpath.NBindCodeICLink=//img[contains(@name,'EntityIndustryCodes(1)_1')]
+PEGACases.xpath.CBaddCountryCOLink=//button[contains(@name,'CountriesOfBusiness(1)_3')]
+PEGACases.xpath.CBaddCountryICLink=//img[contains(@name,'CountriesOfBusiness(1)_1')]
+PEGACases.xpath.IIentIndIdCOLink=//button[contains(@name,'IndustryIdentifiers(1)_3')]
+PEGACases.xpath.IIentIndIdICLink=//img[contains(@name,'IndustryIdentifiers(1)_1')]
+PEGACases.xpath.OIcountryCitizCOLink=//button[contains(@name,'CountriesOfCitizenship(1).ItemList(1)_3')]
+PEGACases.xpath.OIcountryCitizICLink=//img[contains(@name,'CountriesOfCitizenship(1).ItemList(1)_1')]
+
+PEGACases.xpath.PrevLegNameAttachDocLink=//img[contains(@name,'PreviousLegalName(1).ItemList(1)_2')]
+PEGACases.xpath.PrevLegDateAttachDocLink=//img[contains(@name,'PreviousLegalName(1).ItemList(2)_2')]
+PEGACases.xpath.AddressAttachDocLink=//img[contains(@name,'Addresses(1)_2')]
+PEGACases.xpath.govIdAttachDocLink=//img[contains(@name,'GovernmentIDInformations(1)_2')]
+PEGACases.xpath.indCodeAttachDocLink=//img[contains(@name,'EntityIndustryCodes(1)_2')]
+PEGACases.xpath.addCountryAttachDocLink=//img[contains(@name,'CountriesOfBusiness(1)_2')]
+PEGACases.xpath.entIndIdAttachDocLink=//img[contains(@name,'IndustryIdentifiers(1)_2')]
+PEGACases.xpath.countryCitizAttachDocLink=//img[contains(@name,'CountriesOfCitizenship(1).ItemList(1)_2')]
+
+PEGACases.xpath.SaveAttachDocAttribute=//div[contains(text(),'Save')]
+PEGACases.xpath.CloseModalOutreach=//button[@title='close modal']
+PEGACases.xpath.ClickMEILink=//a[@name='MEISelect_MEICompaniesLookup.Response.rows(1)_1']
+
+PEGACases.xpath.ICLink1=//img[contains(@name,'ItemList(1)_1')]
+PEGACases.xpath.ICLink2=//img[contains(@name,'ItemList(2)_1')]
+PEGACases.xpath.ICLink3=//img[contains(@name,'ItemList(3)_1')]
+PEGACases.xpath.ICLink4=//img[contains(@name,'ItemList(4)_1')]
+PEGACases.xpath.ICLink5=//img[contains(@name,'ItemList(5)_1')]
+PEGACases.xpath.ICLink6=//img[contains(@name,'ItemList(6)_1')]
+PEGACases.xpath.ICLink7=//img[contains(@name,'ItemList(7)_1')]
+PEGACases.xpath.ICLink8=//img[contains(@name,'ItemList(8)_1')]
+
+PEGACases.xpath.BankSubType=//select[@id='SubType'] 
+PEGACases.xpath.SubmitIC=//button[contains(@name,'AttrCommentsForm_pyWorkPage')]
+PEGACases.id.BankRadioButton=TypeBank
+PEGACases.id.PolicyClarRadioButton=TypePolicy Clarification
+PEGACases.id.PolicyClarQuestion=QuestionText
+#TabLinksPEGA
+PEGACases.xpath.AMLQuesLink=//span[contains(text(),'AML Questionnaire')]
+PEGACases.xpath.PrimaryRegInfoLink=//span[contains(text(),'Primary Regulatory Authority Information')]
+PEGACases.xpath.PubListInfoLink=//span[contains(text(),'Publicly Listed Information')]
+PEGACases.xpath.FinancialInfoLink=//span[contains(text(),'Financial Information')]
+PEGACases.xpath.IndustryIdentifiersLink=//span[contains(text(),'Industry Identifiers')]
+PEGACases.xpath.CountriesOfBusinessLink=//span[contains(text(),'Countries of Business')]
+PEGACases.xpath.NatureOfBusinessLink=//span[contains(text(),'Nature of Business')]
+PEGACases.xpath.EntityNamesLink=//span[contains(text(),'Entity Names')]
+PEGACases.xpath.LegalFormationLink=//span[contains(text(),'Legal Formation')]
+PEGACases.xpath.OwnershipInfoLink=//span[contains(text(),'Ownership Information')]
+PEGACases.xpath.CorpRegLink=//span[contains(text(),'Corporate Registration and Government ID Information')]
+PEGACases.xpath.BearersShareLink=//span[contains(text(),'Bearer Shares Information')]
+PEGACases.xpath.FinancialInfoLink=//span[contains(text(),'Financial Information')]
+PEGACases.xpath.AddressInfoLink=//span[contains(text(),'Addresses and Contact Information')]
+PEGACases.xpath.KeyControllerLink=//span[contains(text(),'Key Controllers & Directors')]
+
+PEGAAddressContact.xpath.ViewButton=//button[@name='ContactsRowButtons_pyWorkPage.KYCTypes(3).Contacts(1)_2']
+
+PEGACases.xpath.LegalNameCPOLink=//div[@node_name='Questions']//table[@class='attr-box']/tbody/tr[1]/td[4]/div[1]
+  
+PEGACase.xpath.SaveContinue=//button[contains(text(),'Save and Continue')]
+PEGACpoReq.xpath.ClickReqType=//select[@id='RequestType']
+PEGACpoReq.xpath.SelectInfoReq=//option[@value='Information Request']
+PEGACpoReq.xpath.SelectDocReq=//option[@value='Document Request']
+PEGACpoReq.xpath.SelectOwnershipReq=//option[@value='Ownership Structure Request']
+PEGACpoReq.xpath.Comments=//textarea[@placeholder='Enter the text']
+
+PEGACpoReq.xpath.DocTypeAnnualReport=//input[@id='pySelected2']
+PEGACpoReq.xpath.DocTypeWolfsberg=//input[@id='pySelected83']
+
+PEGACpoReq.xpath.ClickAnywhere=//div[@class='layout layout-none']
+
+
+##Addresses And Contancts
+PEGAAdressAndContact.xpath.AddContactButton=//div[contains(text(),'Add Contact')]
+PEGAAdressAndContact.xpath.ContactRole=//input[contains(@name,'Role')]
+PEGAAdressAndContact.xpath.ContactPosition=//input[contains(@name,'pPosition$pValue')]
+PEGAAdressAndContact.xpath.FirstName=//input[contains(@name,'FirstName')]
+PEGAAdressAndContact.xpath.MiddleName=//input[contains(@name,'pMiddleName$pValue')]
+PEGAAdressAndContact.xpath.Lastname=//input[contains(@name,'pLastName$pValue')]
+PEGAAdressAndContact.xpath.Suffix=//input[contains(@name,'Suffix$pValue')]
+PEGAAdressAndContact.xpath.Line1=//input[contains(@name,'Line1$pValue')]
+PEGAAdressAndContact.xpath.Line2=//input[contains(@name,'Line2$pValue')]
+PEGAAdressAndContact.xpath.City=//input[contains(@name,'City$pValue')]
+PEGAAdressAndContact.xpath.Country=//input[contains(@name,'Country$pDisplayValue')]
+PEGAAdressAndContact.xpath.CountryOption=//ul//table//table//span[contains(text(),'United States')]
+PEGAAdressAndContact.xpath.State=//input[contains(@name,'pState$pValue')]
+PEGAAdressAndContact.xpath.Fax=//input[contains(@name,'Fax$pValue')]
+PEGAAdressAndContact.xpath.Phone=//input[contains(@name,'Phone$pValue')]
+PEGAAdressAndContact.xpath.Email=//input[contains(@name,'Email$pValue')]
+PEGAAdressAndContact.xpath.Zip=//input[contains(@name,'ZIPCode$pValue')]
+PEGAAdressAndContact.xpath.SaveContact=//div[contains(text(),'Save Contact')]
+PEGAAdressAndContact.xpath.AddAddressButton=//div[contains(text(),'Add Address')]
+
+PEGAAdressAndContact.xpath.TypeDropDown=//select[contains(@name,'pType$pDisplayValue')]
+PEGAAdressAndContact.xpath.AddressLine1=//input[contains(@name,'pLine1$pValue')]
+PEGAAdressAndContact.xpath.AddressLine2=//input[contains(@name,'Line2$pValue')]
+PEGAAdressAndContact.xpath.AddressCity=//input[contains(@name,'City$pValue')]
+PEGAAdressAndContact.xpath.AddressCountry=//input[contains(@name,'Country$pDisplayValue')]
+PEGAAdressAndContact.xpath.AddressCountryOption=//ul//table//table//span[contains(text(),'United States')]
+PEGAAdressAndContact.xpath.AddressState=//input[contains(@name,'pAddresses$l1$pState$pValue')]
+PEGAAdressAndContact.xpath.AddressZip=//input[contains(@name,'pAddresses$l1$pZIPCode$pValue')]
+PEGAAdressAndContact.xpath.WebSiteAddress=//input[contains(@name,'Website$pValue')]
+
+#Nature of Business
+PEGANatureofBusiness.xpath.NatureofBusiness=//textarea[contains(@name,'NatureOfBusiness$pValue')]
+PEGANatureofBusiness.xpath.AddIndustryCodeButton=//div[contains(text(),'Add Industry Code')]
+PEGANatureofBusiness.xpath.Type=//select[contains(@name,'ICType')]
+PEGANatureofBusiness.xpath.Discription=//input[contains(@name,'Description$pDisplayValue')]
+PEGANatureofBusiness.xpath.DiscriptionOption=//ul[@class='pz-po-c-ul']//table//table[@id='gridLayoutTable']//span[contains(text(),'Small Arms Ammunition Manufacturing')]
+PEGANatureofBusiness.xpath.ArmsDefenseRevenuen=//select[contains(@name,'pArmsDefenseRevenue')]
+PEGANatureofBusiness.xpath.CasinosGamblingRevenue=//select[contains(@name,'pCasinosGamblingRevenue')]
+PEGANatureofBusiness.xpath.RemittanceRevenue=//select[contains(@name,'pExchangeRemittanceRevenue')]
+PEGANatureofBusiness.xpath.InternetGamblingRevenue=//select[contains(@name,'InternetGamblingRevenue')]
+
+#Financial Information
+PEGAFinancialInformation.xpath.Calender=//img[contains(@name,'FinancialInformationDate_3')]
+PEGAFinancialInformation.xpath.CalenderMonth=//select[contains(@id,'pValueMoSel')]
+PEGAFinancialInformation.xpath.CalenderDay=//select[contains(@id,'pValueDySel')]
+PEGAFinancialInformation.xpath.CalenderYear=//select[contains(@id,'pValueYrSel')]
+PEGAFinancialInformation.xpath.TotalRevenue=//select[contains(@name,'pTotalRevenue')]
+PEGAFinancialInformation.xpath.TotalRevenueInput=//input[contains(@name,'TotalRevenue')]
+PEGAFinancialInformation.xpath.ReportingCurrency=//select[contains(@name,'pReportingCurrency')]
+PEGAFinancialInformation.xpath.TotalAssetDropDown=//select[contains(@name,'pTotalAsset')]
+PEGAFinancialInformation.xpath.TotalAssetInput=//input[contains(@name,'pTotalAsset')]
+PEGAFinancialInformation.xpath.TotalLiquidAssetDropDown=//select[contains(@name,'pTotalLiquidAsset')]
+PEGAFinancialInformation.xpath.TotalLiquidAssetInput=//input[contains(@name,'pTotalLiquidAsset')]
+PEGAFinancialInformation.xpath.TotalShareholderEquityDropDown=//select[contains(@name,'pTotalShareholderEquity')]
+PEGAFinancialInformation.xpath.TotalShareholderEquityInput=//input[contains(@name,'pTotalShareholderEquity')]
+PEGAFinancialInformation.xpath.AuditFlag=//select[contains(@name,'pAuditFlag')]
+PEGAFinancialInformation.xpath.AuditorName=//input[contains(@name,'pAuditorName')]
+PEGAFinancialInformation.xpath.FiscalYearEndMonth=//select[contains(@name,'pFiscalYearEndMonthDay$pMonth')]
+PEGAFinancialInformation.xpath.FiscalYearEndDay=//select[contains(@name,'pFiscalYearEndMonthDay$pDay')]
+
+
+#Publicly Listed Information
+PEGAPubliclyListed.xpath.PubliclyListed=//select[contains(@name,'pIsPubliclyListed')]
+PEGAPubliclyListed.xpath.TradedOnAnExchange=//select[contains(@name,'pPercentageFloatOfEntityTradedOnAnExchange')]
+PEGAPubliclyListed.xpath.ExchangeName=//select[contains(@name,'pExchangeName')]
+PEGAPubliclyListed.xpath.ExchangeListedTicker=//input[contains(@name,'ExchangeListedTicker')]
+
+#Primary Regulatory Authority Information
+PEGAPrimaryRegulatory.xpath.EntityRegulated=//select[contains(@name,'pIsEntityRegulated')]
+PEGAPrimaryRegulatory.xpath.AddRegulatoryButton=//div[contains(text(),'Add Regulatory Information')]
+PEGAPrimaryRegulatory.xpath.PRName=//select[contains(@name,'pPRName')]
+PEGAPrimaryRegulatory.xpath.EntityRegulationStatus=//select[contains(@name,'pEntityRegulationStatus')]
+PEGAPrimaryRegulatory.xpath.PRIdentificationNumber=//input[contains(@name,'PRIdentificationNumber')]
+PEGAPrimaryRegulatory.xpath.Calender=//img[contains(@name,'PRExpiryDate_3')]
+PEGAPrimaryRegulatory.xpath.CalenderMonth=//select[contains(@id,'pPRExpiryDate$pValueMoSel')]
+PEGAPrimaryRegulatory.xpath.CalenderDate=//select[contains(@id,'pPRExpiryDate$pValueDySel')]
+PEGAPrimaryRegulatory.xpath.CalenderYear=//select[contains(@id,'pPRExpiryDate$pValueYrSel')]
+PEGAPrimaryRegulatory.xpath.SaveInfo=//div[contains(text(),'Save Regulatory Information')]
+
+#Bearer Shares Information
+PEGABearerShares.xpath.LegalFormAllowsBearerShares=//select[contains(@name,'pLegalFormAllowsBearerSharesIssuance')]
+PEGABearerShares.xpath.ArticlesTreatmentBearerShares=//select[contains(@name,'pArticlesTreatmentBearerShares$pValue')]
+PEGABearerShares.xpath.HasIssuedBearerShares=//select[contains(@name,'HasIssuedBearerShares')]
+PEGABearerShares.xpath.OutstandingSharesPercentage=//input[contains(@name,'OutstandingSharesPercentage')]
+PEGABearerShares.xpath.HeldInCustody=//select[contains(@name,'HeldInCustody')]
+PEGABearerShares.xpath.OwnershipIssuedBearerShares=//select[contains(@name,'pOwnershipIssuedBearerShares')]
+PEGABearerShares.xpath.AddAddress=//div[contains(text(),'Add Address')]
+PEGABearerShares.xpath.NameofCustodian=//input[contains(@name,'pLegalName$pValue')]
+PEGABearerShares.xpath.UnderlyingOwner=//input[contains(@name,'UnderlyingOwner')]
+PEGABearerShares.xpath.PercentageOwnershipHeld=//input[contains(@name,'pPercentageOwnershipHeld')]
+PEGABearerShares.xpath.Type=//select[contains(@name,'pType$pDisplayValue')]
+PEGABearerShares.xpath.Line1=//input[contains(@name,'pLine1$pValue')]
+PEGABearerShares.xpath.Line2=//input[contains(@name,'l1$pLine2$pValue')]
+PEGABearerShares.xpath.City=//input[contains(@name,'pAddresses$l1$pCity')]
+PEGABearerShares.xpath.Country=//input[contains(@name,'pCountry$pDisplayValue')]
+PEGABearerShares.xpath.CountryOption=//ul//table//table//span[contains(text(),'India')]
+PEGABearerShares.xpath.State=//input[contains(@name,'pState')]
+PEGABearerShares.xpath.Zip=//input[contains(@name,'pZIPCode')]
+
+PEGA.xpath.SaveandContinue=//button[@name='NextButton']
+
+#Industry Identifiers
+PEGAIndustryIdentifiers.xpath.AddIDButton=//div[contains(text(),'Add Industry Identifier')]
+PEGAIndustryIdentifiers.xpath.IDType=//select[contains(@name,'IdentifierType')]
+PEGAIndustryIdentifiers.xpath.IDValue=//input[contains(@name,'IdentifierValue')]
+#Countries of Business
+PEGACountriesBusiness.xpath.Add=//div[contains(text(),'Add Country Of Business')]
+PEGACountriesBusiness.xpath.CountriesofBusiness=//input[@name='$PpyWorkPage$pKYCTypes$l6$pCountriesOfBusiness$l1$pCountry$pDisplayValue']
+PEGACountriesBusiness.xpath.CountriesofBusinessOption=//ul[@class='pz-po-c-ul']//table//table[@id='gridLayoutTable']//span[contains(text(),'Afghanistan')]
+PEGACountriesBusiness.xpath.Percentage=//input[contains(@name,'HigherRiskCountryPercentage')]
+PEGACountriesBusiness.xpath.NumberOfEmployees=//select[contains(@name,'pNumberOfEmployees')]
+PEGACountriesBusiness.xpath.SanctionsCountry=//select[contains(@name,'IsSanctionsCountryPresent')]
+##################################Edit Doc####################
+PEGA.xpath.EditDoc=//div[@class='oflowDivM '][1]//img
+PEGA.xpath.UpdateButton=//button[@name='CaseDocEditForm_TempCaseDocEdit_15']
+PEGA.xpath.EditCloase=//button[@id='container_close']
+
+###################Attach Doc####################
+PEGA.xpath.AttachDoc=//img[@title='Add document']
+#//div[@id='INNERDIV-SubSectionKYCNavigationTabsB']//img
+PEGA.xpath.CheckBox=//input[@id='pyTemplateCheckbox']
+PEGA.xpath.COBSID=//div[@data-node-id='CaseSummaryRight']/table//tr[2]//td[3]
+PEGA.xpath.Label=//span[@class='kyctextlabel3']
+PEGA.xpath.AddDoc=//button[@name='AddAttrDocumentsButton_pyWorkPage.KYCTypes(1)_34']
+PEGA.xpath.DocLink=//a[contains(text(),'')]
+########################DATA Enrichment PEGA#############
+PEGA.xpath.LegalFormation=//span[@class='kyclinklabel9']
+#//table[@id='bodyTbl_right']//tr[@id='$PpyWorkPage$pKYCTypes$l2']/td//div[@class='content-item content-field item-2   heading_4_dataLabelRead']//span
+PEGA.xpath.SearchMEI=//button[@name='EntityProfileMEILookup_pyWorkPage.KYCTypes(2).MEI_3']
+PEGA.xpath.DocumentIDSelect=//select[@id='DocumentId']
+PEGA.xpath.Create=//button[contains(@name,'MEILookupBox_MEI') and @class='pzhc']
+#//button[contains(@name,'MEILookupBox')]
+PEGA.xpath.CreateOk=//button[contains(@name,'MEILookupBox_MEI') and @class='pzhc']
+PEGA.xpath.SearchMEIError=//span[contains(text(),'Error, while searching MEI:Internal Server Error')]
+PEGA.xpath.SearchMEICloase=//button[@class='container-close']
+PEGA.xpath.SerchMEICreatedClose=//button[@id='container_close']
+PEGA.css.SelectMEILink=a[name="MEISelect_MEICompaniesLookup.Response.rows(1)_1"]
+
+PEGA.xpath.SaveContinue=//button[@id='ModalNext']
+#select#Value.kycdictedit:nth-of-type(2)
+
+#Ownership Information
+PEGAOwnershipInfo.xpath.AddOwnerButton=//div[contains(text(),'Add Owner')]
+PEGAOwnershipInfo.xpath.OwnerType=//select[contains(@name,'Owners')]
+PEGAOwnershipInfo.xpath.OwnershipPercentage=//input[contains(@name,'OwnershipPercentage')]
+PEGAOwnershipInfo.xpath.NotKYCOwnership=//input[contains(@name,'NotKYCOwnershipPercentage')]
+PEGAOwnershipInfo.xpath.NotKYCMEI=//select[contains(@name,'NotKYCMEI')]
+PEGAOwnershipInfo.xpath.AddCountryButton=//div[contains(text(),'Add Country')]
+PEGAOwnershipInfo.xpath.CoutriesofCitizenshipCountry=//input[contains(@name,'CountriesOfCitizenship$l1$pCountry')]
+PEGAOwnershipInfo.xpath.Calender=//img[contains(@name,'DateOfBirth')]
+PEGAOwnershipInfo.xpath.AddGovernmentIDButton=//div[contains(text(),'Add Government ID Info')]
+PEGAOwnershipInfo.xpath.IssuedIDType=//input[contains(@name,'IssuedIDType')]
+PEGAOwnershipInfo.xpath.IssuedIDNumber=//input[contains(@name,'IssuedIDNumber')]
+PEGAOwnershipInfo.xpath.SourceOfWealth=//input[contains(@name,'SourceOfWealth')]
+
+#Ownership Information (Non-individual)
+PEGAOwnershipInfo.xpath.IsNominee=//select[contains(@name,'IsNominee')]
+PEGAOwnershipInfo.xpath.ActingAsNominee=//select[contains(@name,'AreAnyShareholdersActingAsNominee')]
+PEGAOwnershipInfo.xpath.Level=//select[contains(@name,'Level')]
+PEGAOwnershipInfo.xpath.NIOwnershipPercentage=//input[contains(@name,'OwnershipPercentage')]
+PEGAOwnershipInfo.xpath.NINotKYCOwnershipPercentage=//input[contains(@name,'NotKYCOwnershipPercentage')]
+PEGAOwnershipInfo.xpath.LegalName=//textarea[contains(@name,'LegalName')]
+PEGAOwnershipInfo.xpath.NICountry=//input[contains(@name,'Country')]
+PEGAOwnershipInfo.xpath.NIState=//input[contains(@name,'State')]
+PEGAOwnershipInfo.xpath.NINotKYCMEI=//select[contains(@name,'NotKYCMEI')]
+PEGAOwnershipInfo.xpath.EntityType=//select[contains(@name,'EntityType')]
+PEGAOwnershipInfo.xpath.PrincipalBusinessBO=//input[contains(@name,'CountryOfPrincipalBusinessBO')]
+PEGAOwnershipInfo.xpath.LegalForm=//select[contains(@name,'pLegalForm$pValue')]
+PEGAOwnershipInfo.xpath.ListedStatus=//select[contains(@name,'ListedStatus')]
+PEGAOwnershipInfo.xpath.PercentageFloatOfEntityTradedOnAnExchange=//select[contains(@name,'PercentageFloatOfEntityTradedOnAnExchange')]
+PEGAOwnershipInfo.xpath.ListedExchange=//select[contains(@name,'ListedExchange')]
+PEGAOwnershipInfo.xpath.ExchangeTicker=//input[contains(@name,'pListedExchangeTicker')]
+PEGAOwnershipInfo.xpath.IsRegulated=//select[contains(@name,'pIsRegulated')]
+PEGAOwnershipInfo.xpath.PRName=//select[contains(@name,'pPRName')]
+PEGAOwnershipInfo.xpath.IssuedIDTypeDropDown=//select[contains(@name,'IssuedIDType')]
+PEGAOwnershipInfo.xpath.AddIndustry=//div[contains(text(),'Add Industry Code')]
+PEGAOwnershipInfo.xpath.ICType=//select[contains(@name,'ICType')]
+PEGAOwnershipInfo.xpath.ICDescription=//input[contains(@name,'ICDescription')]
+PEGAOwnershipInfo.xpath.AddGovIdInfoButton=//div[contains(text(),'Add Government ID Info')]
+PEGAOwnershipInfo.xpath.SaveOwner=//div[contains(text(),'Save Owner')]
+
+#AML Questionnaire
+
+PEGAAMLQuestionnaire.xpath.QuestionnaireProvided=//select[contains(@name,'pWolfsbergQuestionnaireProvided')]
+
+#######################PEGA-->KYC Dashboard###################
+KYCDashboard.xpath.TaskTab=//ul[@class='nav nav-tabs']//li[2]/a
+KYCDashboard.xpath.EntityTab=//ul[@class='nav nav-tabs']//li[1]/a
+KYCDashboard.xpath.PendingTasks=//span[@ng-click='entities.openEntityTasks(row)']
+KYCDashboard.xpath.Submit=//button[contains(text(),'Submit')]
+KYCDashboard.xpath.Defous=//input[@class='page-form-control ng-scope ng-pristine ng-valid']
+
+#################Out Reach Quessionnaire######################
+KYCDashboard.xpath.EntityLeagalForm=//select[@class='page-form-control ng-scope ng-pristine ng-valid']
+##############################Internal Confirmation#######################
+KYCDashboard.xpath.Scrollbar=//div[@class='scroll-element scroll-y scroll-scrolly_visible']//div[3]
+#KYCDashboard.xpath.AcceptInput=//input[@name='0DZ']
+KYCDashboard.xpath.Accept=//span[@class='confirmation-agreement']//label
+#//input[@class='ng-valid ng-dirty']
+KYCDashboard.css.Confirm=button.btn.btn-primary
+KYCDashboard.xpath.Confirm=//button[contains(text(),'Confirm')]
+KYCDashboard.xpath.Role=//form[@id='eSignatureBlock']/div[3]/div[2]/div/select
+KYCDashboard.xpath.NameofCertifier=//form[@id='eSignatureBlock']/div[2]/span/input
+KYCDashboard.xpath.Calander=//i[@class='fa fa-calendar']
+KYCDashboard.xpath.Popup=//button[@class='close']
+
+############################AML questionnaire#########################
+KYCDashboard.xpath.FinancialInstitutionName=//div[@class='row'][3]//input
+KYCDashboard.xpath.LocationName=//div[@class='row'][4]//input
+KYCDashboard.xpath.YesToAll=//a[contains(text(),'Yes to All')]
+
+#####################Documnet Request task#######################
+KYCdashboard.xpath.ShareRegister=//span[@class='custom-radio']//input
+KYCdashboard.xpath.Certified=//input[@id='ctc-checkbox-0']
+KYCdashboard.xpath.BrowseDocRequest=//div[contains(text(),'Browse')]
+KYCdashboard.xpath.Submit=//span[contains(text(),'Submit')]
+KYCdashboard.xpath.CloseDocRequest=//div[@class='modal-content']//button[@class='close']
+KYCdashboard.xpath.DocumentRequestGraphLink=//span[@class='task-description ng-binding' and contains(text(),'Document Request')]/preceding-sibling::span
+
+PEGACpoReq.xpath.AddButton=//div[@class='layout layout-none']//div[@class='pzbtn-mid']
+
+PEGACase.xpath.SendAction=//a[contains(text(),'Actions')]
+PEGACase.xpath.SendToCpo=//span[contains(text(),'Send to CPO')]
+PEGACase.xpath.SendToClient=//ul[contains(@id,'pyNavigation')]/li[3]/a/span/span
+PEGACase.xpath.SendToKYC=//span[contains(text(),'Send to KYC')]
+PEGACase.xpath.SendToSME=//span[contains(text(),'Send to SME')]
+PEGACase.xpath.CloseTheCase=//ul[contains(@id,'pyNavigation')]/li[7]/a//span[contains(text(),'Close')]
+PEGACase.xpath.CloseOption=//div[@node_name='pyOverlayTemplate']//table//tbody//div[contains(text(),'Close')]
+PEGACase.xpath.SendToQA=//span[contains(text(),'Send to QA')]
+PEGACase.xpath.SendToSP=//span[contains(text(),'Send to SP')]
+PEGACase.xpath.ActionsRequired=//div[@id='_popOversContainer']//div[contains(text(),'Action required!')]
+PEGACase.xpath.CancelForActionsRequired=//div[@id='_popOversContainer']//div[@id='pyFlowActionHTML']//button[contains(@data-click,'closeContainer')]//div[contains(text(),'Cancel')]
+PEGACase.xpath.ActionsRequired=//div[@id='_popOversContainer']//div[contains(text(),'Action required!')]
+PEGACase.xpath.CancelForActionsRequired=//div[@id='_popOversContainer']//div[@id='pyFlowActionHTML']//button[contains(@data-click,'closeContainer')]//div[contains(text(),'Cancel')]
+#//div[@id='CT']//table//tbody//td[@class='kycinfolabel2_dataLabelWrite']
+#//div[@id='_popOversContainer']//div[@id='pyFlowActionHTML']//button[contains(@data-click,'closeContainer')]//div[contains(text(),'Cancel')]
+
+PEGACase.xpath.RequestOutreach=//span[contains(text(),'Request Outreach')]
+PEGACase.xpath.ConfirmRequestOutreach=//div[@node_name='RequestCPOFlowActionForm']//div[@class='pzbtn-mid']
+
+PEGACase.xpath.ReadStatus=//div[@class='kycheader7_dataLabelWrite']
+
+#=//div[@node_name='FlowActionsForm']//div[@class='pzbtn-mid']
+PEGACase.xpath.ConfirmSendToSME=//div[contains(text(),'Request Outreach')]
+
+PEGACase.xpath.ConfirmSendToSMEFromCO=//div[contains(text(),'Send to SME')]
+###############CSA ###########
+
+PEGACase.xpath.AcceptLegalName=//img[@name='CPOCommentButtons_pyWorkPage.KYCTypes(2).ItemList(2)_16']
+PEGACase.xpath.AcceptLegalForm=//img[@name='CPOCommentButtons_pyWorkPage.KYCTypes(2).ItemList(3)_16']
+PEGACase.xpath.AcceptLegalType=//img[@name='CPOCommentButtons_pyWorkPage.KYCTypes(2).ItemList(4)_16']
+
+PEGACase.xpath.AcceptOwnershipColl=//img[@name='CPOCommentButtons_pyWorkPage.KYCTypes(12).ItemList(1)_16']
+
+PEGACase.xpath.ConfirmSendToClient=//div[@node_name='OutreachToClientFAForm']//div[@class='pzbtn-mid']
+
+PEGACase.xpath.CaseTab=//a[@tabtitle='Case']
+
+PEGACase.xpath.ConfirmSendToKYC=//div[contains(text(),'Submit')]
+
+########## SME###############
+
+PEGACase.xpath.View=//div[contains(text(),'View')]
+
+PEGACase.xpath.Accept=//a[contains(text(),'Accept')]
+
+PEGACase.xpath.AcceptAll=//span[contains(text(),'Accept All')]
+
+########################Subscriber potal#########
+Subscriber.xpath.EntityProfileReportXLS=//a[contains(@ng-href, 'profile?xls')]
+Subscriber.xpath.QualityAssuranceReportXLS=//a[contains(@ng-href, 'audit?xls')]
+Subscriber.xpath.EntityProfileReportPDF=//a[contains(@ng-href, 'profile')]
+Subscriber.xpath.EvidentiarySourceReportPDF=//a[contains(@ng-href, 'source')]
+Subscriber.xpath.QualityAssuranceReportPDF=//a[contains(@ng-href, 'audit')]
+Subscriber.xpath.EntityNameLink=//a[@class='bold ng-binding']
+
+#########################Pega Case Page Upload Doc#####################
+#PEGACase.xpath.UploadDoc=//img[@name='CaseRightSidebarTools_pyWorkPage_18']
+PEGACase.xpath.UploadDoc=//img[@title='Add document ']
+#//div[@class='content layout-content-inline content-inline link-cont-box-3 case_tools_block ']//div[2]//img
+#//img[@name='CaseRightSidebarTools_pyWorkPage_18']
+PEGACase.xpath.BrowseButton=//input[@id='$PpyWorkPage$pTempUploadCaseDocument$pFilePath']
+PEGACase.xpath.ActionButton=//tr[@id='$PMyWorkList$ppxResults$l2']//td[@class='kyc-button-ctrl gridCell ']//button
+PEGACase.xpath.StartButton=//span[contains(text(),'Start')]
+PEGACase.xpath.DocType=//select[@id='DocumentType']
+PEGACase.xpath.DocSourceName=//input[@id='DocumentSourceName']
+PEGACase.xpath.DocSource=//select[@id='DocumentSource']
+PEGACase.xpath.Client=//option[contains(text(),'Client')]
+PEGACase.xpath.CaptureDate=//img[@id='DocumentCaptureDateIcon']
+PEGACase.xpath.CurrentDate=//table[@class='ui-datepicker-calendar']//td[@class=' ui-datepicker-days-cell-over  ui-datepicker-today']
+PEGACase.xpath.ExpirationeDate=//img[@id='ExpirationDateIcon']
+PEGACase.xpath.CertifiedTrueCopy=//select[@id='CertifiedTrueCopy']
+PEGACase.xpath.InternallyConfirmed=//select[@id='InternallyConfirmed']
+PEGACase.xpath.UploadButton=//button[@name='UploadCaseDocumentForm_pyWorkPage.TempUploadCaseDocument_19']
+PEGACase.xpath.Close=//button[@id='container_close']
+PEGACase.xpath.Error=//a[contains(text(),'Due Diligence')]
+PEGACase.xpath.EndOtherSessionButton=//div[@id='HARNESS_BUTTONS']//button
+PEGACase.xpath.Comments=//textarea[@id='Comments']
+PEGACase.xpath.OK=//img[@class='pzbtn-i']
+
+###################KYC DASHBOARD FILTERS#########################
+KYCDashboardFilter.xpath.Table=//table[@class='table ng-scope']
+KYCDashboardFilter.xpath.EntityTypeFilter=//div[contains(text(),'Entity Type')]/following-sibling::div//button
+KYCDashboardFilter.xpath.EntityNameFilter=//div[contains(text(),'Entity Name')]/following-sibling::div//button
+KYCDashboardFilter.xpath.KYCReadinessFilter=//div[contains(text(),'KYC Readiness')]/following-sibling::div//button
+KYCDashboardFilter.xpath.KYCReviewStatusFilter=//div[contains(text(),'KYC Review Status')]/following-sibling::div//button
+KYCDashboardFilter.xpath.MEIFilter=//div[contains(text(),'MEI')]/following-sibling::div//button
+KYCDashboardFilter.xpath.MEISorting=//span[@label='MEI']//span
+KYCDashboardFilter.xpath.CISorting=//span[@label='Client Identifier']//span
+KYCDashboardFilter.xpath.MEIFilterInputBox=//div[contains(text(),'Enter MEI')]/following-sibling::input
+KYCDashboardFilter.xpath.LEIFilter=//div[contains(text(),'LEI')]/following-sibling::div//button
+KYCDashboardFilter.xpath.LEIFilterInputBox=//div[contains(text(),'Enter LEI')]/following-sibling::input
+KYCDashboardFilter.xpath.ClientIdentifierFilter=//div[contains(text(),'Client Identifier')]/following-sibling::div//button
+KYCDashboardFilter.xpath.RelationshipFilter=//div[contains(text(),'Relationships')]/following-sibling::div//button
+KYCDashboardFilter.xpath.RelationshipFilterOption=//div[@class='filter-popup multiselect']//ul//li//i
+KYCDashboardFilter.xpath.RelationshipFilterInputBox=//div[contains(text(),'Relationships')]/following-sibling::div//button/span
+KYCDashboardFilter.xpath.EntityNameLink=//td[@class='entity-name-result-cell']//a
+KYCDashboardFilter.xpath.PermissionsTab=//a[contains(text(),'Permissions')]
+KYCDashboardFilter.css.Back=a.back
+KYCDashboardFilter.xpath.ClientIdentifierFilterInputBox=//div[contains(text(),'Enter Client Identifier')]/following-sibling::input
+KYCDashboardFilter.xpath.TaskTable=//table[@class='table tasks ng-scope']
+KYCDashboardFilter.xpath.TaskTypeFilter=//div[contains(text(),'Task Type')]/following-sibling::div//button
+KYCDashboardFilter.xpath.DocumentTypeFilter=//div[contains(text(),'Document Type')]/following-sibling::div//button
+KYCDashboardFilter.xpath.TaskStateFilter=//div[contains(text(),'Task State')]/following-sibling::div//button
+KYCDashboardFilter.xpath.DueDateFilter=//div[contains(text(),'Due Date')]/following-sibling::div//button
+KYCDashboardFilter.xpath.DueDateFrom=//input[@ng-model='dateFrom']
+KYCDashboardFilter.xpath.DueDateTo=//input[@ng-model='dateTo']
+KYCDashboardFilter.xpath.SubmitDueDate=//a[contains(text(),'Submit')]
+KYCDashboardFilter.xpath.NoRecordFilter=//div[@class='noRecordsFound ng-scope']
+KYCDashboardFilter.xpath.Export=//span[contains(text(),'Export')]
+KYCDashboardFilter.xpath.Match=//span[@class='btn btn-matches-count ng-binding']
+KYCDashboardFilter.xpath.SortforKYCReview=//th[@class='sortable'][4]//i
+KYCDashboardFilter.xpath.KYCReviewStausLabel=//span[contains(text(),'KYC Review Status')]
+
+MCPMStageLogin.xpath.UserName=//input[@id='txtLogin']
+MCPMStageLogin.xpath.Password=//input[@id='txtPassword']
+MCPMStageLogin.xpath.Login=//input[@id='btnLogin']
+MCPMStageLogin.xpath.LogOut=//a[contains(text(),'Logout')]
+#######################Admin  Page MCPM#################
+MCPM.xpath.ToolsMenuBar=//span[contains(text(),'Tools')]
+#//span[contains(text(),'Tools')]
+MCPM.xpath.UserSubMenu=//a[contains(text(),'Users')]
+MCPM.name.DefousMenu=inputItem
+MCPMAdmin.xpath.AddCompany=//button[@data-qtip='Add Company']
+MCPMAdmin.name.CompanyNameInput=compName
+#//input[@name='compName']
+MCPMAdmin.xpath.CompanyType=//input[@name='companyType']/following-sibling::div/div
+MCPMAdmin.xpath.CompanyTypeInput=//input[@name='companyType']
+MCPMAdmin.xpath.MarkitTicker=//input[@name='compTicker']
+MCPMAdmin.xpath.ChooseCompany=//div[@id='companyOptionDialog']
+MCPMAdmin.xpath.CreateOwnOption=//a[contains(text(),'Create Own')]
+MCPMAdmin.xpath.SaveCompany=//div[@role='dialog']/div[3]//span[contains(text(),'Save')]
+MCPMAdmin.name.UserName=uname
+MCPMAdmin.xpath.SelectuserName=//div[contains(@id,'boundlist')]//ul//li
+#################Asdd USers Admin page##########################
+MCPMAdmin.xpath.AddUser=//button[@data-qtip='Add User']
+MCPMAdmin.xpath.Company=//input[@name='company']
+MCPMAdmin.xpath.CompanyOption=//li[@class='x-boundlist-item']
+MCPMAdmin.xpath.Email=//input[@name='email']
+MCPMAdmin.xpath.UserName=//input[@name='username']
+MCPMAdmin.xpath.Password1=//input[@name='password1']
+MCPMAdmin.xpath.Password2=//input[@name='password2']
+MCPMAdmin.xpath.FName=//label[contains(text(),'First Name:')]/following-sibling::div//input
+#//input[@name='fname']
+MCPMAdmin.xpath.LName=//label[contains(text(),'Last Name:')]/following-sibling::div//input
+#//input[@name='lname']
+MCPMAdmin.xpath.BSRead=//div[contains(text(),'bs.read')]
+MCPMAdmin.xpath.BSWrite=//div[contains(text(),'bs.write')]
+MCPMAdmin.xpath.SaveUser=//div[@class='x-box-inner']//button/span[contains(text(),'Save')]
+MCPMAdmin.xpath.UserOK=//div[@role='alertdialog']//button/span
+MCPMAdmin.xpath.Apply=//span[contains(text(),'Apply')]
+MCPMAdmin.xpath.CheckBox=//div[@class='x-grid-cell-inner x-unselectable']
+MCPMAdmin.xpath.EditUser=//button[@data-qtip='Edit the selected user']
+MCPMAdmin.name.Company=company
+
+############RFA Bulk Upload#############
+MCPMRFA.xpath.Tools=//span[contains(text(),'Tools')]
+MCPMRFA.xpath.RFAOnboarding=//a[contains(text(),'Batch Upload of RFA Onboarding')]
+MCPMRFA.css.RFAOnboardingBrowse=input.x-form-file-input
+MCPMRFA.xpath.Choose=//div[@class='x-form-item-body x-form-file-wrap']/div[@class='x-btn x-form-file-btn x-btn-default-small x-noicon x-btn-noicon x-btn-default-small-noicon']
+MCPMRFA.xpath.LoadData=//div[@class='x-column-inner']//span[contains(text(),'Load Data')]
+MCPMRFA.xpath.Upload=//div[@class='x-toolbar x-window-item x-toolbar-footer x-docked x-docked-bottom x-toolbar-docked-bottom x-toolbar-footer-docked-bottom x-box-layout-ct']//button
+MCPMRFA.xpath.Alert=//div[@role='alertdialog']//span[contains(text(),'OK')]
+MCPMRFA.xpath.Scroll=//div[@id='pdf-holder']
+MCPM.xpath.EntityBatchUpload=//a[contains(text(),'Batch Upload Entities')]
+MCPM.xpath.LoadMapping=//div[@class='x-toolbar x-toolbar-default x-docked x-docked-top x-toolbar-docked-top x-toolbar-default-docked-top x-box-layout-ct']//span[contains(text(),'Load')]
+MCPM.xpath.UpdateOnly=//label[contains(text(),'Update Only')]
+MCPM.name.Password=password1
+
+
+#################MatserList RFA########################
+RFAMasterLiast.xpath.ViewMasterList=//table[@class='table table-hover table-master-list ng-scope']//tbody/tr//td[6]/a
+RFAMasterLiast.xpath.MasterListLink=//a[contains(text(),'Masterlists')]
+
+##############Request Tracker#################
+Menu.xpath.Manage=//span[contains(text(),'Manage')]
+Menu.xpath.RequestTracker=//a[contains(text(),'Request Tracker')]
+RequestTracker.xpath.StatusRFA=//div[@class='x-panel x-grid x-fit-item x-panel-default']//table//tbody//tr[2]//td[15]
+RequestTracker.xpath.StatusEntity=//div[@class='x-panel x-grid x-fit-item x-panel-default']//table//tbody//tr[3]//td[15]
+RequestTracker.xpath.RequestRFA=//div[@class='x-panel x-grid x-fit-item x-panel-default']//table//tbody//tr[2]//td[2]
+RequestTracker.xpath.RequestEntity=//div[@class='x-panel x-grid x-fit-item x-panel-default']//table//tbody//tr[3]//td[2]
+RequestTracker.xpath.Refresh=//button[@data-qtip='Refresh']
+
+###################################KYC Dashboard Updates####################
+KYCDashBoard.xpath.PreKYCChecklistHeader=//div[@class='stat-column pre-kyc-checklist-Loaded']//h4
+KYCDashBoard.xpath.PreKYCAssignPrimaryText=//div[contains(@ng-click,'ASSIGNPRIMARYCONTACT')]//span[@class='step-label']
+KYCDashBoard.xpath.PreKYCRequestESignText=//div[contains(@ng-click,'REQUESTESIGNROLE')]//span[@class='step-label']
+KYCDashBoard.xpath.PreKYCCountriesIndustriesText=//div[contains(@ng-click,'COUNTRIESANDINDUSTRIES')]//span[@class='step-label']
+KYCDashBoard.xpath.PreKYCWolfsbergText=//div[contains(@ng-click,'WOLFSBERGQUESTIONNAIRE')]//span[@class='step-label']
+KYCDashBoard.xpath.PreKYCAssignPrimaryCount=//div[contains(@ng-click,'ASSIGNPRIMARYCONTACT')]//span[@class='step-number']/span
+KYCDashBoard.xpath.PreKYCRequestESignCount=//div[contains(@ng-click,'REQUESTESIGNROLE')]//span[@class='step-number']/span
+KYCDashBoard.xpath.PreKYCCountriesIndustriesCount=//div[contains(@ng-click,'COUNTRIESANDINDUSTRIES')]//span[@class='step-number']/span
+KYCDashBoard.xpath.PreKYCWolfsbergCount=//div[contains(@ng-click,'WOLFSBERGQUESTIONNAIRE')]//span[@class='step-number']/span
+KYCDashBoard.xpath.Tools=//a[contains(text(),'Tools')]
+KYCDashBoard.xpath.CompanyActions=//a[contains(text(),'Company Actions')]
+KYCDashBoard.xpath.Contacts=//div[@class='container-fluid nav-container']//ul//li/a
+KYCDashBoard.xpath.ContactsListEmpty=//div[@class='nothing-found ng-scope']
+KYCDashBoard.xpath.BackToDashboardLink=//a[@class='back']
+KYCDashBoard.xpath.PreKYCAssignPrimaryGraph=//div[contains(@ng-click,'ASSIGNPRIMARYCONTACT')]
+KYCDashBoard.xpath.PreKYCRequestESignGraph=//div[contains(@ng-click,'REQUESTESIGNROLE')]
+KYCDashBoard.xpath.PreKYCCountriesIndustriesGraph=//div[contains(@ng-click,'COUNTRIESANDINDUSTRIES')]
+KYCDashBoard.xpath.PreKYCWolfsbergGraph=//div[contains(@ng-click,'WOLFSBERGQUESTIONNAIRE')]
+
+###############Add Contacts#######################
+AddContacts.xpath.AddContactButton=//a[contains(text(),'Add Contact')]
+AddContacts.xpath.AddContactRole=//input[contains(@ng-model,'Company.contact.role')]
+AddContacts.xpath.FirstName=//input[contains(@ng-model,'Company.contact.firstName')]
+AddContacts.xpath.LastName=//input[contains(@ng-model,'Company.contact.lastName')]
+AddContacts.xpath.Phone=//input[contains(@ng-model,'Company.contact.phone')]
+AddContacts.xpath.Email=//input[contains(@ng-model,'Company.contact.email')]
+AddContacts.xpath.Save=//input[@value='Save']
+AddContacts.xpath.Submit=//a[contains(text(),'Submit')]
+AddContacts.xpath.Confirm=//input[@value='Confirm']
+AddContacts.xpath.Dismiss=//a[contains(@ng-click,'dismiss')]
+AddContacts.xpath.CompanyAction=//h1[contains(text(),'Company Actions')]
+AddContacts.xpath.DeleteContacts=//a[@ng-click='contacts.delete(contact)']
+
+####################Request e sign role#########
+RequestESignRole.xpath.PopText1=//div[@class='modal-dialog']//span
+RequestESignRole.xpath.PopText2=//div[@class='modal-dialog']//a[2]
+RequestESignRole.xpath.PopText3=//div[@class='modal-dialog']//span[2]
+RequestESignRole.xpath.Dismiss=//a[contains(@ng-click,'dismiss')]
+
+#######################Wolfsberg#######################
+Wolfsberg.xpath.HeaderofthePage=//form[@ng-submit='wolf.submit()']//h2
+Wolfsberg.xpath.FinancialInstitutionInput=//input[contains(@ng-model,'wolf.input.financialInstituteName')]
+Wolfsberg.xpath.LocationInput=//input[contains(@ng-model,'wolf.input.financialInstituteLocation')]
+Wolfsberg.xpath.YesToAll=//a[@ng-click='wolf.yesToAll()']
+Wolfsberg.xpath.Confirm=//button[contains(text(),'Confirm')]
+
+################Add Countries & Industries Assessment #########
+CountriesIndustries.xpath.Link=//a[contains(text(),'Countries & Industries Assessment')]
+CountriesIndustries.xpath.Area=//div[contains(text(),'Cash-Intensive businesses')]
+CountriesIndustries.xpath.Activity=//div[@class='align-bottom ng-scope'][7]//textarea
+CountriesIndustries.xpath.EuropeCheckbox=//div[@class='checkbox-group']//label[3]//input
+CountriesIndustries.xpath.Jurisdiction=//div[contains(text(),'Burundi')]
+CountriesIndustries.xpath.EconomicSanctions=//div[contains(text(),'Cuba')]
+CountriesIndustries.xpath.NumberOfEmp=//div[@class='align-bottom ng-scope'][11]//table//select
+CountriesIndustries.xpath.Authorisation=//textarea[@class='page-form-control ng-scope ng-pristine ng-valid']
+CountriesIndustries.xpath.Cuba1=//div[@ng-if='section.isShowSection()'][2]//textarea
+CountriesIndustries.xpath.Cuba2=//div[@ng-if='section.isShowSection()'][2]//div[@class='align-bottom ng-scope'][2]//textarea
+CountriesIndustries.xpath.Cuba3=//div[@ng-if='section.isShowSection()'][2]//div[@class='align-bottom ng-scope'][3]//textarea
+CountriesIndustries.xpath.Cuba4=//div[@ng-if='section.isShowSection()'][2]//div[@class='align-bottom ng-scope'][4]//textarea
+CountriesIndustries.xpath.Submit=//button[contains(text(),'Submit')]
+CountriesIndustries.xpath.CountriesIndustriesStatus=//div[@class='kyc-status ng-scope']//div[1]//span
+CountriesIndustries.xpath.CompleteNew=//input[@value='complete new']
+CountriesIndustries.xpath.Submit=//button[contains(text(),'Submit')]
+CountriesIndustries.xpath.Dismiss=//a[@ng-click='$dismiss()']
+KYCDashboard.xpath.PreKYCSteps1=//div[@class='status ng-scope status-none']//a
+KYCDashboard.xpath.PreKYCSteps2=//div[@class='status status-none']//a
+KYCDashboard.xpath.PreKYCSteps3=//div[@class='status last status-none']//a
+CountriesIndustries.xpath.PopUp=//div[@class='modal-dialog']//h2[contains(text(),'Countries & Industries Assessment')]
+CountriesIndustries.xpath.PopUpCompleteNew=//div[@class='modal-dialog']//input[@value='complete new']
+CountriesIndustries.xpath.PopUpSubmit=//div[@class='modal-dialog']//button[contains(text(),'Submit')]
+
+##############MCPM Documents#################
+MCPMDoc.xpath.DocumentsSubMenu=//li[3]//ul//tr//td[2]//li/a
+MCPMDoc.name.Defocus=flt_docid
+MCPMDoc.xpath.AddDocument=//span[@class='x-btn-icon mde-Add']
+MCPMDoc.name.EntityName=internalEntity
+MCPMDoc.name.DocCategory=docCategory
+MCPMDoc.name.DocType=documentType
+MCPMDoc.name.DocDescription=description
+MCPMDoc.xpath.DocBrowse=//span[contains(text(),'Browse...')]
+MCPMDoc.xpath.Save=//div[@id='mde.addDocumentDialog']//div[@role='toolbar']//button
+MCPMDoc.xpath.Ok=//div[contains(@id,'messagebox-')]//button
+MCPMDoc.xpath.Exit=//div[@id='mde.addDocumentDialog']//div[@role='toolbar']//div[contains(@id,'button')][2]//button
+MCPMDoc.xpath.ColumnsDropDown=//span[contains(text(),'Expiration Date')]/following-sibling::div
+MCPMDoc.xpath.SearchEntityIcon=//div[@id='internalEntity']//div//div//div[2]
+MCPMDoc.name.EntityNameInput=leftSearchField
+MCPMDoc.xpath.OkEntity=//span[@class='x-btn-icon mde-Ok']
+MCPMDoc.xpath.SelectEntityName=//div[@id='mde-adv-dialog-adddocument']//table//tbody//tr[2]
+#//span[contains(text(),'Display Name')]/parent::div//div
+MCPMDoc.xpath.ColumnsOption=//a[@class='x-menu-item-link']//span[contains(text(),'Document Id')]
+KYCDashboard.xpath.DocumentsTab=//a[@ui-sref='entity.documents']
+MCPMDoc.xpath.DocID=//tr[@class='x-grid-row x-grid-row-selected x-grid-row-focused']//td[2]/div
+MCPMDoc.name.DocIDFilter=flt_docid
+MCPMDOC.xpath.ApplyFilter=//span[contains(text(),'Apply')]
+MCPMDOC.xpath.DocCheckBox=//div[@class='x-grid-row-checker']
+MCPMDOC.xpath.EditButton=//span[contains(text(),'Edit')]
+MCPMDOC.xpath.Delete=//button[@data-qtip='Delete selected Documents']
+MCPMDOC.xpath.YesDelete=//button//span[contains(text(),'Yes')]
+KYCDashboard.xpath.Tables=//table[@class='simple-table']
+MCPMDoc.xpath.DownloadDoc=//img[contains(@src,'images/fileicons')]
+MCPMDoc.name.UnTagEntityInput=rightSearchField
+MCPMDoc.xpath.ClearButton=//span[@class='x-btn-icon mde-Clear']
+MCPM.xpath.ClickToClear=//div[@id='mde-adv-dialog-adddocument']//div[@class='x-box-inner']//div[@class='x-panel x-box-item x-window-item x-panel-default'][2]//div[@class='x-panel-body  x-panel-body-default x-panel-body-default x-layout-fit']//table
+MCPM.xpath.ClearFilter=//span[@class='x-btn-icon mde-Reset']
+
+##################ThunderHead################################
+MCPM.xpath.DocumentNegotiation=//a[contains(text(),'Document Negotiation')]
+ThunderHead.xpath.CPlink=//div[@class='MNavPanel']//table//tbody//td[6]/div
+ThunderHead.xpath.AddDoc=//div[@id='docboxesPortlet-createDocboxBtn']
+ThunderHead.xpath.FromTemplate=//span[@id='docboxesPortlet-createExchangeFromTemplateBtn-textEl']
+ThunderHead.xpath.Select=//ul[@class='select2-results']//li[1]
+ThunderHead.xpath.SelectInput=//a[@class='select2-choice select2-default']
+ThunderHead.xpath.Textarea=//div[@class='expandingText']/textarea
+ThunderHead.xpath.DocBoxName=//input[@class='form-control ']
+ThunderHead.xpath.Create=//button[@class='th-ui-button btn btn-primary']/span[contains(text(),'Create')]
+ThunderHead.xpath.ISDALegalNamePartyA=//div[@id='th-datacapture-4-bodyEl']//input
+ThunderHead.xpath.ShortNamePartyA=//div[@id='th-datacapture-5-bodyEl']//input
+ThunderHead.xpath.ISDALegalNamePartyB=//div[@id='th-datacapture-8']//input
+ThunderHead.xpath.ShortNamePartyB=//div[@id='th-datacapture-9-bodyEl']//input
+ThunderHead.xpath.Exclusive=//div[@id='radiofield-1053-bodyEl']//input
+ThunderHead.xpath.Next=//div[@id='interviewForm-bottomNextButton']//button
+ThunderHead.id.AddFund=th-datacapture-20_addButtonId-btnEl
+ThunderHead.xpath.FundName=//div[contains(@id,'th-datacapture')]//input
+ThunderHead.xpath.Calender=//div[@class='x-form-trigger-wrap']//div
+ThunderHead.xpath.Today=//span[contains(text(),'Today')]
+ThunderHead.id.Next=interviewForm-bottomNextButton-btnEl
+ThunderHead.xpath.AnnexIS=//div[@class='x-container thxf-form-column-2 x-container-default']//table//table//table//td[2]//input
+ThunderHead.xpath.DeterminingParty=//div[@class='x-container thxf-form-column-2 x-container-default']//div//table//table//td[2]//div//div//div
+ThunderHead.xpath.CalculationAgent=//div[@class='x-container thxf-form-column-2 x-container-default']//div//table//tr[3]//label[contains(text(),'Party A')]/preceding-sibling::input
+ThunderHead.id.Submit=interviewForm-bottomSubmitButton-btnEl
+ThunderHead.id.OpenLink=openExchangeLink1
+ThunderHead.xpath.StartEditingButton=//button[@class='th-ui-menu-button-split btn btn-primary dropdown-toggle']
+ThunderHead.xpath.RequestDocument=//div[@id='actionsListButton']//ul//li[7]/a
+ThunderHead.id.NextRequestAgreement=agreementWorkflowStartDialogNextButton
+ThunderHead.xpath.SelectCP=//div[@class='col-sm-12 th-cl-agreement-workflow-counter-party-dialog-member']//a
+ThunderHead.xpath.InputBoxRDA=//div[@id='select2-drop']//input
+ThunderHead.xpath.RDASelectUser=//div[@id='select2-drop']//ul//li[2]
+ThunderHead.id.Send=agreementWorkflowCounterPartyDialogSendButton
+ThunderHead.xpath.Agree=//div[@id='th-de-toolbars']//div[@class='th-ce-toolbar-readonly-custombutton']//button
+
+#######################Terms of User##################
+MCPM.xpath.MCPMTOU=//div[@id='termsusePanel']//div[contains(@id,'checkboxfield')][3]
+MCPM.xpath.MCPMIAgreeBtn=//div[@id='touAccpetBtn']//button
+KYC.xpath.KYCTOU=//input[@ng-model='terms.agreed']
+KYC.xpath.KYCIAgree=//button[@ng-click='terms.acceptTerms()']
+
+###########DG############################
+MCPM.xpath.DGSubMenu=//a[contains(text(),'Distribution Groups')]
+MCPMDG.xpath.MangeDG=//span[contains(text(),'Manage Distribution')]
+MCPMDG.xpath.DGTypeDropDown=//div[contains(@id,'mdeLocalCombo')]//div[@class='x-form-trigger-wrap']
+MCPMDG.name.DGSerach=globalSearch
+MCPMDG.xpath.Defocus=//div[contains(@id,'pagingtoolbar')]
+MCPMDG.xpath.DGName=//span[contains(text(),'Distribution Name & Members')]/ancestor::div//div[contains(@id,'mdeRemoteCombo')]//input
+MCPMDG.xpath.DGNameDropDown=//span[contains(text(),'Distribution Name & Members')]/ancestor::div//div[contains(@id,'mdeRemoteCombo')]/div/div/div
+MCPMDG.xpath.DGSave=//span[contains(text(),'Distribution Name & Members')]/ancestor::div//span[contains(text(),'Save')]
+MCPMDoc.xpath.Permisson=//span[@class='x-btn-icon mde-Permission']/parent::button
+MCPMDoc.xpath.MyAUMCount=//div[contains(@id,'pagingtoolbar')]//div[contains(@id,'tbtext')][3]
+MCPMDoc.xpath.GrantPermisson=//span[contains(text(),'Grant Access')]/parent::button
+MCPMDoc.xpath.YesPermission=//span[contains(text(),'Yes')]/parent::button
+MCPMDoc.xpath.NoteOk=//div[contains(@id,'messagebox-')]//button
+MCPMDoc.name.EntityName=flt_entity_legal
+MCPMDoc.xpath.SelectAll=//div[contains(@id,'headercontainer')]//div[contains(@id,'gridcolumn')]//div
+MCPMDoc.xpath.CPViewLink=//span[contains(text(),'View')]
+MCPMAUM.xpath.CPAum=//a[contains(text(),'Counterparty AUM')]
+MCPMDoc.xpath.CPDocLink=//a[contains(text(),'Counterparty Documents')]
+MCPMDoc.xpath.CPApplyButton=//span[@class='x-btn-icon mde-ApplyFilter']/parent::button
+MCPMDoc.id.ShareInternally=is_public
+MCPMDoc.xpath.ShareInternallyCheckBox=//div[@id='is_public']//input
+MCPMDoc.xpath.CPCount=//div[contains(@id,'pagingtoolbar')]//div[contains(@id,'tbtext')][3]
+MCPMDoc.xpath.DeleteDG=//span[contains(text(),'Delete Distribution Group')]
+MCPMDG.xpath.DeleteButton=//div[contains(@id,'window')]//button
+MCPMDG.xpath.YesDelete=//span[contains(text(),'Yes')]
+MCPMDG.xpath.CloseDG=//img[@class='x-tool-close']
+MCPMDoc.xpath.YesToPermission=//div[contains(@id,'messagebox')]//div[contains(@id,'toolbar')]//div//div[2]//button
+MCPMDoc.xpath.RemovePermission=//span[contains(text(),'Remove Access')]
+MCPMPerm.xpath.SelectAll=//div[@id='mde.appDocumentPermissionDialog']//div[contains(@id,'headercontainer')]//span[contains(text(),'')]
+KYCCIA.xpath.ExcludeList=//multiselect-dual-pane[@search-placeholder='Search Entities']//div[@class='multiselect-dual-pane']//div[@class='choices']//div[@class='choice ng-binding ng-scope']
+#######################AUM#####################
+MCPMAum.name.Defous=flt_status
+MCPMAum.xpath.AddAUM=//div[@id='view-My AUMAll My AUM']//span[contains(text(),'Add AUM')]/parent::button
+MCPMAUM.name.EntityName=entityname
+MCPMAUM.xpath.OptionList=//div[contains(@id,'boundlist')]//ul//li
+MCPMAUM.xpath.Add=//div[@id='aumdetailpanel']//span[contains(text(),'Add')]/parent::button
+MCPMAUM.xpath.Calender=//input[@name='aum_as_of_dates']/parent::div//div//div
+MCPMAUM.xpath.CurrentDate=//div[contains(@title,'Date Picker')]//table//tr//td[@class='x-datepicker-active x-datepicker-today x-datepicker-selected']//a
+MCPMAUM.name.Currency=aum_currency_codes
+MCPMAUM.name.AUMValue=aum_assets_under_mgmts
+MCPMAUM.xpath.Update=//div[@id='aumdetailpanel']//span[contains(text(),'Update')]
+MCPMAUM.xpath.Close=//span[@class='x-btn-icon mde-Close']/parent::button
+MCPMAUM.name.DispalyNameFilter=flt_subaccount
+MCPMAUM.xpath.Apply=//div[@id='mde_appAUM2']//span[contains(text(),'Apply')]/parent::button
+MCPMAUM.xpath.SelectAll=//div[@id='view-My AUMAll My AUM']//div[contains(@id,'headercontainer')]//div[contains(@id,'gridcolumn')]//div
+MCPMAUM.xpath.UnpermissionSelectAll=//div[@id='mde.appDocumentPermissionDialogs']//div[contains(@id,'headercontainer')]//span
+MCPM.xpath.YesPermission=//div[contains(@id,'messagebox')]//span[contains(text(),'Yes')]
+############KYC Regression######
+MCPMKYCRegression.xpath.MenuBar=//ul[@class='mdeCssMenu mdeCssMenum']//li[@class='mdeCssMenui']
+MCPMKYCRegression.xpath.MenuBarValue=//a[@class='mdeCssMenui']//span
+MCPMAdmin.xpath.RoleXpath=//div[@id='duser-dlg']//div[contains(@id,'gridview')]//table//tbody//tr//td
+MCPMRegression.xpath.CIALink=//a[@ui-sref='companyActions.cia']
+MCPMRegression.xpath.WolfsbergLink=//a[@ui-sref='companyActions.wolfsberg']
+MCPMRegression.xpath.Documents=//a[@ui-sref='companyActions.documents']
+MCPMCIA.xpath.EntitiesName=//multiselect-dual-pane//div[@class='choices']//div[@class='slimScrollDiv']//div[@ng-bind='item.NAME']
+MCPMCIA.xpath.ClearSearch=//div[@class='clear-input']//i
+MCPMCIA.xpath.SearchEntity=//div[@class='search-box ng-scope']//input[@placeholder='Search Entities']
+MCPMCIA.xpath.SuccessfullyPopUpCancel=//a[@ng-click='$dismiss()']//i
+MCPMCADocument.xpath.Upload=//a[@ng-click='documents.upload()']
+MCPMCADocument.xpath.SelectDocType=//form[@name='uploadDocForm']//select[@name='documentType']
+MCPMCADocument.xpath.Browse=//form[@name='uploadDocForm']//label[@class='uploadbutton']//div[@class='button btn btn-gray']
+MCPMCADocument.xpath.Save=//form[@name='uploadDocForm']//div[@class='modal-footer']//button[contains(text(),'Save')]
+KYCRegression.xpath.EntityTypeText=//div[@ng-bind='entity.ENTITYTYPE']
+KYCRegression.xpath.CountryText=//div[@ng-bind='entity.COUNTRY']
+KYCRegression.xpath.OpenTaskOnEntityPage=//div[@ng-if='entity.ENTITYID']//ul[@class='list-box']//li
+KYCRegression.xpath.PreKYCStepsList=//div[@class='kyc-status ng-scope']//div[contains(@class,'status')]
+KYCRegression.xpath.Dismiss=//a[@ng-click='$dismiss()']
+KYCRegression.xpath.TaskStateText=//div[contains(text(),'Task State')]/parent::div//button//span
+KYCRegression.xpath.InternalConfirmationLink=//span[contains(text(),'Internal Confirmation')]
+KYCRegression.xpath.PermissionTab=//a[@ui-sref='entity.permissions']
+KYCRegression.xpath.ReportsMenuBar=//a[contains(text(),'Reports')]
+KYCRegression.xpath.KYCAuditReportSubMenuBar=//a[contains(text(),'KYC Audit Report')]
+KYCRegression.xpath.TrainingMenuBar=//a[contains(text(),'Training')]
+KYCRegression.xpath.AddNewEntitySubMenuBar=//ul[@class='nav navbar-nav']//li[3]//ul/li/a[contains(text(),'Adding a New Entity for KYC')]
+KYCRegression.xpath.BulkIC=//a[@href='#/bulkIC/list']
+KYCRegression.xpath.BulkPermissonRequest=//a[@href='#/bulkPR/list']
+KYCRegression.xpath.ConfirmAllBIC=//i[contains(@ng-if,'bulkIC.allConfirmed')]
+KYCRegression.xpath.ContinueBIC=//a[@ng-click='bulkIC.continueToEsign()']
+KYCRegression.xpath.InternalConfirmationCount=//span[contains(text(),'Internal Confirmation')]/preceding-sibling::span
+KYCRegression.xpath.InternalConfirmationErrorMsg=//div[@class='msg ng-binding ng-scope']
+KYCRegression.xpath.PermissionRequestCount=//span[contains(text(),'Permission Request')]/preceding-sibling::span
+KYCRegression.xpath.ConfirmAllBP=//i[contains(@ng-if,'ctrl.allConfirmed')]
+KYCRegression.xpath.AllowBP=//input[@value='Allow']
+KYCRegression.xpath.ConfirmBP=//button[@ng-click='confirm()']
+KYCRegression.xpath.KYCDashboardMenu=//a[contains(text(),'KYC Dashboard')]
+KYCRegression.xpath.KYCVerificationSubMenu=//a[contains(text(),'KYC Verification')]
+KYCRegression.xpath.CompanyName=//input[@ng-model='ctrl.company.name']
+KYCRegression.xpath.CompanyNameOption=//ul[@class='dropdown']//li
+KYCRegression.xpath.SaveCompanyName=//button[@ng-click='ctrl.save()']
+KYCRegression.xpath.ImpersonationAlert=//div[@class='alert alert-warning']
+KYCRegression.xpath.ImpersonationAlert1=//div[@class='alert alert-warning']//span
+KYCRegression.xpath.ImpersonationAlert2=//div[@class='alert alert-warning']//a
+KYCRegression.xpath.PermissionErrorMsg=//div[@class='modal-dialog']//div[@class='modal-content']
+KYCRegression.xpath.DismissCandI=//a[@ng-click='$dismiss()']
+InteralConfirmation.xpath.Header=//h2[contains(text(),'Internal Confirmation')]
+##############################OCR########################
+OCR.xpath.OcrChevron=//div[contains(@id,'MDEChevron')][2]
+OCR.xpath.CheckboxTandC=//div[@role='dialog']//input[@role='checkbox']
+OCR.xpath.AcceptTandC=//span[contains(text(),'Accept')]/parent::button
+OCR.name.EntityAdd1=ocrAdr1
+OCR.name.EntityEmail=ocrEmail
+OCR.name.EntityCity=ocrCity
+OCR.name.EntityState=ocrState
+OCR.name.EntityZip=ocrZip
+OCR.name.EntityPhone=ocrPhone
+OCR.name.EntityCountry=ocrCountry
+OCR.name.LegalEntityFname=ocrFname
+OCR.name.LegalEntityLname=ocrLname
+OCR.name.LegalEntityJobTilte=ocrJobTitle
+OCR.name.LegalEntityContactRel=ocrContactRelationshipTo
+OCR.name.LegalEntityPhone=ocrContactPhone
+OCR.name.LegalEntityEmail=ocrContactEmail
+OCR.xpath.AddNew=//u[contains(text(),'Add New')]
+
+OCR.xpath.LegalEntityCheckbox=//div[@id='addControllerTypeDialog']//input
+OCR.name.ControllerLEName=ocrControllerLegalName
+OCR.xpath.ControllerLEAdd1=//div[@id='addControllerTypeDialog']//input[@name='ocrAdr1']
+OCR.xpath.ControllerLEemailContact=//div[@id='addControllerTypeDialog']//input[@name='ocrEmail']
+OCR.xpath.ControllerLEFName=//div[@id='addControllerTypeDialog']//input[@name='ocrFname']
+OCR.xpath.ControllerLELName=//div[@id='addControllerTypeDialog']//input[@name='ocrLname']
+OCR.xpath.ControllerLERelOwner=//div[@id='addControllerTypeDialog']//input[@name='ocrControllerRelationshipToOwner']
+OCR.xpath.ControllerLELeiName=//div[@id='addControllerTypeDialog']//input[@name='ocrControllerLei']
+OCR.xpath.ControllerLECity=//div[@id='addControllerTypeDialog']//input[@name='ocrCity']
+OCR.xpath.ControllerLEState=//div[@id='addControllerTypeDialog']//input[@name='ocrState']
+OCR.xpath.ControllerLEZip=//div[@id='addControllerTypeDialog']//input[@name='ocrZip']
+OCR.xpath.ControllerLEPhoneContact=//div[@id='addControllerTypeDialog']//input[@name='ocrPhone']
+OCR.xpath.ControllerLECountry=//div[@id='addControllerTypeDialog']//input[@name='ocrCountry']
+OCR.xpath.ControllerLEJobTitle=//div[@id='addControllerTypeDialog']//input[@name='ocrJobTitle']
+OCR.xpath.ControllerLERel=//div[@id='addControllerTypeDialog']//input[@name='ocrContactRelationshipTo']
+OCR.xpath.ControllerLEPhone=//div[@id='addControllerTypeDialog']//input[@name='ocrContactPhone']
+OCR.xpath.ControllerLEemail=//div[@id='addControllerTypeDialog']//input[@name='ocrContactEmail']
+OCR.xpath.ControllerSave=//div[@id='addControllerTypeDialog']//span[contains(text(),'Save')]
+
+OCR.xpath.ControllerNPCheckBox=//div[@id='addControllerTypeDialog']//label[contains(text(),'Controller - Natural Person')]/parent::div//input
+OCR.xpath.ControllerNPFName=//div[@id='addControllerTypeDialog']//input[@name='ocrFname']
+OCR.xpath.ControllerNPLName=//div[@id='addControllerTypeDialog']//input[@name='ocrLname']
+OCR.xpath.ControllerNPRelationship=//div[@id='addControllerTypeDialog']//input[@name='ocrControllerRelationshipToOwner']
+OCR.xpath.ControllerNPJob=//div[@id='addControllerTypeDialog']//input[@name='ocrJobTitle']
+OCR.xpath.ControllerNPAdd1=//div[@id='addControllerTypeDialog']//input[@name='ocrAdr1']
+OCR.xpath.ControllerNPEmail=//div[@id='addControllerTypeDialog']//input[@name='ocrEmail']
+OCR.xpath.ControllerNPEmployer=//div[@id='addControllerTypeDialog']//input[@name='ocrEmployerName']
+OCR.xpath.ControllerNPCity=//div[@id='addControllerTypeDialog']//input[@name='ocrCity']
+OCR.xpath.ControllerNPState=//div[@id='addControllerTypeDialog']//input[@name='ocrState']
+OCR.xpath.ControllerNPZip=//div[@id='addControllerTypeDialog']//input[@name='ocrZip']
+OCR.xpath.ControllerNPphone=//div[@id='addControllerTypeDialog']//input[@name='ocrPhone']
+OCR.xpath.ControllerNPCountry=//div[@id='addControllerTypeDialog']//input[@name='ocrCountry']
+OCR.xpath.ControllerNPCountryOption=//li[contains(text(),'Austria')]
+OCR.xpath.ControllerOK=//div[contains(@id,'messagebox')]//button
+OCR.xpath.AlertOk=//div[contains(@id,'messagebox')]//button
+
+OCR.xpath.AddreportingEntity=//div[@id='ocrFcmSelectionGrid']//button
+OCR.xpath.SaveReportingEntity=//div[@id='mdeMultiSelectAddFcm']//span[contains(text(),'Save')]
+MCPM.xpath.FCMCheckBox=//label[contains(text(),'FCM')]/parent::div//div/input
+OCR.xpath.SaveOCRDetails=//div[2]/div[2]/div[2]/div/div/em/button
+#//div[@id='mde.addEntityDialog-embedded-center']/div//div[@role='form'][2]//span[contains(text(),'Save')]/parent::button
+OCR.xpath.mandatory=//input[contains(@data-errorqtip,'This field is required')]
+OCR.xpath.ControllerInfomandatory=//div[@class='x-panel x-panel-default mdeContainerMandatory']
+OCR.xpath.Controllermandatory=//div[@id='addControllerTypeDialog']//input[contains(@data-errorqtip,'This field is required')]
+OCR.xpath.ControllerCancel=//div[@id='addControllerTypeDialog']//img[@class='x-tool-close']
+OCR.xpath.OCRNav=//div[contains(text(),'CFTC Ownership & Control Reporting')]
+#######################################OCR Match##################
+OCRMatch.xpath.EntityInfoTab=//span[contains(text(),'Entity Information- Ownership & Control Reporting')]
+OCRMatch.xpath.ControllerInfoTab=//span[contains(text(),'Legal Entity Contact & Controller Information')]
+OCRMatch.name.PhoneFilter=fltPhone
+OCRMatch.xpath.ApplyFilerLegalEntity=//div[2]/div[2]/div/div/div/div/em/button
+OCRMatch.xpath.ConttrollerApplyFilter=//div[3]/div[2]/div/div/div/div/em/button
+#
+OCRMatch.xpath.EntityInfoTableRow=//div[@id='mde_appOcrPanel']//table//tr[2]//td
+OCRMatch.name.EntityFilter=fltLegalEntityName
+OCRMatch.xpath.RelationShipName=//div[3]/div[2]/div/div[2]/div[2]/div/input
+OCRMatch.name.FirstNameFilter=fltFname
+OCRMatch.xpath.ControllerTableRow=//div[contains(@id,'tabpanel')]/div[2]/div[2]/div[2]//table//tbody//tr//td
+OCRMatch.xpath.DownloadOCRInfo=//span[contains(text(),'Download all OCR Information')]
+OCRMatch.xpath.DownloadLEandControllerInfo=//span[contains(text(),'Download Legal Entity Contact & Controller Information')]
+OCRMatch.xpath.ApplyFileterEntityInfo=//span[@class='x-btn-icon mde-ApplyFilter']
+OCRMatch.xpath.EditEntityInfo=//span[contains(text(),'Edit')]
+OCRMatch.xpath.SelectAllEntityInfo=//div[contains(@id,'gridcolumn')]/div/span
+OCRChevron.xpath.Save=//div[@id='mde.addEntityDialog-embedded-center']/div/div/div[2]//span[contains(text(),'Save')]
+OCRChevron.xpath.SaveOk=//div[contains(@id,'messagebox')]/div[3]//button
+OCRChevron.xpath.Exit=//div[@id='mde.addEntityDialog-embedded-center']/div/div/div[2]//span[contains(text(),'Exit')]
+OCRChevron.xpath.EditOnControllerInfo=//div[contains(@id,'tabpanel')]/div[2]/div[2]/div/div/div[2]//button
+OCRChevron.xpath.ContollerDialog=//div[@id='controllerFieldsDialog']
+OCRChevron.xpath.SelectAllController=//div[contains(@id,'tabpanel')]/div[2]/div[2]/div[4]/div/div/div/span
+OCRMatch.xpath.TableRow=//div[@id='mde_appOcrPanel']//table//tr[2]//td
+OCRMatch.xpath.SaveEditController=//div[@id='controllerFieldsDialog']//button
+OCRMatch.xpath.SaveEditControllerOK=//div[contains(@id,'messagebox')]/div[3]//button
+OCRMatch.xpath.ControllerNPFName=//div[@id='controllerFieldsDialog']//input[@name='ocrFname']
+OCRMatch.xpath.ControllerNPCountry=//div[@id='controllerFieldsDialog']//input[@name='ocrCountry']
+OCRMatch.xpath.Add=//div[2]/div[2]/div/div/div/em/button
+OCRMatchAdd.xpath.ControlerLE=//div[@id='addControllerTypeDialog']//div[contains(@id,'radiofield')]
+
+OCRMatchAdd.xpath.CLEName=//div[@id='addControllerTypeDialog']//input[@name='ocrControllerLegalName']
+OCRMatchAdd.xpath.CLEAddress=//div[@id='addControllerTypeDialog']//input[@name='ocrAdr1']
+OCRMatchAdd.xpath.CLEEmail=//div[@id='addControllerTypeDialog']//input[@name='ocrEmail']
+OCRMatchAdd.xpath.CLEFName=//div[@id='addControllerTypeDialog']//input[@name='ocrFname']
+OCRMatchAdd.xpath.CLELName=//div[@id='addControllerTypeDialog']//input[@name='ocrLname']
+OCRMatchAdd.xpath.CLERelOwner=//div[@id='addControllerTypeDialog']//input[@name='ocrControllerRelationshipToOwner']
+OCRMatchAdd.xpath.CLELEI=//div[@id='addControllerTypeDialog']//input[@name='ocrControllerLei']
+OCRMatchAdd.xpath.CLECity=//div[@id='addControllerTypeDialog']//input[@name='ocrCity']
+OCRMatchAdd.xpath.CLEState=//div[@id='addControllerTypeDialog']//input[@name='ocrState']
+OCRMatchAdd.xpath.CLEZip=//div[@id='addControllerTypeDialog']//input[@name='ocrZip']
+OCRMatchAdd.xpath.CLEPhone=//div[@id='addControllerTypeDialog']//input[@name='ocrPhone']
+OCRMatchAdd.xpath.CLECountry=//div[@id='addControllerTypeDialog']//input[@name='ocrCountry']
+OCRMatchAdd.xpath.CLEJobTitle=//div[@id='addControllerTypeDialog']//input[@name='ocrJobTitle']
+OCRMatchAdd.xpath.CLERelToCon=//div[@id='addControllerTypeDialog']//input[@name='ocrContactRelationshipTo']
+OCRMatchAdd.xpath.CLEPhone2=//div[@id='addControllerTypeDialog']//input[@name='ocrContactPhone']
+OCRMatchAdd.xpath.CLEEmail2=//div[@id='addControllerTypeDialog']//input[@name='ocrContactEmail']
+OCRMatchAdd.xpath.CNPCheckBox=//label[contains(text(),'Controller - Natural Person')]
+
+OCRMatchAdd.xpath.CNPFName=//div[@id='addControllerTypeDialog']//input[@name='ocrFname']
+OCRMatchAdd.xpath.CNPLName=//div[@id='addControllerTypeDialog']//input[@name='ocrLname']
+OCRMatchAdd.xpath.CNPRelToOwner=//div[@id='addControllerTypeDialog']//input[@name='ocrControllerRelationshipToOwner']
+OCRMatchAdd.xpath.CNPJobTitle=//div[@id='addControllerTypeDialog']//input[@name='ocrJobTitle']
+OCRMatchAdd.xpath.CNPAddress=//div[@id='addControllerTypeDialog']//input[@name='ocrAdr1']
+OCRMatchAdd.xpath.CNPEmail=//div[@id='addControllerTypeDialog']//input[@name='ocrEmail']
+OCRMatchAdd.xpath.CNPEmployeeName=//div[@id='addControllerTypeDialog']//input[@name='ocrEmployerName']
+OCRMatchAdd.xpath.CNPCity=//div[@id='addControllerTypeDialog']//input[@name='ocrCity']
+OCRMatchAdd.xpath.CNPState=//div[@id='addControllerTypeDialog']//input[@name='ocrState']
+OCRMatchAdd.xpath.CNPZip=//div[@id='addControllerTypeDialog']//input[@name='ocrZip']
+OCRMatchAdd.xpath.CNPPhone=//div[@id='addControllerTypeDialog']//input[@name='ocrPhone']
+OCRMatchAdd.xpath.CNPCountry=//div[@id='addControllerTypeDialog']//input[@name='ocrCountry']
+OCRMatchAdd.xpath.CNPCountryOption=//ul/li[contains(text(),'Algeria')]
+
+OCRMatchAdd.xpath.LECCheckBox=//label[contains(text(),'Legal Entity Contact')]
+OCRMatchAdd.xpath.LECFName=//div[@id='addControllerTypeDialog']//input[@name='ocrFname']
+OCRMatchAdd.xpath.LECLName=//div[@id='addControllerTypeDialog']//input[@name='ocrLname']
+OCRMatchAdd.xpath.LECJobTitle=//div[@id='addControllerTypeDialog']//input[@name='ocrJobTitle']
+OCRMatchAdd.xpath.LECContactReltoOwner=//div[@id='addControllerTypeDialog']//input[@name='ocrContactRelationshipTo']
+OCRMatchAdd.xpath.LECPhone=//div[@id='addControllerTypeDialog']//input[@name='ocrContactPhone']
+OCRMatchAdd.xpath.LECEmail=//div[@id='addControllerTypeDialog']//input[@name='ocrContactEmail']
+
+OCRMatchAdd.xpath.Save=//div[@id='addControllerTypeDialog']//span[contains(text(),'Save')]
+OCRMatchAdd.xpath.SaveOK=//span[contains(text(),'OK')]
+
+
+OCRChevron.xpath.SelectFromExisting=//u[contains(text(),'Select from existing profiles')]
+OCRChevron.xpath.SelectDialog=//div[@id='ExistingControllerOrContactDialog']
+OCRChevron.xpath.SelectFromExistingController=//a[@onclick='showExistingControllers()']
+OCRChevron.xpath.DeletedControllerName=//a[contains(@onclick,'deleteFormPanel')]//parent::span
+OCRChevron.xpath.DeletedLink=//a[contains(@onclick,'deleteFormPanel')]
+OCRChevron.xpath.DeletedOK=//span[contains(text(),'OK')]
+OCRChevron.xpath.ok=//span[contains(text(),'OK')]
+OCRChevron.xpath.Yes=//span[contains(text(),'Yes')]
+OCRChevron.name.ControllerLEName=ocrControllerLegalName
+OCRChevron.xpath.CName=//input[@name='ocrFname']
+OCRMatch.xpath.ClearFilterLE=//div[2]/div[2]/div/div/div/div[2]/em/button
+OCRMatch.xpath.ClearFilterController=//div[3]/div[2]/div/div/div/div[2]/em/button
+OCRChevron.xpath.OKDelete=//div[contains(@id,'messagebox')]//button
+OCRMatch.xpath.FNameFiter=//div[@id='mde_appOcrPanel']//div[@class='x-panel mde-nav-big-title x-fit-item x-panel-default'][2]//div[2]/div/div[2]/div[3]//input
+OCRChevron.xpath.OkWarning=//div[contains(@id,'messagebox-')]//button
+OCRChevron.xpath.RefreshController=//div[2]/div[2]/div[3]/div/div[11]/em/button
+
+
+#-----------------------------VM------------------------------------------------
+VM.xpath.IsdaAmendMenu=//span[contains(text(),'ISDA Amend')]
+VM.xpath.VMMenu=//a[contains(text(),'Variation Margin')]
+VM.xpath.VMPageinationDropDown=//select[@ng-options='i for i in items']
+VM.xpath.VMApplyQuestionnaireLink=//span[contains(text(),'Apply Questionnaire')]/preceding-sibling::span
+VM.xpath.VMActions=//button[contains(text(),'Actions')]//div[@class='dd-icon dd-icon-arrow-down']
+VM.xpath.ApplyQuestionnaire=//a[contains(text(),'Apply Questionnaire')]
+VM.xpath.SelectAll=//a[contains(text(),'Select All')]
+VM.xpath.ApplyButton=//button[@class='btn btn-square btn-submit']
+VM.xpath.ConfirmButton=//button[@class='btn btn-square btn-submit']
+VM.xpath.TableContent=//div[@id='dd-grid-id-1']//table//tr[@class='dd-grid-row dd-grid-body-row ng-scope']
+
+VM.xpath.CurrentPage=//input[@ng-model='currentPage']
+VM.xpath.TotalCountofPage=//span[@ng-bind='pages']
+VM.css.Nextpage=div.nav.next
+VM.xpath.ProcessingDataOk=//div[@class='modal-dialog ']//div[2]//button
+
+VM.xpath.CurrentPage=//input[@ng-model='currentPage']
+VM.xpath.TotalCountofPage=//span[@ng-bind='pages']
+VM.css.Nextpage=div.nav.next
+VM.xpath.ProcessingDataOk=//div[@class='modal-dialog ']//div[2]//button
+
+###########PEGA Accept
+PEGAAccept.xpath.verifyTaskRaisedSME=//div[contains(text(),'Status: Pending Approval')]
+#PEGAAccept.xpath.Approval=//img[contains(@name,'ItemList')and contains(@name,'_10')]
+PEGAAccept.xpath.Approval=//img[contains(@name,'KYCTypes')and contains(@name,'_10')]
+PEGAAccept.xpath.LinksForTab=//span[contains(@class,'kyclinklabel')]
+
+
+#############KYC Dashbord filters
+KYCDashboradFilter.xpath.TaskState=//div[contains(text(),'Task State')]/parent::div//button
+KYCDashboradFilter.xpath.TaskStateOpen=//div[@class='checklist filter-popup']//span[contains(text(),'Open')]/parent::label//i
+KYCDashboradFilter.xpath.PleaseConfirmCheckbox=//span[contains(text(),'Please confirm this is a certified true copy.')]
+
+PEGAAccept.xpath.verifyTaskRaisedCO=//div[contains(text(),'Status: Client Response Received')]
+
+PEGAAccept.xpath.verifyTaskRaisedFinalSME=//div[contains(text(),'Status: Client Response Accepted')]
+PEGAAccept.xpath.acceptFinal=//img[contains(@src,'empty')]/following::a[contains(text(),'Accept')][1]
+
+#PEGAAccept.prop.acceptFinalSME=//img[contains(@src,'empty')and contains(@src,'bulkoutreachrequest')]/following::a[contains(text(),'Accept')]
+PEGAAccept.prop.acceptFinalSME=//div[contains(text(),'Status: Client Response Accepted')]/following::a[contains(text(),'Accept')]
+
+
+PEGACases.xpath.AttributePerTab=//div[@data-node-id='KYCTypeCompletionStatus']//div[@class='field-item dataValueRead']/span
+
+###############################Outreach Questionnaire
+OutreachQuestionnaire.xpath.Header=//h2[contains(text(),'Outreach Questionnaire')]
+OutreachQuestionnaire.xpath.EntityInformation=//span[contains(text(),'WHAT NAME IS YOUR ENTITY TRADING AS')]/parent::label/parent::div//input
+OutreachQuestionnaire.xpath.Submit=//div[@class='button-container']//button
+
+#####################Admin potal#########################
+AdminPotal.xpath.LogOut=//a[contains(text(),'Log out')]
+AdminPotal.xpath.BatchesTab=//a[@href='#batches']
+AdminPotal.xpath.BatchesTabActions=//button[contains(text(),'Actions')]
+AdminPotal.xpath.BatchesTabUpload=//a[contains(text(),'Upload Entity Template')]
+AdminPotal.xpath.BatchesTabChoose=//form//input[@type='file']
+AdminPotal.xpath.BatchesTabSubmit=//button[contains(text(),'Submit')]
+
+
+
+##############PEGA
+PEGA.xpath.CurrentTab=//div[@id='PEGA_GRID2']//table//table//tbody//td[@class='gridCell    gridCellSelected']//span[contains(@class,'kyclinklabel')]
+PEGACase.xpath.CloseTheCase=//ul[contains(@id,'pyNavigation')]/li[7]/a//span[contains(text(),'Close')]
+PEGACase.xpath.CloseOption=//div[@node_name='pyOverlayTemplate']//table//tbody//div[contains(text(),'Close')]
+PEGA.xpath.CurrentTab=//table[@id='bodyTbl_right']//tbody//tr//td[@class='gridCell    gridCellSelected']//span[contains(@class,'kyclinklabel16')]
+
+
+
+######################SDL
+MCPMSDL.xpath.GridLeftTableHeaders=//div[@class='dd-grid']//div[@class='dd-grid-part dd-grid-part-left']//table//thead/tr//th
+MCPMSDL.xpath.GridLeftTableRows=//div[@class='dd-grid']//div[@class='dd-grid-part dd-grid-part-left']//table//tbody//tr
+
+MCPMSDL.xpath.GridRightTableHeaders=//div[@class='dd-grid']//div[@class='dd-grid-part dd-grid-part-right']//table//thead//tr//th
+MCPMSDL.xpath.GridRightTableRows=//div[@class='dd-grid']//div[@class='dd-grid-part dd-grid-part-right']//table//tbody//tr
+
+MCPMSDL.xpath.GridCentreTableMainHeaders=//div[@class='dd-grid-part dd-grid-part-middle dd-grid-scrollable']//table//thead//tr//th[contains(@class,'ng-scope dd-grid-header-cell_group_header')]
+MCPMSDL.xpath.GridCentreTableSubHeaders=//div[@class='dd-grid-part dd-grid-part-middle dd-grid-scrollable']//table//thead//th[contains(@class,'ng-scope dd-grid-header-cell_group_child')]
+MCPMSDL.xpath.GridCentreTableRows=//div[@class='dd-grid']//div[@class='dd-grid-part dd-grid-part-middle dd-grid-scrollable']//table//tbody//tr
+MCPMSDL.xpath.GridCentreTableClass=//span[contains(@ng-class,'icon-data-completed-and-shared')]
+MCPMSDL.xpath.GridCentreTableClassForReceiver=//span[contains(@class,'received ng-scope')]
+MCPMSDL.xpath.EntityLink=//td[contains(@class,'column-TRUE_LEGAL_NAME')]//a
+MCPMSDL.xpath.BackToDashBoard=//a[@ng-bind='entityDetails.previousScreenerName']
+MCPMSDL.xpath.EntityScreenerTab=//p[contains(text(),'Entity Screener')]
+MCPMSDL.xpath.SDLProducerTab=//p[contains(text(),'SDL Producer')]
+
+MCPMProducer.xpath.CAOSFIicon=//div[@class='dd-grid']//div[@class='dd-grid-part dd-grid-part-middle dd-grid-scrollable']//table//tbody//tr[1]//td[contains(@class,'CA_OFSI_ENTITY')]/div
+MCPMProducer.xpath.CAAANAicon=//div[@class='dd-grid']//div[@class='dd-grid-part dd-grid-part-middle dd-grid-scrollable']//table//tbody//tr[1]//td[contains(@class,'CA_AANA')]/div
+MCPMProducer.xpath.CARelicon=//div[@class='dd-grid']//div[@class='dd-grid-part dd-grid-part-middle dd-grid-scrollable']//table//tbody//tr[1]//td[contains(@class,'CA_REL')]/div
+MCPMProducer.xpath.EURelicon=//div[@class='dd-grid']//div[@class='dd-grid-part dd-grid-part-middle dd-grid-scrollable']//table//tbody//tr[1]//td[contains(@class,'EU_REL')]/div
+MCPMProducer.xpath.JPRelicon=//div[@class='dd-grid']//div[@class='dd-grid-part dd-grid-part-middle dd-grid-scrollable']//table//tbody//tr[1]//td[contains(@class,'JP_REL')]/div
+MCPMProducer.xpath.USRelicon=//div[@class='dd-grid']//div[@class='dd-grid-part dd-grid-part-middle dd-grid-scrollable']//table//tbody//tr[1]//td[contains(@class,'US_REL')]/div
+#################################Regulatory chevron
+MCPMEntity.xpath.RegulatoryChevronTab=//div[contains(text(),'Regulatory')]
+RegulatoryChevron.xpath.LEI=//div[2]/div[2]/div/div/div/div[2]/div/div/div/div/div/div/input
+RegulatoryChevron.xpath.Defocus=//i[contains(text(),'Select the regulatory action that you wish to perform')]
+RegulatoryChevron.xpath.AddButton=//span[contains(text(),'ADD')]
+RegulatoryChevron.xpath.CPNameInput=//label[contains(text(),'Counterparty Name:')]/parent::div//input
+RegulatoryChevron.xpath.CPSaveButton=//span[@class='x-btn-icon mde-Save']/parent::button
+RegulatoryChevron.xpath.OkSaveButton=//div[contains(@id,'messagebox')]//button//span[contains(text(),'OK')]
+RegulatoryChevron.xpath.SelectAllCheckBox=//span[contains(text(),'CounterParty Name')]/parent::div/parent::div/preceding-sibling::div//div//span
+RegulatoryChevron.xpath.ApplyRegulations=//span[contains(text(),'Apply Regulations')]
+RegulatoryChevron.xpath.SDLCheckBox=//label[contains(text(),'Self Disclosure Letter')]
+RegulatoryChevron.xpath.SaveCheckBox=//div[@id='mde-apply-remove-regulations']//button
+RegulatoryChevron.xpath.OkCPSave=//span[contains(text(),'OK')]
+RegulatoryChevron.xpath.SaveRegDetailsButton=//div[@id='mde.addEntityDialog-embedded-center']//div[contains(@id,'form')][2]//div[contains(@class,'x-toolbar x-toolbar-footer')]//button
+RegulatoryChevron.xpath.SaveOkButton=//span[contains(text(),'OK')]
+RegulatoryChevron.xpath.ExitRegPage=//div[@id='mde.addEntityDialog-embedded-center']//div[contains(@id,'form')][2]//div[contains(@class,'x-toolbar x-toolbar-footer')]//div[2]//button
+RegulatoryChevron.xpath.CPEntitiesNameRow=//div[@id='mde-adv-dialog_for_isda']//table//tbody//tr[contains(@class,'x-grid-row')]
+RegulatoryChevron.xpath.CPDialogBoxNextEnabled=//div[@id='mde-adv-dialog_for_isda']//div[contains(@id,'pagingtoolbar')]//button[@data-qtip='Next Page']/parent::em/parent::div
+RegulatoryChevron.xpath.CPDialogBoxNext=//div[@id='mde-adv-dialog_for_isda']//div[contains(@id,'pagingtoolbar')]//button[@data-qtip='Next Page']
+RegulatoryChevron.xpath.CheckPageDisabled=//div[@id='mde-adv-dialog_for_isda']//div[contains(@id,'pagingtoolbar')]//div[2]//div[8]//button
+###########SDL
+SDLquestionnaire.xpath.CentreGridTable=//div[@class='dd-grid-part dd-grid-part-middle dd-grid-scrollable']/div/table//thead//tr//th
+SDLquestionnaire.xpath.CentreGridRows=//div[@class='dd-grid-part dd-grid-part-middle dd-grid-scrollable']/div/table//tbody//tr
+SDLquestionnaire.xpath.LeftGridTable=//div[@class='dd-grid-part dd-grid-part-left']//table//thead//tr//th
+SDLquestionnaire.xpath.LeftGridRows=//div[@class='dd-grid-part dd-grid-part-left']//table//tbody//tr
+SDL.xpath.SDLMenu=//a[contains(text(),'Self Disclosure')]
+SDL.xpath.Filters1=//div[contains(text(),'
+SDL.xpath.Filters2=')]/parent::div//dd-filter-search//div//div
+SDL.xpath.FiltersInput=//div[@class='form-control filter input ng-isolate-scope open']//div[@class='dd-filter-input']//input
+SDL.xpath.FilterCheckbox=//div[@class='dd-filter-body']//div[@class='dd-filter-option_caption dd-pointer']//span
+#//div[@class='dd-filter-body']//dd-dumb-checkbox//span//span
+SDL.xpath.DefocusFilter=//div[@class='page-subheader-section ng-scope']
+SDL.xpath.NumberofTDforRedDots=//div[@class='dd-grid-part dd-grid-part-middle dd-grid-scrollable']/div/table//tbody//tr//td
+
+
+##################SDL###########################################
+
+###General Reg
+
+SDLGR.xpath.SelectCountryDropDown=//div[@class='option ui-select-choices-row-inner']/div
+SDLGR.xpath.clickMultibranchDD=//td[@question-caption='Is the Principal a Multibranch Entity?']/following::div[@class='ui-select-match']
+SDLEntity.xpath.SaveButton=//div[@id='qo']/questionnaire-poc/div/questionnaire-nav//div[contains(text(),'Save')]
+SDLEntity.xpath.clickDropDown=//div[@class='ui-select-match']
+SDLEntity.xpath.selectOption=//div[@class='option ui-select-choices-row-inner']/div[contains(text(),'
+SDLGR.xpath.name=//td[@question-caption='Name']/following::input
+SDLGR.xpath.email=//td[@question-caption='Email']/following::input
+SDLGR.xpath.phone=//td[@question-caption='Phone']/following::input
+
+#### US
+SDL.xpath.USlink=//span[contains(text(),'US')]
+SDLUS.xpath.cftcEntStatus=//td[@question-caption='CFTC Entity Status']/following::div[@class='ui-select-match']
+SDLUS.xpath.cftcCrossBorder=//td[@question-caption='CFTC Cross Border Status - General']/following::div[@class='ui-select-match']
+SDLUS.xpath.prEntStatus=//td[@question-caption='PR Entity Status']/following::div[@class='ui-select-match']
+SDLUS.xpath.prCrossBorder=//td[@question-caption='PR Cross Border Status - General']/following::div[@class='ui-select-match']
+SDLUS.xpath.swapHedgExRep=//td[@question-caption='Swap Hedging Exemption Reporting']/following::div[@class='ui-select-match']
+SDLUS.xpath.isAANA=//td[@question-caption='Is Principal a member of a US AANA Group?']/following::div[@class='ui-select-match']
+SDLUS.xpath.AANAthreshold=//td[@question-caption='2016 US AANA Threshold']/following::div[@class='ui-select-match']
+SDLUS.xpath.hedgingExStatus=//input[@type='checkbox' and @value='
+SDLUS.xpath.SECIssuer=//td[contains(@question-caption,'SEC Issuer')]/following::div[@class='ui-select-match']
+SDLUS.xpath.SECCentralIndKey=//div[@class='dd-expandable-item ng-isolate-scope opened'][3]//div[2]//table//tbody//table//tbody//tr/td//div[8]//table//tbody//tr//td[2]//input
+SDLUS.xpath.BoardApproval=//td[contains(@question-caption,'Board Approval')]/following::div[@class='selectize-input']
+
+SDLAANA.xpath.legalName=//td[@question-caption='Legal Name']/following::input
+SDLAANA.xpath.EntId=//td[@question-caption='Entity Identifier']/following::input
+SDL.xpath.AANAthreshold=//td[contains(@question-caption,'AANA Threshold')]/following::div[@class='ui-select-match']
+
+##### CA
+SDL.xpath.CAlink=//div[@id='qo']//table[@class='questionnaire-tab ng-scope']//span[contains(text(),'CA')]
+SDLCA.xpath.isDomesticFRFI=//td[@question-caption='Is Principal a Domestic FRFI?']/following::div[@class='ui-select-match']
+SDLCA.xpath.CAbranchFRFI=//td[@question-caption='Does Principal have a Canada Branch FRFI']/following::div[@class='ui-select-match']
+SDLCA.xpath.isCoveredEnt=//td[@question-caption='Is Principal a Covered Entity?']/following::div[@class='ui-select-match']
+SDLCA.xpath.isAANA=//td[@question-caption='Is Principal a member of a Canada AANA Group?']/following::div[@class='ui-select-match']
+SDLCA.xpath.AANAthreshold=//td[@question-caption='2016 Canada AANA Threshold']/following::div[@class='ui-select-match']
+
+SDLEntity.xpath.closeAfterSave=//button[@class='close-item']
+
+##### EU
+SDL.xpath.EUlink=//span[contains(text(),'EU')]
+SDLEU.xpath.princEntType=//td[contains(@question-caption,'Entity Type')]/following::div[@class='ui-select-match']
+SDLEU.xpath.thirdCountryEnt=//td[@question-caption='EU Cross Border Status - Third Country Entity']/following::div[@class='ui-select-match']
+SDLEU.xpath.isAANA=//td[@question-caption='Is Principal a member of a EU AANA Group?']/following::div[@class='ui-select-match']
+SDL.xpath.thresholdEstimate=//td[contains(@question-caption,'Threshold Estimate')]/following::div[@class='ui-select-match']
+SDL.xpath.thresholdEstimateValueDropDown=//div[@class='ui-select-choices-content selectize-dropdown-content']
+
+SDLEU.xpath.typeofEUEntity=//input[@type='checkbox' and @value='
+###### JP
+SDL.xpath.JPlink=//div[@id='qo']/questionnaire-poc/div/questionnaire-nav//span[contains(text(),'JP')]
+SDLJP.xpath.entityOrgJP=//td[contains(@question-caption,'Are you an entity')]/following::div[@class='ui-select-match']
+SDLJP.xpath.principalSt=//td[contains(@question-caption,'status for Japan Margin Requirements')]/following::div[@class='ui-select-match']
+SDLJP.xpath.isAANA=//td[contains(@question-caption,'Is Principal a member of a Japan AANA Group')]/following::div[@class='ui-select-match']
+
+####### CH
+SDL.xpath.CHlink=//*[@id='qo']/questionnaire-poc/div/questionnaire-nav/table/tbody/tr[1]/td[1]/span[contains(text(),'CH')]
+SDLCH.xpath.FMIAexemptEnt=//input[@type='checkbox' and @value='
+SDLCH.xpath.principalEntType=//td[contains(@question-caption,'Entity Type')]/following::div[@class='ui-select-match']
+SDLCH.xpath.FMIAthirdcountryEnt=//td[contains(@question-caption,'Third Country Entity')]/following::div[@class='ui-select-match']
+SDLCH.xpath.isAANA=//td[contains(@question-caption,'FMIA AANA Group')]/following::div[@class='ui-select-match']
+
+######## Threshold Address
+SDLAANA.xpath.legalName=//td[@question-caption='Legal Name'][1]/following::input[1]
+SDLAANA.xpath.EntId=//td[@question-caption='Entity Identifier'][1]/following::input[1]
+SDLThres.xpath.addr=//td[@question-caption='Address'][1]/following::input[1]
+SDLThres.xpath.addr2=//td[@question-caption='Second Address'][1]/following::input[1]
+SDLThres.xpath.city=//td[@question-caption='City/Town'][1]/following::input[1]
+SDLThres.xpath.state=//td[@question-caption='State/Region'][1]/following::input[1]
+SDLThres.xpath.zip=//td[@question-caption='Post Code/ZIP'][1]/following::input[1]
+SDLThres.xpath.country=//td[@question-caption='Country'][1]/following::input[1]
+
+####### Questionnaire library
+SDL.xpath.QuestLibrary=//a[contains(text(),'Questionnaire Library')]
+SDL.xpath.AddQuest=//span[contains(text(),'Add Questionnaire')]
+SDL.xpath.SDLQuest=//a[contains(text(),'Self Disclosure Letter')]
+SDL.xpath.QuestRefName=//td[contains(text(),'Reference Name')]/following::input
+SDL.xpath.QuestJurisdName=//select[@name='questionnaireJurisdiction ']
+SDL.xpath.selectCAQuest=//option[@label='Canada']
+SDL.xpath.selctEUQuest=//option[@label='European Union']
+SDL.xpath.selectJPQuest=//option[@label='Japan']
+SDL.xpath.selectUSQuest=//option[@label='United States']
+SDL.xpath.CompleteQuest=//button[contains(text(),'Complete')]                
+SDLQuest.xpath.selectRadioButton=//input[@type='radio' and @value='
+
+SDLJP.xpath.selectHORadioBtn=//td[contains(@question-caption,'Are the Head office and')]/following::input[@value='
+
+########### Authorised Sig
+SDL.xpath.AS=//a[contains(text(),'Authorised Signatory')]
+SDL.xpath.AddSignatory=//span[contains(text(),'Add Signatory')]
+SDL.xpath.ASname=//td[contains(text(),'Name')]/following::input
+SDL.xpath.AStitle=//td[contains(text(),'Title')]/following::input
+SDL.xpath.ASactingAs=//td[contains(text(),'Acting As')]/following::div[@class='ui-select-match']
+SDL.xpath.ASinstitution=//td[contains(text(),'Institution')]/following::input
+SDL.xpath.ASactingAsOptionSelect=//div[contains(text(),'
+SDL.xpath.AStrueLegalFilter=//div[contains(text(),'LEGAL NAME')]/following::span[contains(text(),'All')]
+SDL.xpath.AStrueLegalSearchBox=//input[contains(@placeholder,'LEGAL NAME')]
+SDL.xpath.AStrueLegalChkBox=//span[@title='
+SDL.xpath.AStruelegalChkBox2=']/preceding::span[@class='icon16']
+SDL.xpath.ASselectEntityChkBox=//span[@class='checkbox_icon active']
+SDL.xpath.ASsave=//button[contains(text(),'Save & Exit')]
+SDL.xpath.ASclickAnywhere=//div[@class='tab dashboard-tabs-container']
+
+SDL.xpath.StatusFilter=//div[@title='STATUS']/following::span[@class='dd-truncate ng-binding'][2]
+
+######### Actions--> Add Rel to Questionnaire
+SDLProd.xpath.ActionsButton=//span[contains(text(),'Actions')]
+SDLProd.xpath.AddRelQuest=//a[contains(@class,'action-menu-item') and contains(text(),'Add Rel Questionnaire')]
+SDLAddQuest.xpath.CADD=//p[contains(text(),'Canada')]/following::select
+SDLAddQuest.xpath.EUDD=//p[contains(text(),'European Union')]/following::select
+SDLAddQuest.xpath.JPDD=//p[contains(text(),'Japan')]/following::select
+SDLAddQuest.xpath.USDD=//p[contains(text(),'United States')]/following::select
+
+SDLAddQuest.xpath.selectQuest=//option[@label='
+SDLAddQuest.xpath.ApplyQuest=//button[contains(text(),'Apply')]
+SDLAddQuest.xpath.Yesbutton=//button[contains(text(),'Yes')]
+SDL.xpath.ProcessingDataPopUp=//button[contains(text(),'Ok')]
+SDLProd.xpath.CheckBox=//span[@class='checkbox_icon active']
+
+SDLProd.xpath.SignShare=//a[contains(text(),'Sign & Share')]
+SDLProd.xpath.Unshare=//a[contains(text(),'Unshare')]
+
+SDLsignshare.xpath.ShareButton=//button[contains(text(),'Share')]
+SDLsignshare.xpath.UnshareButton=//button[contains(text(),'Unshare')]
+SDLsignshare.xpath.CAOSFI=//div[contains(text(),'Canada')]/following::p[contains(text(),'OSFI Entity')]
+SDLsignshare.xpath.CAAANA=//div[contains(text(),'Canada')]/following::p[contains(text(),'AANA')]
+SDLsignshare.xpath.EUentity=//div[contains(text(),'European Union')]/following::p[contains(text(),'Entity')]
+SDLsignshare.xpath.EUAANA=//div[contains(text(),'European Union')]/following::p[contains(text(),'AANA')]
+SDLsignshare.xpath.JPEntity=//div[contains(text(),'Japan')]/following::p[contains(text(),'Entity')]
+SDLsignshare.xpath.JPAANA=//div[contains(text(),'Japan')]/following::p[contains(text(),'AANA')]
+SDLsignshare.xpath.CHEntity=//div[contains(text(),'Switzerland')]/following::p[contains(text(),'FMIA Entity')]
+SDLsignshare.xpath.CHAANA=//div[contains(text(),'Switzerland')]/following::p[contains(text(),'AANA')]
+SDLsignshare.xpath.USCFTC=//div[contains(text(),'United States')]/following::p[contains(text(),'CFTC')]
+SDLsignshare.xpath.USPR=//div[contains(text(),'United States')]/following::p[contains(text(),'PR')]
+SDLsignshare.xpath.USswap=//div[contains(text(),'United States')]/following::p[contains(text(),'Swap')]
+SDLsignshare.xpath.USAANA=//div[contains(text(),'United States')]/following::p[contains(text(),'AANA')]
+
+SDL.xpath.ClearFilters=//button[contains(text(),'Clear filters')]
+
+SDl.xpath.DashboardLink=//a[contains(text(),'Dashboard')]
+SDL.xpath.ProducerLink=//span[contains(text(),'Self Disclosure Producer')]
+SDL.xpath.ExportLink=//button[contains(text(),'Export Results')]
+##############################Self Disclosure Jurisdictions
+SDLNav.xpath.DashboardButton=//a[contains(text(),'Dashboard')]
+SDLNav.xpath.SelfDisclosureJurisdictions=//ul[@class='nav']//ul//li//span[contains(text(),'Self Disclosure Jurisdictions')]
+SDLNav.xpath.SelfDisclosureReceiver=//ul[@class='nav']//ul//li//span[contains(text(),'Self Disclosure Receiver')]
+SDLJurRequired.xpath.EditButton=//button[contains(text(),'Edit')]
+SDLJurRequired.xpath.EditCheckBox1=//td[contains(@class,'column-
+SDLJurRequired.xpath.EditCheckBox2=')]//span
+SDLJurRequired.xpath.SaveAndSubmit=//button[contains(text(),'Save & Submit')]
+SDLJurRequired.xpath.RedIcons=//div[@class='dd-grid-part dd-grid-part-middle dd-grid-scrollable']//table//tbody//tr//td//div[contains(@class,'icon-red-dot-small')]
+SDLJurRequired.xpath.RedIconsPath1=//div[@class='dd-grid-part dd-grid-part-middle dd-grid-scrollable']//table//tbody//tr//td[
+SDLJurRequired.xpath.RedIconsPath2=]//div[contains(@class,'icon-red-dot-small')]/parent::td
+SDLJurRequired.xpath.CentreTableCols=//table//tbody//tr//td[contains(@class,'ng-scope scr-col-centered ')]
+SDLJurRequired.xpath.Request1=//table//tbody//tr//td[contains(@class,'ng-scope scr-col-centered')][
+SDLJurRequired.xpath.Request2=]//span[contains(@class,'rs-icon-checkbox__checked')]/parent::td
+SDLJurRequired.xpath.SaveAndSubmit=//button[contains(text(),'Save & Submit')]
+
+
+###################sign and share
+SDLSignAndShare.xpath.Blocks=//div[@class='popup-sign-share_jurisdicdictions_block ng-scope']
+SDLSignAndShare.xpath.CountryName=//div[@class='popup-sign-share_jurisdicdictions_jurisdticion ng-binding']
+SDLSignAndShare.xpath.JurisdticionModule=//div[contains(@class,'jurisdticion_module')]
+SDLSignAndShare.xpath.JurisdticionModuleText=//p
+
+SDL.xpath.CounterpartyManager=//a[contains(text(),'Counterparty Manager')]
+
+SDLFilter.xpath.CPTrueLegalName=//div[contains(text(),'Cpty True Legal Name')]/parent::div//div[@class='dropdown-menu']//div[@class='dd-filter-body']//span[@class='dd-input checkbox']//span
+SDLFilter.xpath.ClearFilter=//button[contains(text(),'Clear filters')]
+SDL.xpath.ExportResult=//div[@class='screener-actions-container row ng-scope']//table//button[contains(text(),'Export Results')]
+SDL.xpath.FilteredRelCount=//div[@class='combined-screeener-title ng-scope']//h1[2]//span[@class='ng-binding firepath-matching-node']

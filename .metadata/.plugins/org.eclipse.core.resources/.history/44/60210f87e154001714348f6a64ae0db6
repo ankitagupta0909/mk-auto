@@ -1,0 +1,14 @@
+userName=garima.bedi@ihsmarkit.com
+password=Welcome@207
+entityMergeURL=https://api.uat.kyc.com/admin-api/matches/entities/
+createCaseURL=https://api.uat.kyc.com/support-api/entities/
+
+sdlGenerateTokenURL=https://data.qa.kyc.com//oauth/token
+sdlRelIdURL=https://data.qa.kyc.com/ms-rs-data/sdl/relationships/
+
+sdlUserName=sdlapi_3@markit.com
+sdlPassword=Welcome88#
+
+sdlTimestampUser=sdl_timestamp_autouser@markit.com
+sdlTimestampPwd=Welcome99#
+sdlTimestampURL=https://data.qa.kyc.com/ms-rs-data/sdl/relationships

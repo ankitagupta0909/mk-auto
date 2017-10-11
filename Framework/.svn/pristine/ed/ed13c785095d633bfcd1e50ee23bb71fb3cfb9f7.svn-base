@@ -1,0 +1,5 @@
+WinWaitActive("Open")
+Send($CmdLine[1])
+Sleep(4000)
+Send("{ENTER}")
+Sleep(2000)

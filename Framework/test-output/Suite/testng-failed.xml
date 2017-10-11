@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="Regression suite 1(failed)">
+    <classes>
+      <class name="com.markit.common.framework.runtestsuit.ABC">
+        <methods>
+          <include name="abc1"/>
+        </methods>
+      </class> <!-- com.markit.common.framework.runtestsuit.ABC -->
+      <class name="com.markit.common.framework.runtestsuit.RunTestSuit">
+        <methods>
+          <include name="init"/>
+        </methods>
+      </class> <!-- com.markit.common.framework.runtestsuit.RunTestSuit -->
+    </classes>
+  </test> <!-- Regression suite 1(failed) -->
+</suite> <!-- Failed suite [Suite] -->

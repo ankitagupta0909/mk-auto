@@ -1,0 +1,221 @@
+package com.markit.common.framework.runtestsuit;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.Connection;
+import java.util.Map;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+import com.markit.common.framework.util.ALMUtility;
+import com.markit.common.framework.util.Config;
+import com.markit.common.framework.util.DBConnection;
+import com.markit.common.framework.util.Email;
+import com.markit.common.framework.util.WebUtil;
+import com.markit.common.framework.util.XPath;
+import com.markit.framework.mcpm.pageMethods.KYCDashboardTaskpage;
+import com.markit.framework.mcpm.pageMethods.NavigationPage;
+import com.markit.framework.mcpm.pageMethods.RFA;
+import com.markit.mcpm.framework.testcases.KYCDashboardPageTC;
+import com.markit.mcpm.framework.testcases.KYCDashboardPageTC;
+import com.markit.mcpm.framework.testcases.MCPMLoginTC;
+
+import atu.testng.reports.listeners.ATUReportsListener;
+import atu.testng.reports.listeners.ConfigurationListener;
+import atu.testng.reports.listeners.MethodListener;
+
+@Listeners({ ATUReportsListener.class, ConfigurationListener.class,
+	MethodListener.class,
+	com.markit.common.framework.util.Listener_ExcelReportGenerator.class })
+public class KYCDashBoard_RunTestSuit {
+
+	{
+		System.setProperty("atu.reporter.config",
+				"src/testdata/Reporter.properties");
+	}
+	KYCDashboardPageTC kyc=new KYCDashboardPageTC();
+
+	public static WebDriver driver;
+	Connection con=null;
+
+	@BeforeSuite
+
+	public void init() throws IOException{
+		String xpathPropFile = "src/testdata/XPath.properties";
+		XPath.init(xpathPropFile);	
+		Map<String,String> dbConfig=Config.loadConfig("src/testdata/DBconfig.properties");
+		con=DBConnection.getDBInstance(dbConfig, "MCPM");	
+		Email.initMailConfig("src/testdata/Mail.properties");
+
+	}
+
+
+	/*@Test(priority=1)
+	public void PreKYCChecklistGraph() throws Exception {
+		driver = MCPMLoginTC.tc_03_Login_MCPM("tc_Login_KYCDashboard","src/testdata/testWorkbook.xlsx", "Login");
+		System.out.println("done");
+
+		kyc.tc_15_verify_PreKYCChecklistGraphAvilable(driver);
+		kyc.tc_16_verify_PreKYCChecklist_AssignPrimaryContact_Graph_IsBlue(driver);
+		kyc.tc_17_verify_AddCompanyContacts_GraphIsGreen(driver);
+		kyc.tc_18_verify_RequesteSignRole(driver, con);
+		kyc.tc_19_verify_CountriesIndustriesAssessment_Graph_AddDetails(driver);
+		kyc.tc_20_verify_Add_WolfsbergQuestionnaire_Graph_Details(driver);
+
+	}*/
+
+
+	@Test(priority=2)
+	public void verifyKYCRedinesscount() throws Exception {
+		driver = MCPMLoginTC.tc_03_Login_MCPM("tc_Login_KYCDashboard","src/testdata/testWorkbook.xlsx", "Login");
+		System.out.println("done");
+
+
+		kyc.tc_01_verifyEntityCountOnKYCDashboardPage(driver);      
+
+
+	}
+
+
+	@Test(priority=3)
+	public void verifyEntityCreation() throws Exception {
+
+		kyc.tc_02_verifyEntityCreation(driver);
+
+	}
+
+	@Test(priority=4)
+	public void validateKYCRedinessCount() throws Exception {
+
+		kyc.tc_03_verifyKYCreadinessCount(driver);
+
+	}
+
+
+	@Test(priority=5)
+	public void verifyEntitynameFilter() throws Exception {
+
+
+		kyc.tc_04_verifyEntityNameFilter(driver);
+
+	}
+	@Test(priority=6)
+	public void verifyKYC_PreQuesstionnairePageDoesNotExists() throws Exception {
+
+		kyc.tc_05_verifyPreQuestionnaireDoesnotExit(driver);
+
+	}
+
+	@Test(priority=7)
+	public void verifyKYC_EntityPageDetails() throws Exception {
+
+		kyc.tc_06_verifyKYCEntityDetails(driver);
+
+	}
+	@Test(priority=8)
+	public void verifyCountriesIndustriesDetails() throws Exception {
+
+		kyc.tc_07_Countries_IndustriesDetails(driver);
+
+	}
+	@Test(priority=9)
+	public void verifyDocumentsPage() throws Exception {
+
+		kyc.tc_08_verifyKYCDocumentsTabPage(driver,con);
+
+	}
+	@Test(priority=10)
+	public void verifyPernissionPage() throws Exception {
+
+		kyc.tc_09_verifyPermissionPage(driver);
+
+	}
+
+	@Test(priority=11)
+	public void verifyKYCEntityGraphHeaders() throws Exception {
+	
+		WebUtil.setFrame(driver, "MFrame");
+		kyc.tc_10_verifyHeadersOfGraphs(driver);
+
+	}
+	@Test(priority=12)
+	public void verifyPriorityTasksViewGraph() throws Exception {
+
+		kyc.tc_11_verifyPriorityTasksViewGraph(driver);
+
+	}
+	@Test(priority=13)
+	public void verifyKYCTasksGraph() throws Exception {
+
+		kyc.tc_12_verifyKYCTasksGraph(driver);
+
+
+	}
+
+	@Test(priority=14)
+	public void verifyKYCReadinessGraph() throws Exception {
+
+		kyc.tc_13_verifyKYCReadinessGraph(driver);		
+
+	}
+
+	@Test(priority=15)
+	public void verifyKYCReviewStatusGraph() throws Exception {
+
+		kyc.tc_14_verifyKYCReviewStatusGraph(driver);	
+
+	}
+
+
+	@Test(priority=16)
+	public void verifyKYCEntityTabFliters() throws Exception {
+
+		driver = MCPMLoginTC.tc_03_Login_MCPM("tc_Login_KYCDashboard","src/testdata/testWorkbook.xlsx", "Login");
+		  NavigationPage nav= new NavigationPage();
+		nav.navigateToKYCServices(driver);
+		kyc.tc_01_filter_EntityName(driver);
+		kyc.tc_02_filter_EntityType(driver);
+		kyc.tc_03_filter_KYCReadiness(driver);
+		kyc.tc_05_filter_MEI(driver);
+		kyc.tc_06_filter_LEI(driver);
+		//kyc.tc_07_filter_ClientIdentifier(driver);
+		kyc.tc_04_filter_KYCReviewStatus(driver);
+		kyc.tc_08_filters_Relationships(driver);
+
+	}
+	@Test(priority=17)
+	public void verifyKYCTaskTabFliters() throws Exception {
+		kyc.tc_09_filter_TaskTab_EntityName(driver);
+		kyc.tc_10_filter_TaskTab_TaskType(driver);
+		kyc.tc_11_filter_TaskTab_DocumentType(driver);
+		//kyc.tc_12_filter_TaskTab_MEI(driver);
+		//kyc.tc_13_filter_TaskTab_LEI(driver);
+		kyc.tc_14_filter_TaskTab_ClientIdentifier(driver);
+		kyc.tc_15_filter_TaskTab_DueDate(driver);
+		kyc.tc_16_filter_TaskTab_TaskState(driver);
+		WebUtil.closeBrowser(driver);
+	}
+
+
+
+	@AfterSuite
+
+	  public void updateresult() throws FileNotFoundException, IOException{
+
+	  ALMUtility.methodSheetUpdatewithTestStatus( "src/testdata/testWorkbook.xlsx","src/testdata/MCPMmappingSheet.xlsx",
+			  "KYC DashBoard", "FinalTestStatus", "MethodTestStatus");
+
+	  String s=System.getProperty("user.dir")+"\\src\\testdata\\ALMUpdatebatchMCPM.bat";
+	  String filePath=	s.replace("\\", "\\\\");
+
+	  Runtime.getRuntime().exec("cmd.exe /C start " + filePath);
+
+	  Email.emailNotification("KYC Dashboard", "MCPMmappingSheet.xlsx");
+	 }
+
+
+}

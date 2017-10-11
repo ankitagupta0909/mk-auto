@@ -1,0 +1,168 @@
+package com.markit.common.framework.runtestsuit;
+
+import java.io.IOException;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+import com.markit.common.framework.util.Config;
+import com.markit.common.framework.util.DBConnection;
+import com.markit.common.framework.util.Email;
+import com.markit.common.framework.util.WebUtil;
+import com.markit.common.framework.util.XPath;
+import com.markit.framework.api.testcases.KYCAPI_TC;
+import com.markit.framework.pega.testcases.PEGALoginTC;
+import com.markit.framework.pega.testcases.PEGARegTC;
+import com.markit.framework.pega.testcases.PEGASanityTC;
+import com.markit.kyc.framework.testcases.Admin_TC;
+import com.markit.mcpm.framework.testcases.EntityTC;
+import com.markit.mcpm.framework.testcases.MCPMLoginTC;
+
+import atu.testng.reports.listeners.ATUReportsListener;
+import atu.testng.reports.listeners.ConfigurationListener;
+import atu.testng.reports.listeners.MethodListener;
+
+@Listeners({ ATUReportsListener.class, ConfigurationListener.class,MethodListener.class,com.markit.common.framework.util.Listener_ExcelReportGenerator.class })
+
+public class PegaRegression_RunTestSuit {
+	{
+		System.setProperty("atu.reporter.config","src/testdata/Reporter.properties");
+	}
+
+	public static WebDriver driver;
+	public static final Logger log = Logger.getLogger("appLogger");
+	public static String caseId=null;
+	static String mcpmEntName=null;
+
+	@BeforeSuite
+	public void init() throws IOException{
+		String xpathPropFile = "src/testdata/XPath.properties";
+		XPath.init(xpathPropFile);	
+		Map<String,String> dbConfig=Config.loadConfig("src/testdata/DBc"
+				+ "onfig.properties");
+		DBConnection.getDBInstance(dbConfig, "KYC");	
+		Email.initMailConfig("src/testdata/Mail.properties");
+	} 
+
+	////////////////////////////////////////////////////////////////
+
+	@Test(priority=1)
+	public void createCase() throws Exception{	
+		Admin_TC admin=new Admin_TC();	
+		EntityTC entTc=new EntityTC();
+
+		driver=admin.tc_Login_AdminPotal("tc_Login_AdminPotalUAT","src/testdata/testWorkbook.xlsx","Login");	    
+		String kycEntName=admin.tc_BatchUploadEntity(driver);
+
+		WebUtil.closeBrowser(driver);
+
+		driver=MCPMLoginTC.tc_03_Login_MCPM("tc_Login_PEGA_MCPM_UAT","src/testdata/testWorkbook.xlsx","Login");
+		mcpmEntName=entTc.createEntity(driver);
+		WebUtil.closeBrowser(driver);
+
+		KYCAPI_TC api=new KYCAPI_TC();
+		String kycEntId=api.entityMergeTC(kycEntName, mcpmEntName);    
+		caseId=api.caseCreateTC(kycEntId);
+		System.out.println("Case ID "+caseId);
+		log.info("Case ID created"+caseId);
+		WebUtil.wait(7000);
+	}
+
+    @Test(priority=2)
+	public void pegaRegression() throws Exception{	
+		PEGASanityTC tc= new PEGASanityTC();
+		PEGARegTC tc1=new PEGARegTC();
+		//caseId="937287385342117";
+		//driver=PEGALoginTC.tc_01_Login_PEGA("tc_01_Login_PEGA_TM","src/testdata/testWorkbook.xlsx","Login");		
+		driver=PEGALoginTC.tc_01_Login_PEGA("tc_01_Login_PEGA_TM_UAT_New","src/testdata/testWorkbook.xlsx","Login");	    
+	     tc.tc_01_caseFetchbyId(driver,caseId);
+		WebUtil.wait(7000);
+		tc1.tc_claimUnassignedcaseId(driver,caseId);
+		tc1.tc_caseStart_bycaseId(driver,caseId);
+		tc1.tc_uploadDoc(driver);	  
+		tc1.tc_enterTestData_Scenario1(driver);
+		tc1.tc_sendCaseToSME(driver);
+		WebUtil.closeBrowser(driver);  
+	}
+	@Test(priority=3)
+	public void SMEsendsTaskToClient() throws Exception{
+		PEGARegTC tc1=new PEGARegTC();	
+		//caseId="937084120161119";
+		driver=PEGALoginTC.tc_01_Login_PEGA("tc_01_Login_PEGA_SME_UAT","src/testdata/testWorkbook.xlsx","Login");
+		tc1.tc_claimUnassignedcaseId(driver,caseId);
+		tc1.tc_caseStart_bycaseId(driver,caseId);
+		tc1.tc_SMEacceptAttributes(driver);
+		tc1.tc_sendToClient(driver);
+		WebUtil.closeBrowser(driver);	
+	}
+	@Test(priority=4)
+	public void KYCTaskComplete() throws Exception{
+		PEGASanityTC tc= new PEGASanityTC();
+		driver=MCPMLoginTC.tc_03_Login_MCPM("tc_03_Login_PEGA_MCPM_UAT",
+				"src/testdata/testWorkbook.xlsx", "Login");
+		tc.tc_09_kyc_completeTask(driver,mcpmEntName);
+		WebUtil.closeBrowser(driver);
+	}
+
+	@Test(priority=5)
+	public void CPOacceptsSendBackToSME() throws Exception{
+		PEGARegTC tc1=new PEGARegTC();	
+		//caseId="937287385342117";
+		driver=PEGALoginTC.tc_01_Login_PEGA("tc_01_Login_PEGA_CO_UAT","src/testdata/testWorkbook.xlsx","Login");	
+		tc1.tc_claimUnassignedcaseId(driver,caseId);
+		tc1.tc_caseStart_bycaseId(driver,caseId);
+		tc1.tc_COacceptsTaskRequests(driver);
+		tc1.tc_sendCaseToSMEFromCO(driver);	 
+		WebUtil.closeBrowser(driver);	
+	}
+
+	@Test(priority=6)
+	public void SMESendToKYC() throws Exception{
+		PEGARegTC tc1=new PEGARegTC();	
+		//caseId="937287385342117";
+		driver=PEGALoginTC.tc_01_Login_PEGA("tc_01_Login_PEGA_SME_UAT","src/testdata/testWorkbook.xlsx","Login");
+		tc1.tc_caseStart_bycaseId(driver,caseId);
+		tc1.tc_sendToKYC(driver);
+		WebUtil.closeBrowser(driver);
+	}
+
+	@Test(priority=7)
+	public void KYCSendBackToSME() throws Exception{
+		PEGARegTC tc1=new PEGARegTC();	
+		//caseId="937287385342117";
+		driver=PEGALoginTC.tc_01_Login_PEGA("tc_01_Login_PEGA_TM_UAT_New","src/testdata/testWorkbook.xlsx","Login");	
+		tc1.tc_caseStart_bycaseId(driver,caseId);
+		tc1.tc_sendBackToSMEfromKYC(driver); 	
+		WebUtil.closeBrowser(driver);	
+	}
+
+	@Test(priority=8)
+	public void SMEAcceptsAndSendToQA() throws Exception{
+		PEGARegTC tc1=new PEGARegTC();	
+		//caseId="937287385342117";
+		driver=PEGALoginTC.tc_01_Login_PEGA("tc_01_Login_PEGA_SME_UAT","src/testdata/testWorkbook.xlsx","Login");
+		tc1.tc_caseStart_bycaseId(driver,caseId);
+		tc1.tc_SMEQAacceptsFinalTasks(driver);	
+		tc1.tc_SMEsendsToQA(driver);
+		WebUtil.closeBrowser(driver);	
+	}
+
+	@Test(priority=9)
+	public void QAsendsToSP() throws Exception{
+		PEGARegTC tc1=new PEGARegTC();	
+		//caseId="937287385342117";
+		driver=PEGALoginTC.tc_01_Login_PEGA("tc_01_Login_PEGA_QA_UAT","src/testdata/testWorkbook.xlsx","Login");
+		tc1.tc_claimUnassignedcaseId(driver,caseId);
+		tc1.tc_caseStart_bycaseId(driver,caseId);	
+		tc1.tc_SMEQAacceptsFinalTasks(driver);
+		tc1.tc_QAsendsToSP(driver);
+		WebUtil.closeBrowser(driver);	
+	}
+}
+////////////////////////////////////////////////////////////////////////////////
+
+

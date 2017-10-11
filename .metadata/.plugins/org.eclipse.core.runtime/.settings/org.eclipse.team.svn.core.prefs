@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+externalMigrateFromAuthorizationDatabase/isMigrated=true
+migrateFromAuthorizationDatabase/isMigrated=true
+repositories/3046bf666e2a001714348f6a64ae0db6=3046bf666e2a001714348f6a64ae0db6;https\://svn.markit.partners/svn/KYC/trunk/ms-spreadsheet-calculator-poc/;https\://svn.markit.partners/svn/KYC/trunk/ms-spreadsheet-calculator-poc/;branches;tags;trunk;true;2f10597a-d90c-4edc-9ec6-877a33d21237;https\://svn.markit.partners/svn/KYC;;false;;;0
+repositories/30aa5796fbdb00151ea0c7c9a13747af=30aa5796fbdb00151ea0c7c9a13747af;https\://svn.markit.partners/svn/Managed-Services_QA/MS%20Projects/MCPM/Framework/;https\://svn.markit.partners/svn/Managed-Services_QA/MS%20Projects/MCPM/Framework/;branches;tags;trunk;true;8e2cd34a-0922-40f8-8832-e11e90fd4395;https\://svn.markit.partners/svn/Managed-Services_QA;;false;<https\://svn.markit.partners\:443> Markit Subversion Repository;;0
+repositories/30d815d5345400161b63a029797be749=30d815d5345400161b63a029797be749;https\://svn.markit.partners/svn/KYC/;https\://svn.markit.partners/svn/KYC/;branches;tags;trunk;true;2f10597a-d90c-4edc-9ec6-877a33d21237;https\://svn.markit.partners/svn/KYC;;false;;;0
+synch_info/contigous=true

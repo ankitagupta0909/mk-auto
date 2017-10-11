@@ -1,0 +1,128 @@
+package com.markit.common.framework.util;
+
+import org.openqa.selenium.WebElement;
+
+import atu.testng.reports.ATUReports;
+import atu.testng.reports.logging.LogAs;
+import atu.testng.reports.utils.Steps;
+import atu.testng.reports.utils.Utils;
+import atu.testng.selenium.reports.CaptureScreen;
+import atu.testng.selenium.reports.CaptureScreen.ScreenshotOf;
+/**
+ * Utility  for writing Report
+ *
+ */
+public class ReportUtil extends ATUReports{
+
+
+	/** report if the value inside the Edit field matches the expected
+	 * @param StepDescriptn
+	 * @param WebEdit
+	 * @param Expectedval
+	 * @param ActVal
+	 */
+	public static void reportWebEditRead(String StepDescriptn,WebElement WebEdit,String Expectedval,String ActVal) {
+		if(Expectedval.equals(ActVal)) {
+			ATUReports.add(StepDescriptn,Expectedval, ActVal,LogAs.PASSED, new CaptureScreen(ScreenshotOf.DESKTOP));
+		}else{
+			ATUReports.add(StepDescriptn,Expectedval, ActVal,LogAs.FAILED, new CaptureScreen(ScreenshotOf.DESKTOP));
+		}
+	}
+
+	/**report if a WebElement Exists or not
+	 * @param StepDescriptn
+	 * @param Expectedval
+	 * @param ActVal
+	 */
+	public static void reportWebElementExist(String StepDescriptn,String Expectedval,String ActVal) {
+		if(Expectedval.equals(ActVal)) {
+			ATUReports.add(StepDescriptn,Expectedval, ActVal,LogAs.PASSED, new CaptureScreen(ScreenshotOf.DESKTOP));
+		}else{
+			ATUReports.add(StepDescriptn,Expectedval, ActVal,LogAs.FAILED, new CaptureScreen(ScreenshotOf.DESKTOP));
+		}
+	}
+
+	/**report the WebElement
+	 * @param StepDescriptn
+	 * @param ActVal
+	 */
+	@SuppressWarnings("deprecation")
+	public static void reportWebElement(String StepDescriptn,Boolean ActVal) {
+		ATUReports.add(StepDescriptn, ActVal);
+	}
+
+
+	/**set the Header in the HTML report
+	 * @param Testcasename
+	 */
+	public static void setRepHeader(String Testcasename){
+		ATUReports.setTestCaseReqCoverage("This test is mapped to" + Testcasename);
+		ATUReports.setAuthorInfo("Automation Tester", Utils.getCurrentTime(),"1.0");
+	}
+
+	/**report if the actual String value matches the expected
+	 * @param StepDescriptn
+	 * @param Expectedval
+	 * @param ActVal
+	 */
+	public static void reportStringMatch(String StepDescriptn,String Expectedval,String ActVal) {
+		if(Expectedval.equalsIgnoreCase(ActVal)) {
+			ATUReports.add(StepDescriptn,Expectedval, ActVal,LogAs.PASSED, new CaptureScreen(ScreenshotOf.DESKTOP));
+		}	else{
+			ATUReports.add(StepDescriptn,Expectedval, ActVal,LogAs.FAILED, new CaptureScreen(ScreenshotOf.DESKTOP));
+		}
+	}
+
+	/**report if the actual substring Exists in the expected String
+	 * @param StepDescriptn
+	 * @param ContainerStr
+	 * @param SearchStr
+	 */
+	public static void reportStringContainsMatch(String StepDescriptn,String ContainerStr,String SearchStr){
+		boolean value= SearchStr.contains(ContainerStr);
+		if(value){
+			ATUReports.add(StepDescriptn,ContainerStr, SearchStr,LogAs.PASSED, new CaptureScreen(ScreenshotOf.DESKTOP));
+		}else{
+			ATUReports.add(StepDescriptn,ContainerStr, SearchStr,LogAs.FAILED, new CaptureScreen(ScreenshotOf.DESKTOP));
+		}
+	}
+
+	/** Report any element Exception
+	 * @param message
+	 * @param logAs
+	 */
+	public static void reportElementException(String message, LogAs logAs){
+		ATUReports.add(message, logAs, new CaptureScreen(ScreenshotOf.DESKTOP));
+	}
+	
+	
+	/** Report actual values only 
+	 * @param StepDescription
+	 * @param ActualVal
+	 * @param val
+	 */
+	@SuppressWarnings("deprecation")
+	public static void reportInputValueOnly(String StepDescription,String ActualVal,Boolean bool){
+	ATUReports.add(StepDescription, ActualVal, bool);
+	
+	}
+	
+	
+
+	public static void add(String paramString, boolean paramBoolean) {
+
+		Steps localSteps = new Steps();
+		localSteps.setDescription(paramString);
+		localSteps.setInputValue("");
+		localSteps.setExpectedValue("");
+		localSteps.setActualValue("");
+		
+		if(paramBoolean==false)
+		localSteps.setLogAs(LogAs.FAILED);
+		else{
+		localSteps.setLogAs(LogAs.PASSED);
+		}
+	}
+}
+
+

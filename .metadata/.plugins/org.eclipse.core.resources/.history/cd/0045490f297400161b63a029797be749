@@ -1,0 +1,31 @@
+package com.markit.demo;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Login {
+
+	
+	public static void main(String[] args) throws InterruptedException
+	{
+		System.setProperty("webdriver.chrome.driver", "src/drivers/chromedriver.exe");
+		WebDriver driver =new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://ufeqa.markit.com");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		
+		WebElement username=driver.findElement(By.xpath("//*[@id='username']"));
+		username.sendKeys("rfaProd_bs@markit.com");
+		
+		WebElement password=driver.findElement(By.id("password"));
+		password.sendKeys("Welcome99#");
+		
+		WebElement login=driver.findElement(By.xpath("//fieldset[@id='loginActions']/a"));
+		login.click();
+
+	}
+}

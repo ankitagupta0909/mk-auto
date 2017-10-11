@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.markit.demo.threading&apos; to &apos;Threading&apos;&#x0D;&#x0A;- Original project: &apos;Framework&apos;&#x0D;&#x0A;- Original element: &apos;com.markit.demo.threading&apos;&#x0D;&#x0A;- Renamed element: &apos;com.markit.demo.Threading&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;threading&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.markit.demo{threading.java[threading" matchStrategy="1" name="Threading" qualified="false" references="true" similarDeclarations="false" stamp="1493218679900" textual="false" version="1.0"/>
+</session>

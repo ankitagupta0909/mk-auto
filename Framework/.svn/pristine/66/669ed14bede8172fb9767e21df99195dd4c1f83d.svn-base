@@ -1,0 +1,62 @@
+package com.markit.common.framework.runtestsuit;
+
+import java.io.IOException;
+import java.util.Map;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+import atu.testng.reports.listeners.ATUReportsListener;
+import atu.testng.reports.listeners.ConfigurationListener;
+import atu.testng.reports.listeners.MethodListener;
+
+import com.markit.common.framework.util.Config;
+import com.markit.common.framework.util.DBConnection;
+import com.markit.common.framework.util.Email;
+import com.markit.common.framework.util.XPath;
+import com.markit.mcpm.framework.testcases.AdminPageTC;
+import com.markit.mcpm.framework.testcases.MCPMLoginTC;
+
+
+@Listeners({ ATUReportsListener.class, ConfigurationListener.class,MethodListener.class,com.markit.common.framework.util.Listener_ExcelReportGenerator.class })
+public class Admin_RunTestSuit {
+	
+	{
+		System.setProperty("atu.reporter.config","src/testdata/Reporter.properties");
+	}
+	
+	@BeforeSuite
+	public void init() throws IOException{
+		String xpathPropFile = "src/testdata/XPath.properties";
+		XPath.init(xpathPropFile);	
+		Map<String,String> dbConfig=Config.loadConfig("src/testdata/DBconfig.properties");
+		DBConnection.getDBInstance(dbConfig, "MCPM");	
+		Email.initMailConfig("src/testdata/Mail.properties");
+
+	} 
+
+
+
+
+	
+	@Test(priority=1)
+	public void createMutilpleCompaniesWithOneUser() throws IOException 
+	{
+		WebDriver driver=MCPMLoginTC.tc_01_Login_MCPMStage("tc_Login_MCPM_Admin_QA","src/testdata/testWorkbook.xlsx", "Login");
+		
+		AdminPageTC a= new AdminPageTC();		
+		//System.out.println("Test Add Company");
+		a.tc_01_CreateCompanyAndOneUserWithinCom(driver);
+	}
+	@Test(enabled = false)
+	public void createMutilpleCompaniesWithMultipleUser() 
+	{
+		WebDriver driver=MCPMLoginTC.tc_01_Login_MCPMStage("tc_Login_MCPM_Admin_QA","src/testdata/testWorkbook.xlsx", "Login");
+		
+		AdminPageTC a= new AdminPageTC();		
+		//System.out.println("Test Add Company");
+		a.tc_02_CreateCompanyAndMultipleUsers(driver);
+	}
+}

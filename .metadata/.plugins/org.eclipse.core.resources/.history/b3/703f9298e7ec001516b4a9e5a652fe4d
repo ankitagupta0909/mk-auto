@@ -1,0 +1,426 @@
+package com.markit.framework.pega.testcases;
+
+import java.util.List;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import com.markit.common.framework.util.ReportUtil;
+import com.markit.common.framework.util.WebUtil;
+import com.markit.framework.pega.pageMethods.PEGACases;
+import com.markit.framework.pega.pageMethods.PEGANavigationBar;
+import com.markit.framework.pega.pageMethods.PEGAUnassignedCases;
+
+public class PEGASanityTC {
+	PEGANavigationBar nav=new PEGANavigationBar();
+	PEGAUnassignedCases unas=new PEGAUnassignedCases();
+	PEGACases cases=new PEGACases();
+	/*String legalName="Automation_Pls dont use";*/
+	String legalName="API frame_25";
+	String caseId="569885496411867";
+	
+public void tc_01_caseFetch(WebDriver driver){
+	
+nav.navigationTopMenuTeamManager(driver, "Tools");
+
+WebUtil.waitUntilElementPresent(driver, "PEGA.xpath.CreateCase");
+WebUtil.click("PEGA.xpath.CreateCase");
+WebUtil.waitUntilElementPresent(driver, "PEGA.xpath.SearchCasebyName");
+
+//Set Web Edit and search by Entity name
+WebElement elem=WebUtil.findElement("PEGA.xpath.SearchCasebyName", driver);
+WebUtil.setWebEdit(elem, legalName);
+String actVal = WebUtil.readWebElement("WebEdit", elem);
+ReportUtil.reportStringMatch("Verify value has been set in webEdit", legalName, actVal);
+
+//Click Search button
+List<WebElement> element= WebUtil.findElements("PEGA.xpath.SearchCasebutton", driver);
+WebUtil.clickAt(element.get(2));
+WebUtil.waitUntilElementPresent(driver, "PEGA.xpath.SelectCaseToCreate");
+ReportUtil.reportWebElement("Verify Search button is clicked: ", true);
+
+// Click checkbox to select case and create it
+WebUtil.click("PEGA.xpath.SelectCaseToCreate");
+try {
+	Thread.sleep(5000);
+} catch (InterruptedException e1) {
+	// TODO Auto-generated catch block
+	e1.printStackTrace();
+}
+WebUtil.click("PEGA.xpath.CreateCaseButton");
+
+}
+
+public void tc_01_caseFetchbyId(WebDriver driver){
+	
+nav.navigationTopMenuTeamManager(driver, "Tools");
+
+WebUtil.waitUntilElementPresent(driver, "PEGA.xpath.CreateCase");
+WebUtil.click("PEGA.xpath.CreateCase");
+WebUtil.waitUntilElementPresent(driver, "PEGA.xpath.SearchCasebyId");
+
+//Set Web Edit and search by Entity name
+WebElement elem=WebUtil.findElement("PEGA.xpath.SearchCasebyId", driver);
+WebUtil.setWebEdit(elem, caseId);
+String actVal = WebUtil.readWebElement("WebEdit", elem);
+ReportUtil.reportStringMatch("Verify value has been set in webEdit", caseId, actVal);
+
+//Click Search button
+List<WebElement> element= WebUtil.findElements("PEGA.xpath.SearchCasebutton", driver);
+WebUtil.clickAt(element.get(1));
+WebUtil.waitUntilElementPresent(driver, "PEGA.xpath.SelectCaseToCreate");
+ReportUtil.reportWebElement("Verify Search button is clicked: ", true);
+// Click checkbox to select case and create it
+WebUtil.click("PEGA.xpath.SelectCaseToCreate");
+try {
+	Thread.sleep(5000);
+} catch (InterruptedException e1) {
+	// TODO Auto-generated catch block
+	e1.printStackTrace();
+}
+WebUtil.click("PEGA.xpath.CreateCaseButton");
+
+}
+
+
+public void tc_02_caseAssign(WebDriver driver){
+	
+    driver=nav.switchFrameUnassignedCases(driver);
+    unas.applyFilter(driver, "PEGA.xpath.ClickEntityFilter",legalName);
+	
+	WebUtil.waitUntilElementPresent(driver, "PEGA.xpath.ActionsButton");
+	
+	WebUtil.click("PEGA.xpath.ActionsButton");
+    WebUtil.click("PEGA.xpath.ClaimButton");
+     
+    WebUtil.wait(5000);
+    driver.switchTo().defaultContent();
+    nav.navigationTopMenuTeamManager(driver, "Cases");
+    driver=nav.switchFrameCases(driver);
+    
+    unas.applyFilter(driver, "PEGA.xpath.ClickEntityFilter",legalName);
+    
+    WebUtil.click("PEGACases.xpath.Actionsbutton");
+    WebUtil.waitUntilElementPresent(driver, "PEGACases.xpath.StartCase");
+    WebUtil.click("PEGACases.xpath.StartCase");
+    
+    WebUtil.wait(15000);
+      
+}
+
+
+public void tc_07_taskCreation(WebDriver driver){
+
+	String expectedStatus="STATUS: PENDING APPROVAL";
+	
+   driver=nav.switchFrameStartCases(driver);
+   WebUtil.wait(2000);
+   WebUtil.click("PEGACases.xpath.LegalFormationLink");
+   WebUtil.wait(5000);
+
+   WebUtil.click("PEGACases.xpath.LegalNameCPOLink");
+   cases.createInfoRequest(driver);
+   
+   WebUtil.click("PEGACases.xpath.LegalFormCPOLink");
+   cases.createDocRequest(driver);
+   
+    List<WebElement> Status= WebUtil.findElements("PEGACase.xpath.ReadStatus", driver);
+    String InfoTaskStatus=Status.get(0).getText();
+    String DocRequestTaskStatus=Status.get(1).getText();
+    String WolfsbergRequestTaskStatus=Status.get(2).getText();
+	
+    ReportUtil.reportStringMatch("Verify Info req Task Status", expectedStatus, InfoTaskStatus);
+    ReportUtil.reportStringMatch("Verify Doc req Task Status", expectedStatus, DocRequestTaskStatus);
+    ReportUtil.reportStringMatch("Verify Wolfsberg req Task Status", expectedStatus, WolfsbergRequestTaskStatus);
+    
+	WebUtil.click("PEGACase.xpath.SaveContinue");
+	WebUtil.wait(4000);
+	WebUtil.click("PEGACases.xpath.OwnershipInfoLink");
+	WebUtil.wait(4000);
+	WebUtil.click("PEGACases.xpath.LegalNameCPOLink");
+	cases.createOwnershipTask(driver);
+	
+	
+	List<WebElement> OwnershipTask= WebUtil.findElements("PEGACase.xpath.ReadStatus", driver);
+	String OwnershipTaskStatus=OwnershipTask.get(0).getText();
+	ReportUtil.reportStringMatch("Verify Ownership req Task Status", expectedStatus, OwnershipTaskStatus);
+	
+	// Request outreach
+	WebUtil.click("PEGACase.xpath.SendAction");
+	WebUtil.waitUntilElementPresent(driver, "PEGACase.xpath.RequestOutreach");
+	WebUtil.click("PEGACase.xpath.RequestOutreach");
+	WebUtil.waitUntilElementPresent(driver, "PEGACase.xpath.ConfirmRequestOutreach");
+	WebUtil.click("PEGACase.xpath.ConfirmRequestOutreach");
+	WebUtil.wait(2000);
+	
+}
+
+public void tc_08_taskCompletionByCsa(WebDriver driver){
+
+	String expectedStatus="Status: Ready for Outreach";
+	//Task Assignment
+    tc_02_caseAssign(driver);
+	
+    //Task Completion
+	driver=nav.switchFrameStartCases(driver);
+	WebUtil.wait(2000);
+	WebUtil.click("PEGACases.xpath.LegalFormationLink");
+	WebUtil.wait(5000);
+	
+	WebUtil.click("PEGACase.xpath.AcceptLegalName");
+	WebUtil.wait(3000);
+	WebUtil.click("PEGACase.xpath.AcceptLegalForm");
+	WebUtil.wait(3000);
+	WebUtil.click("PEGACase.xpath.AcceptLegalType");
+	WebUtil.wait(3000);
+	
+	List<WebElement> Status= WebUtil.findElements("PEGACase.xpath.ReadStatus", driver);
+    String InfoTaskStatus=Status.get(0).getText();
+    String DocRequestTaskStatus=Status.get(1).getText();
+    String WolfsbergRequestTaskStatus=Status.get(2).getText();
+    
+    ReportUtil.reportStringMatch("Verify Info req Task Status-CSA", expectedStatus, InfoTaskStatus);
+    ReportUtil.reportStringMatch("Verify Doc req Task Status-CSA", expectedStatus, DocRequestTaskStatus);
+    ReportUtil.reportStringMatch("Verify Wolfsberg req Task Status-CSA", expectedStatus, WolfsbergRequestTaskStatus);
+    
+	WebUtil.click("PEGACase.xpath.SaveContinue");
+	WebUtil.wait(4000);
+	
+	WebUtil.click("PEGACases.xpath.OwnershipInfoLink");
+	WebUtil.wait(5000);
+	WebUtil.click("PEGACase.xpath.AcceptOwnershipColl");
+	WebUtil.wait(3000);
+	
+	List<WebElement> OwnershipTask= WebUtil.findElements("PEGACase.xpath.ReadStatus", driver);
+	String OwnershipTaskStatus=OwnershipTask.get(0).getText();
+	ReportUtil.reportStringMatch("Verify Ownership req Task Status-CSA", expectedStatus, OwnershipTaskStatus);
+	
+	WebUtil.click("PEGACase.xpath.SendAction");
+	WebUtil.waitUntilElementPresent(driver, "PEGACase.xpath.SendToClient");
+	WebUtil.click("PEGACase.xpath.SendToClient");
+	WebUtil.waitUntilElementPresent(driver, "PEGACase.xpath.ConfirmSendToClient");
+	WebUtil.click("PEGACase.xpath.ConfirmSendToClient");
+	WebUtil.wait(2000);
+}
+
+
+public void tc_kyc_completeTask(WebDriver driver){
+	
+	WebUtil.setFrame(driver, "MFrame");
+		
+	WebUtil.click("KYCTaskOSR.xpath.AddBO");
+	WebUtil.waitUntilElementPresent(driver, "KYCTaskOSR.xpath.SelectIndividualType");
+	WebUtil.click("KYCTaskOSR.xpath.SelectIndividualType");
+	
+	WebUtil.waitUntilElementPresent(driver, "KYCTaskOSR.xpath.FirstName");
+	WebElement firstName= WebUtil.findElement("KYCTaskOSR.xpath.FirstName", driver);
+	WebUtil.setWebEdit(firstName, "firstName");
+	
+	WebElement lastName= WebUtil.findElement("KYCTaskOSR.xpath.LastName", driver);
+	WebUtil.setWebEdit(lastName, "lastName");
+	
+	WebUtil.click("KYCTaskOSR.xpath.SelectEntityNominee");
+	WebUtil.click("KYCTaskOSR.xpath.ClickCountry");
+	WebUtil.click("KYCTaskOSR.xpath.SelectCountry");
+	WebUtil.click("KYCTaskOSR.xpath.defocusCountry");
+	
+	WebElement sourceWealth= WebUtil.findElement("KYCTaskOSR.xpath.SourceWealth", driver);
+	WebUtil.setWebEdit(sourceWealth, "sourceWealth");
+	
+	WebElement ownershipPercent= WebUtil.findElement("KYCTaskOSR.xpath.OwnershipPercentage", driver);
+	WebUtil.setWebEdit(ownershipPercent, "22");
+
+	WebUtil.click("KYCTaskOSR.xpath.Submit");
+	
+	
+}
+
+public void tc_CSAacceptsCompletedTasks(WebDriver driver){
+	
+	
+	String expectedStatus="STATUS: CLIENT RESPONSE RECEIVED";
+	
+	
+	//Task Start
+	nav.navigationTopMenuTeamManager(driver, "Cases");
+    driver=nav.switchFrameCases(driver);
+    
+    unas.applyFilter(driver, "PEGA.xpath.ClickEntityFilter",legalName);
+    
+    WebUtil.click("PEGACases.xpath.Actionsbutton");
+    WebUtil.waitUntilElementPresent(driver, "PEGACases.xpath.StartCase");
+    WebUtil.click("PEGACases.xpath.StartCase");
+    
+    WebUtil.wait(15000);
+	
+    //Task Completion
+	driver=nav.switchFrameStartCases(driver);
+	WebUtil.wait(2000);
+	WebUtil.click("PEGACases.xpath.LegalFormationLink");
+	WebUtil.wait(5000);
+	WebUtil.click("PEGACase.xpath.CaseTab");
+	
+	List<WebElement> Status= WebUtil.findElements("PEGACase.xpath.ReadStatus", driver);
+    String InfoTaskStatus=Status.get(0).getText();
+    String DocRequestTaskStatus=Status.get(1).getText();
+    String WolfsbergRequestTaskStatus=Status.get(2).getText();
+    
+    ReportUtil.reportStringMatch("Verify Info req Task Status post completion from KYC dashboard", expectedStatus, InfoTaskStatus);
+    ReportUtil.reportStringMatch("Verify Doc req Task Status post completion from KYC dashboard", expectedStatus, DocRequestTaskStatus);
+    ReportUtil.reportStringMatch("Verify Wolfsberg req Task Status post completion from KYC dashboard", expectedStatus, WolfsbergRequestTaskStatus);
+    
+	WebUtil.click("PEGACase.xpath.AcceptLegalName");
+	WebUtil.wait(3000);
+	WebUtil.click("PEGACase.xpath.AcceptLegalForm");
+	WebUtil.wait(3000);
+	WebUtil.click("PEGACase.xpath.AcceptLegalType");
+	WebUtil.wait(3000);
+	
+    expectedStatus="STATUS: CLIENT RESPONSE ACCEPTED";
+	List<WebElement> NewStatus= WebUtil.findElements("PEGACase.xpath.ReadStatus", driver);
+     InfoTaskStatus=NewStatus.get(0).getText();
+     DocRequestTaskStatus=NewStatus.get(1).getText();
+     WolfsbergRequestTaskStatus=NewStatus.get(2).getText();
+    
+    ReportUtil.reportStringMatch("Verify Info req Task Status-CSA", expectedStatus, InfoTaskStatus);
+    ReportUtil.reportStringMatch("Verify Doc req Task Status-CSA", expectedStatus, DocRequestTaskStatus);
+    ReportUtil.reportStringMatch("Verify Wolfsberg req Task Status-CSA", expectedStatus, WolfsbergRequestTaskStatus);
+    
+	WebUtil.click("PEGACase.xpath.SaveContinue");
+	WebUtil.wait(4000);
+	
+	WebUtil.click("PEGACases.xpath.OwnershipInfoLink");
+	WebUtil.wait(5000);
+	WebUtil.click("PEGACase.xpath.AcceptOwnershipColl");
+	WebUtil.wait(3000);
+	
+	List<WebElement> OwnershipTask= WebUtil.findElements("PEGACase.xpath.ReadStatus", driver);
+	String OwnershipTaskStatus=OwnershipTask.get(0).getText();
+	ReportUtil.reportStringMatch("Verify Ownership req Task Status-CSA", expectedStatus, OwnershipTaskStatus);
+	
+	WebUtil.click("PEGACase.xpath.SendAction");
+	WebUtil.waitUntilElementPresent(driver, "PEGACase.xpath.SendToKYC");
+	WebUtil.click("PEGACase.xpath.SendToKYC");
+	WebUtil.waitUntilElementPresent(driver, "PEGACase.xpath.ConfirmSendToKYC");
+	WebUtil.click("PEGACase.xpath.ConfirmSendToKYC");
+	WebUtil.wait(2000);
+
+}
+
+
+public void tc_sendCaseToSME(WebDriver driver){
+	
+	//Task Start
+		nav.navigationTopMenuTeamManager(driver, "Cases");
+	    driver=nav.switchFrameCases(driver);
+	    
+	    unas.applyFilter(driver, "PEGA.xpath.ClickEntityFilter",legalName);
+	    
+	    WebUtil.click("PEGACases.xpath.Actionsbutton");
+	    WebUtil.waitUntilElementPresent(driver, "PEGACases.xpath.StartCase");
+	    WebUtil.click("PEGACases.xpath.StartCase");
+	    
+	    WebUtil.wait(15000);
+	    
+	    //Verify Status of tasks
+	    driver=nav.switchFrameStartCases(driver);
+		WebUtil.wait(2000);
+		WebUtil.click("PEGACases.xpath.LegalFormationLink");
+		WebUtil.wait(5000);
+		WebUtil.click("PEGACase.xpath.CaseTab");
+		WebUtil.wait(3000);
+		
+	    String expectedStatus="STATUS: CLIENT RESPONSE ACCEPTED";
+		List<WebElement> NewStatus= WebUtil.findElements("PEGACase.xpath.ReadStatus", driver);
+	    String InfoTaskStatus=NewStatus.get(0).getText();
+	    String DocRequestTaskStatus=NewStatus.get(1).getText();
+	    String WolfsbergRequestTaskStatus=NewStatus.get(2).getText();
+	    
+	    ReportUtil.reportStringMatch("Verify Info req Task Status-KYC TM", expectedStatus, InfoTaskStatus);
+	    ReportUtil.reportStringMatch("Verify Doc req Task Status-KYC TM", expectedStatus, DocRequestTaskStatus);
+	    ReportUtil.reportStringMatch("Verify Wolfsberg req Task Status-KYC TM", expectedStatus, WolfsbergRequestTaskStatus);
+	    
+	    WebUtil.click("PEGACases.xpath.OwnershipInfoLink");
+		WebUtil.wait(5000);
+				
+		List<WebElement> OwnershipTask= WebUtil.findElements("PEGACase.xpath.ReadStatus", driver);
+		String OwnershipTaskStatus=OwnershipTask.get(0).getText();
+		ReportUtil.reportStringMatch("Verify Ownership req Task Status-KYC TM", expectedStatus, OwnershipTaskStatus);
+		
+		WebUtil.click("PEGACase.xpath.SendAction");
+		WebUtil.waitUntilElementPresent(driver, "PEGACase.xpath.SendToSME");
+		WebUtil.click("PEGACase.xpath.SendToSME");
+		WebUtil.waitUntilElementPresent(driver, "PEGACase.xpath.ConfirmSendToSME");
+		WebUtil.click("PEGACase.xpath.ConfirmSendToSME");
+		WebUtil.wait(2000);
+
+}
+
+public void tc_caseAcceptedBySME(WebDriver driver){
+	
+	   tc_02_caseAssign(driver);
+	    
+	    //Verify Status of tasks
+	    driver=nav.switchFrameStartCases(driver);
+		WebUtil.wait(2000);
+	
+		WebUtil.click("PEGACase.xpath.SendAction");
+		WebUtil.waitUntilElementPresent(driver, "PEGACase.xpath.AcceptAll");
+		WebUtil.click("PEGACase.xpath.AcceptAll");
+		WebUtil.wait(2000);
+		
+		WebUtil.click("PEGACase.xpath.SendAction");
+		WebUtil.waitUntilElementPresent(driver, "PEGACase.xpath.SendToQA");
+		WebUtil.click("PEGACase.xpath.SendToQA");
+		WebUtil.waitUntilElementPresent(driver, "PEGACase.xpath.ConfirmSendToSME");
+		WebUtil.click("PEGACase.xpath.ConfirmSendToSME");
+		WebUtil.wait(2000);
+	
+}
+
+public void tc_caseAcceptedByQA(WebDriver driver){
+	
+	//tc_02_caseAssign(driver);
+	
+	//Verify Status of tasks
+    driver=nav.switchFrameStartCases(driver);
+	WebUtil.wait(2000);
+	//cases.acceptAttributes(driver,"PEGACase.xpath.Accept");
+	
+	//WebUtil.click("PEGACases.xpath.LegalFormationLink");
+	//WebUtil.wait(5000);
+	//cases.acceptAttributes(driver,"PEGACase.xpath.Accept");
+	
+	/*WebUtil.click("PEGACases.xpath.AddressInfoLink");
+	WebUtil.wait(5000);
+	WebUtil.click("PEGAAddressContact.xpath.ViewButton");
+	cases.acceptAttributes(driver,"PEGACase.xpath.Accept");
+	
+	WebUtil.click("PEGACases.xpath.CorpRegLink");
+	WebUtil.wait(5000);
+	cases.acceptAttributes(driver,"PEGACase.xpath.Accept");
+	
+	WebUtil.click("PEGACases.xpath.FinancialInfoLink");
+	WebUtil.wait(5000);
+	cases.acceptAttributes(driver,"PEGACase.xpath.Accept");
+	
+	
+	WebUtil.click("PEGACases.xpath.OwnershipInfoLink");
+	WebUtil.wait(5000);
+	cases.acceptAttributes(driver,"PEGACase.xpath.Accept");*/
+	
+	
+	WebUtil.click("PEGACase.xpath.SendAction");
+	WebUtil.waitUntilElementPresent(driver, "PEGACase.xpath.SendToSP");
+	WebUtil.click("PEGACase.xpath.SendToSP");
+	WebUtil.waitUntilElementPresent(driver, "PEGACase.xpath.ConfirmSendToSME");
+	WebUtil.click("PEGACase.xpath.ConfirmSendToSME");
+	WebUtil.wait(2000);
+	
+	
+}
+}
+
+
+
+

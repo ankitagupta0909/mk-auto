@@ -1,0 +1,24 @@
+package com.markit.demo;
+
+public class DemoClass {
+
+	public void getAge( ){ 
+		System.out.println("Welcome to Selenium Basic Training"  ); 
+	}
+
+	public static void main(String []args){
+		DemoClass demoObj = new DemoClass();
+		//demoObj.getAge();
+		demoObj.iterate();
+	} 
+
+	
+	
+	public void iterate(){
+		int i=10;
+		while(i>5){
+			i--;
+			System.out.println("Print statement");
+		}
+	}
+}

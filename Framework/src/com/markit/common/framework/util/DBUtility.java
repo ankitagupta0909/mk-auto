@@ -1,0 +1,233 @@
+package com.markit.common.framework.util;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+
+import org.apache.log4j.Logger;
+
+import atu.testng.reports.logging.LogAs;
+
+public class DBUtility {
+
+	public static final Logger log = Logger.getLogger("appLogger");
+	public static Map<String, String> db;	
+	static Connection con=null;
+
+	/**create connection using config file
+	 * @param productName
+	 * @param config
+	 * @return
+	 */
+	public static Connection createdbConnection(String productName,Map<String,String> config)  
+	{   
+		String JDBC_DRIVER=config.get(productName+".JDBC_DRIVER");
+		String db_URL=config.get(productName+".db_URL");
+		String user=config.get(productName+".db_user");
+		String pwd=config.get(productName+".db_pwd");
+
+		Connection conn=createdbConnection(JDBC_DRIVER,db_URL,user,pwd);
+		return conn;	
+	}
+
+	/** creates connection based on param passed
+	 * @param JDBC_DRIVER
+	 * @param db_URL
+	 * @param user
+	 * @param pwd
+	 * @return connection
+	 */
+	public static Connection createdbConnection(String JDBC_DRIVER,String db_URL,String user,String pwd)  
+	{
+		try 
+		{
+			Connection conn = null;
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(db_URL, user, pwd);			
+			log.info("DB connection is created");				
+			return conn;	
+		} 
+		catch (Exception e) 
+		{
+			log.error("DB Connection NOT created"+e.getMessage());
+		}
+		return null;
+	}
+
+	/**returns list of values from db on executing a query
+	 * @param conn
+	 * @param qry
+	 * @return list
+	 */
+	public static List<String> getRSexecuteQuery(Connection conn,String qry){
+		List<String> list=new ArrayList<String>();
+		Statement stObj=null ;
+		ResultSet rsObj=null;
+		try{
+			stObj = conn.createStatement();
+			rsObj = stObj.executeQuery(qry);
+			int columnCount = rsObj.getMetaData().getColumnCount();
+
+			while (rsObj.next()) {
+				for (int i = 1; i <= columnCount; i++) {
+					String value = rsObj.getString(i);
+					//System.out.println(value);
+					list.add(value);
+				}
+			}
+			log.info("DB query executed,list of values returned");
+		}
+		catch(Exception e){
+			log.error("Unable to Execute SQL query"+e.getMessage());
+		}
+		finally{
+			try {
+				if(stObj!=null){
+					stObj.close();}
+				if(rsObj!=null)
+					rsObj.close();
+			} catch (SQLException e) {
+				log.error(e.getMessage());
+				e.printStackTrace();
+			}		
+		}
+		return list;
+	}
+	
+	public static Map<String,String> getAllColNamesAndValues(Connection conn,String qry){
+		Map<String,String> list=new HashMap<String,String>();
+		Statement stObj=null ;
+		ResultSet rsObj=null;
+		ResultSetMetaData rsmd=null;			
+		String firstColumnName=null;
+		String value=null;
+		try{
+			stObj = conn.createStatement();
+			rsObj = stObj.executeQuery(qry);
+			rsmd = rsObj.getMetaData();
+			int columnCount = rsObj.getMetaData().getColumnCount();
+			
+
+			while (rsObj.next()) {
+				for (int i = 1; i <= columnCount; i++) {
+					firstColumnName = rsmd.getColumnName(i);
+					value = rsObj.getString(i);					
+					list.put(firstColumnName,value);
+				}
+			}
+			log.info("DB query executed,list of values returned");
+		}
+		catch(Exception e){
+			log.error("Unable to Execute SQL query"+e.getMessage());
+		}
+		finally{
+			try {
+				if(stObj!=null){
+					stObj.close();}
+				if(rsObj!=null)
+					rsObj.close();
+			} catch (SQLException e) {
+				log.error(e.getMessage());
+				e.printStackTrace();
+			}		
+		}
+		return list;
+	}
+
+	/** used to retrieve the data of a particular column 
+	 * of a table in db
+	 * @param conn
+	 * @param qry
+	 * @param colname
+	 * @return colData
+	 */
+	public static String getColData(Connection conn,String qry,String colname){
+		Statement stObj=null ;
+		ResultSet rsObj=null;
+
+		try{
+			stObj = conn.createStatement();
+			rsObj = stObj.executeQuery(qry);
+			while (rsObj.next()) {
+				String value = rsObj.getString(colname);
+				log.info("Returning column:"+colname+" value from DB");
+				return value;
+			}
+		}
+		catch(Exception e){
+			log.error("Unable to get Column Data from DB"+e.getMessage());
+
+		}
+		finally{
+			try {
+				if(stObj!=null){
+					stObj.close();}
+				if(rsObj!=null)
+					rsObj.close();
+			} catch (SQLException e) {
+				log.error(e.getMessage());
+				e.printStackTrace();
+			}		
+		}
+		return null;
+	}
+
+
+
+	/**returns the data of all rows for a particular
+	 * column in the DB
+	 * @param conn
+	 * @param qry
+	 * @param colname
+	 * @return list of values
+	 */
+	public static List<String> getColDataAllRows(Connection conn,String qry,String colname){
+		Statement stObj=null ;
+		ResultSet rsObj=null;
+		List<String> list=new ArrayList<String>();
+		try{
+			stObj = conn.createStatement();
+			rsObj = stObj.executeQuery(qry);
+			int columnCount=rsObj.getMetaData().getColumnCount();
+
+
+			while (rsObj.next()) {
+				for (int i = 1; i <= columnCount; i++) {
+					String value = rsObj.getString(colname);
+					list.add(value);
+				}
+			}
+			log.info("returning list of data from column:"+colname+" for all rows from DB");
+
+		}
+		catch(Exception e){
+			log.error("Unable to return list of data from DB"+e.getMessage());
+
+		}finally{
+			try {
+				if(stObj!=null){
+					stObj.close();}
+				if(rsObj!=null)
+					rsObj.close();
+			} catch (SQLException e) {
+				log.error(e.getMessage());
+				e.printStackTrace();
+			}		
+		}		
+		return list;
+	}
+}
+

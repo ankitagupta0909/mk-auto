@@ -1,0 +1,1296 @@
+package com.markit.common.framework.util;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import atu.testng.reports.logging.LogAs;
+
+/**
+ * Utility for Web Page function e.g click,send keys
+ *
+ */
+/**
+ * @author monika.maurya
+ *
+ */
+public class WebUtil{
+
+
+	private static final int String = 0;
+	public static final Logger log = Logger.getLogger("appLogger");
+	/** 
+	 * Read Web Element
+	 * 
+	 * @param ElementType
+	 * @param WebElement
+	 * @return value
+	 */
+	public static String readWebElement(String ElementType,WebElement WebElement){
+		if (ElementType.equals("WebEdit")){
+			String actval;
+			actval=WebElement.getAttribute("value");
+			return(actval);
+		}
+		if ((ElementType.equals("WebLink")) || (ElementType.equals("Span"))){
+			String actval;
+			actval=WebElement.getText();
+			return(actval);
+		}
+		return null;
+	}
+
+	/** 
+	 * Set value in Web Edit 
+	 * @param WebElement
+	 * @param InptVal
+	 * @return 
+	 */
+	public static String setWebEdit(WebElement WebElement,String InptVal){
+		WebElement.click();
+		WebElement.clear();
+		WebElement.sendKeys(InptVal);
+		String value=WebUtil.readWebElement("WebEdit",WebElement);
+		return value;
+	}
+
+	/**Set value in the passed element path with reporting  using action class
+	 * @param pathKey
+	 * @param InptVal
+	 */
+
+	public static String setWebEdit(String pathKey,String InptVal){
+		String Str = new String(pathKey);
+		String[] locator = Str.split("\\.");
+		WebElement ele=WebUtil.findElement(pathKey, driver);
+		WebUtil.actionClass(ele, driver);
+		ele.clear();
+		WebUtil.wait(3000);
+		WebElement elem=WebUtil.findElement(pathKey, driver);
+		elem.sendKeys(InptVal);
+		WebUtil.wait(5000);
+		String value=WebUtil.readWebElement("WebEdit",ele);
+		ReportUtil.reportWebEditRead("Verify entered Value in "+locator[0]+"_"+locator[2],ele, InptVal, value);
+		return value;
+	}
+
+	/**set input value by passing path key from xpath.prop 
+	 * @param pathKey
+	 * @param InptVal
+	 */
+	public static void inputValue(String pathKey,String InptVal){
+		WebElement ele=WebUtil.findElement(pathKey, driver);
+		new Actions(driver).moveToElement(ele).perform();
+		ele.sendKeys(InptVal);
+		WebUtil.wait(2000);
+		String value=WebUtil.readWebElement("WebEdit",ele);
+		ReportUtil.reportStringMatch("Verify entered Value", InptVal, value);
+	}
+
+	/** Clearing web edit before entering value
+	 * @param pathKey
+	 */
+	public static void clearWebEdit(String pathKey){
+		WebElement ele=WebUtil.findElement(pathKey, driver);
+		ele.clear();
+	}
+	/**Set text in the edit using action class
+	 * @param driver
+	 * @param pathKey
+	 * @param valueToBeSet
+	 * @throws InterruptedException
+	 */
+	public static void sendKeysWithAction(WebDriver driver,String pathKey,String valueToBeSet)
+	{
+		WebElement ele=WebUtil.findElement(pathKey, driver);
+		Actions action = new Actions(driver);
+		action.moveToElement(ele).click().sendKeys(valueToBeSet).build().perform();
+		WebUtil.wait(3000);
+	}
+
+	/** Click at WebElement by passing webelement
+	 * @param WebElement
+	 */
+	public static void clickAt(WebElement WebElement){
+		WebElement.click();
+	}
+
+	/** Click at WebElement by passing path key from xpath.prop
+	 * @param pathKey
+	 */
+	public static void click(String pathKey){
+		String Str = new String(pathKey);
+		String[] locator = Str.split("\\.");
+		WebElement e=WebUtil.findElement(pathKey, driver);
+		boolean actVal = WebUtil.verifyWebElementExists("WebElement",e);
+		e.click();
+		ReportUtil.reportWebElement("Verify link is clicked: "+locator[0]+"_"+locator[2], actVal);
+	}
+
+	/** Close the browser
+	 * @param driver
+	 */
+	public static void closeBrowser(WebDriver driver){
+		driver.close();
+		driver.quit();
+		WebUtil.wait(1000);
+	}
+
+	/** Verify if webelement exists
+	 * @param ElementType
+	 * @param WebElement
+	 * @return boolean value
+	 */
+	public static boolean verifyWebElementExists(String ElementType,WebElement WebElement){
+		boolean actval;
+		if (ElementType.equals("WebLink")){
+			actval=WebElement.isDisplayed();
+			if (actval){
+				return true;
+			}
+		}
+		if (ElementType.equals("Checkbox")){
+			actval=WebElement.isDisplayed();
+			if (actval){
+				return true;
+			}}
+		if (ElementType.equals("WebTable")){
+			actval=WebElement.isDisplayed();
+			if (actval){
+				return true;
+			}}
+		if (ElementType.equals("WebElement")){
+			actval=WebElement.isDisplayed();
+			if (actval){
+				return true;
+			}
+		}
+		log.info("WebElement does not exist");
+		return false;
+	}
+
+	/** find element
+	 * @param PathKey
+	 * @param driver
+	 * @return element
+	 */
+	public static WebElement findElement(String pathKey, WebDriver driver){
+		try {
+			String Str = new String(pathKey);
+			String[] locator = Str.split("\\.");
+			WebElement elementx = null;
+			if (locator[1].equals("xpath")){
+				String XPathVal=XPath.myprop.get(pathKey);
+				elementx= driver.findElement(By.xpath(XPathVal));
+			}
+			else if (locator[1].equals("id")) {
+				String XPathVal=XPath.myprop.get(pathKey);
+				elementx=driver.findElement(By.id(XPathVal));
+			}
+			else if (locator[1].equals("css")) {
+				String XPathVal=XPath.myprop.get(pathKey);
+				elementx=driver.findElement(By.cssSelector(XPathVal));
+			}
+			else if (locator[1].equals("linkText")) {
+				String XPathVal=XPath.myprop.get(pathKey);
+				elementx=driver.findElement(By.linkText(XPathVal));
+			}
+			else if (locator[1].equals("name")) {
+				String XPathVal=XPath.myprop.get(pathKey);
+				elementx=driver.findElement(By.name(XPathVal));
+			}  
+			return elementx;
+		}
+		catch(NoSuchElementException e) {
+			log.error("Element is not located-"+pathKey+e.getMessage());
+			ReportUtil.reportElementException("Element is not located:-"+pathKey, LogAs.FAILED);
+			WebElement elementx = null;
+			return elementx;
+		}
+
+	}
+
+	/**This method returns list of Elements found on a page
+	 * @param pathKey
+	 * @param driver
+	 * @return
+	 */
+	public static List<WebElement> findElements(String pathKey, WebDriver driver){
+		List<WebElement> elementx = new ArrayList<WebElement>();
+		try {
+			String Str = new String(pathKey);
+			String[] locator = Str.split("\\.");
+
+			if (locator[1].equals("xpath")){
+				String XPathVal=XPath.myprop.get(pathKey);
+				elementx= driver.findElements(By.xpath(XPathVal));
+			}
+			else if (locator[1].equals("id")) {
+				String XPathVal=XPath.myprop.get(pathKey);
+				elementx=driver.findElements(By.id(XPathVal));
+			}
+			else if (locator[1].equals("css")) {
+				String XPathVal=XPath.myprop.get(pathKey);
+				elementx=driver.findElements(By.cssSelector(XPathVal));
+			}
+			else if (locator[1].equals("linkText")) {
+				String XPathVal=XPath.myprop.get(pathKey);
+				elementx=driver.findElements(By.linkText(XPathVal));
+			}
+			else if (locator[1].equals("name")) {
+				String XPathVal=XPath.myprop.get(pathKey);
+				elementx=driver.findElements(By.name(XPathVal));
+			}  
+		}
+		catch(NoSuchElementException e) {
+			log.error("Element is not located-"+pathKey+e.getMessage());
+			ReportUtil.reportElementException("Element is not located:-"+pathKey, LogAs.FAILED);
+		}
+		return elementx;
+	}
+
+	/**Return Xpath value from properties file
+	 * @param pathKey
+	 * @return Xpath
+	 */
+	public static String returnXPathVal(String pathKey){
+		String XPathVal=XPath.myprop.get(pathKey);
+		return XPathVal;
+	}
+
+	/**Verify and click the chkbox
+	 * @param driver
+	 * @param pathKey
+	 *
+	 */
+	public static void verifyChkboxCheck(WebDriver driver,String pathKey) {
+		WebElement Chkbox =WebUtil.findElement(pathKey, driver);
+		//Verify if WebElement exists on the page
+		boolean chkexist;
+		chkexist=WebUtil.verifyWebElementExists("Checkbox",Chkbox);
+		if (chkexist){
+			WebUtil.actionClass(Chkbox, driver);
+			ReportUtil.reportWebElement("Verify checkbox selected", chkexist);
+		}
+		else
+			log.info("Check box does not exist");
+	}	
+
+	/**Open the browser and launch URL
+	 * @param browsername
+	 * @param URL
+	 * @return Driver
+	 */
+	public static WebDriver driver = null;
+	public static WebDriver openBrowser(String browsername,String URL)
+	{
+		if(browsername.equalsIgnoreCase("FF"))
+		{driver= new FirefoxDriver();
+		}
+		else if(browsername.equalsIgnoreCase("Chrome"))
+		{	/*System.setProperty("webdriver.chrome.driver", "src/drivers/chromedriver.exe");
+		driver =new ChromeDriver();*/
+			System.setProperty("webdriver.chrome.driver", "src/drivers/chromedriver.exe");
+			DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+			capabilities.setCapability("chrome.switches", Arrays.asList("--incognito"));
+			driver = new ChromeDriver(capabilities);
+		}
+		else if(browsername.equalsIgnoreCase("IE"))
+		{	System.setProperty("webdriver.ie.driver", "src/drivers/IEDriverServer.exe");
+		DesiredCapabilities caps = DesiredCapabilities.internetExplorer(); 
+		caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true); 
+		driver = new InternetExplorerDriver(caps);
+		}
+//		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+		if(browsername.equalsIgnoreCase("IE"))
+		{	driver.get(URL);
+		driver.get("javascript:document.getElementById('overridelink').click();");
+		}
+		else{
+			driver.get(URL);
+		}
+		return driver;
+	}
+
+	/**Get URL from Test Data Sheet
+	 * @param testcasename
+	 * @param testdatasheetpath
+	 * @param testdatasheetname
+	 * @return URLname
+	 * @throws IOException
+	 */
+	public static String getURL(String testcasename,String testdatasheetpath,String testdatasheetname)
+	{
+		List<String> url;
+		String urlname="";
+		url = ExcelUtil.fn_GetTestData(testdatasheetpath,testdatasheetname,"AutomationTestCaseName",testcasename);
+		urlname=ExcelUtil.fn_FetchFieldValue(url,"URL_Name");
+		return urlname;
+	}
+
+	/** Get BRowser from Test Data Sheet
+	 * @param testcasename
+	 * @param testdatasheetpath
+	 * @param testdatasheetname
+	 * @return browsername
+	 * @throws IOException
+	 */
+	public static String getBrowserName(String testcasename,String testdatasheetpath,String testdatasheetname) 
+	{ String browsername="";
+	List<String> url =ExcelUtil.fn_GetTestData(testdatasheetpath,testdatasheetname,"AutomationTestCaseName",testcasename);
+	browsername=ExcelUtil.fn_FetchFieldValue(url,"Browser_Name");
+	return browsername;
+	}
+
+	/**Highlight a specific webelement
+	 * @param element
+	 */
+	public static void elementHighlight(WebElement element) {
+		for (int i = 0; i < 2; i++) {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript(
+					"arguments[0].setAttribute('style', arguments[1]);",
+					element, "color: red; border: 3px solid red;");
+		}
+	}
+
+	/** Read WebTable Rows
+	 * @param driver
+	 * @param WebTableXpathKey
+	 * @return
+	 */
+	public static List<WebElement> readWebTableRows(WebDriver driver,String WebTableXpathKey){
+		WebElement table= WebUtil.findElement(WebTableXpathKey,driver);
+		List<WebElement> rows = table.findElements(By.tagName("tr"));
+		List<WebElement> rowWithNoHeader = new ArrayList<WebElement>();
+
+		for (WebElement webElement : rows) {
+			try{
+				if(!isHeader(webElement)) {
+					rowWithNoHeader.add(webElement);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return rowWithNoHeader;
+	}
+
+	/**Is header available in table
+	 * @param webElement
+	 * @return
+	 */
+	public static boolean isHeader (WebElement webElement) {
+		List<WebElement>  rowelement  =null;
+		try {
+			rowelement = webElement.findElements(By.tagName("th"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try{
+			return  rowelement.size() > 0 ? true : false;
+		}catch(NullPointerException e){
+			return false;
+		}
+	}
+
+	/**Return the text of the link
+	 * @param we
+	 * @return
+	 */
+	public static String readLinkText(WebElement we)
+	{
+		String value=we.getText();
+		log.info("WebUtil: Read link Text"+value);
+		return value;
+	}
+
+	/**Switch the URL of browser
+	 * @param driver
+	 * @param ExpectedURL
+	 * @param URLname
+	 * @return
+	 * 
+	 */
+	public static WebDriver switchtoWindowByURL(WebDriver driver,String ExpectedURL,String URLname) 
+	{
+		Set<String> urls=driver.getWindowHandles();
+		for (String handlesname : urls) {
+			driver.switchTo().window(handlesname);
+			String ActualWindowURL = driver.getCurrentUrl().trim();
+			String ExpectedWindowURL = ExpectedURL.trim();
+			if (ActualWindowURL.contains(ExpectedWindowURL)) {
+				ReportUtil.reportWebElementExist("URL"+URLname+" Matches with the expected value",ExpectedWindowURL,ActualWindowURL);
+				driver.switchTo().window(handlesname);
+				break;
+			} 
+		}
+		return driver;
+	}
+
+	/**Switch the URL of browser
+	 * @param driver
+	 * @param ExpectedURL
+	 * @param URLname
+	 * @return
+	 * 
+	 */
+	public static WebDriver verifyURLMatches(WebDriver driver,String ExpectedURL,String URLname) 
+	{
+		Set<String> urls=driver.getWindowHandles();
+		for (String handlesname : urls) {
+			driver.switchTo().window(handlesname);
+			String ActualWindowURL = driver.getCurrentUrl().trim();
+			String ExpectedWindowURL = ExpectedURL.trim();
+			if (ActualWindowURL.contains(ExpectedWindowURL))
+			{
+				ReportUtil.reportStringContainsMatch("URL"+URLname+" Matches with the expected value",ExpectedWindowURL,ActualWindowURL);
+				driver.switchTo().window(handlesname);
+				break;
+			} 
+		}
+		return driver;
+	}
+
+
+	/**Store the current URL before switching to other
+	 * @param driver
+	 * @return
+	 */
+	public static String storeOldURL(WebDriver driver)
+	{
+		final String oldUrl=driver.getWindowHandle();
+		return oldUrl;	
+	}
+
+	/**Switch to old url
+	 * @param driver
+	 * @param oldUrl
+	 * @return
+	 */
+	public static WebDriver switchtoOldUrl(WebDriver driver,String oldUrl)
+	{
+		driver.switchTo().window(oldUrl);
+		return driver;
+	}
+
+	/*	*//**Close switched window
+	 * @param driver
+	 * @return
+	 *//*
+	public static WebDriver closeWindow(WebDriver driver)
+	{
+		String oldUrl=storeOldURL(driver);
+		for(String handle : driver.getWindowHandles()) 
+		{
+			if (!handle.equals(oldUrl)) 
+			{
+				driver.switchTo().window(handle);
+				driver.close();
+			}
+		}
+		return driver;
+	}*/
+
+	/**Switching to old Tab
+	 * @param driver
+	 * @param webElement
+	 * @param ExpectedUrl
+	 * @param URLname
+	 * @return
+	 * 
+	 */
+	public static WebDriver switchTabandGetBacktoBasePage(WebDriver driver,String webElement,String ExpectedUrl,String URLname) 
+	{
+		String oldUrl=storeOldURL(driver);
+		WebElement element=findElement(webElement,driver);
+		element.click();
+		WebUtil.wait(5000);
+		switchtoWindowByURL(driver,ExpectedUrl,URLname);
+		switchtoOldUrl(driver, oldUrl);
+		//closeWindow(driver);
+		return driver;
+
+	}
+
+	/** Sync method to wait until a particular element is present
+	 * @param driver
+	 * @param pathKey
+	 */
+	public static void waitUntilElementPresent(WebDriver driver,String pathKey){
+		try{
+			String Str = new String(pathKey);
+			String[] locator = Str.split("\\.");
+			WebDriverWait wait=new WebDriverWait(driver,30);
+			String Xpath=XPath.myprop.get(pathKey);
+			if (locator[1].equals("xpath")){
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Xpath)));
+				log.info("Element found"+pathKey);
+			}			
+			if (locator[1].equals("name")){
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.name(Xpath)));
+				log.info("Element found"+pathKey);
+			}
+			if (locator[1].equals("linkText")){
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText(Xpath)));
+				log.info("Element found"+pathKey);
+			}
+			if (locator[1].equals("css")){
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(Xpath)));
+				log.info("Element found"+pathKey);
+			}
+			if (locator[1].equals("id")){
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(Xpath)));
+				log.info("Element found"+pathKey);
+			}
+		}
+		catch(NoSuchElementException e){
+			log.error("Timeout Exception:Element not identified within 30 sec-"+pathKey+e.getMessage());
+			ReportUtil.reportElementException("Timeout Exception:Element not identified within 30 sec-"+pathKey, LogAs.FAILED);
+		}
+	}
+
+	/** Sync method to wait until a particular element is present
+	 * @param driver
+	 * @param pathKey
+	 */
+	public static void waitUntilElementClickable(WebDriver driver,String pathKey){
+		try{
+			String Str = new String(pathKey);
+			String[] locator = Str.split("\\.");
+			WebDriverWait wait=new WebDriverWait(driver,30);
+			String Xpath=XPath.myprop.get(pathKey);
+			if (locator[1].equals("xpath")){
+				wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Xpath)));
+				log.info("Element found"+pathKey);
+			}			
+			if (locator[1].equals("name")){
+				wait.until(ExpectedConditions.elementToBeClickable(By.name(Xpath)));
+				log.info("Element found"+pathKey);
+			}
+			if (locator[1].equals("linkText")){
+				wait.until(ExpectedConditions.elementToBeClickable(By.linkText(Xpath)));
+				log.info("Element found"+pathKey);
+			}
+			if (locator[1].equals("css")){
+				wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(Xpath)));
+				log.info("Element found"+pathKey);
+			}
+			if (locator[1].equals("id")){
+				wait.until(ExpectedConditions.elementToBeClickable(By.id(Xpath)));
+				log.info("Element found"+pathKey);
+			}
+		}
+		catch(NoSuchElementException e){
+			log.error("Timeout Exception:Element not clickable within 30 sec-"+pathKey+e.getMessage());
+			ReportUtil.reportElementException("Timeout Exception:Element not clickable within 30 sec-"+pathKey, LogAs.FAILED);
+		}
+	}
+
+	/**Perform the click action using action class
+	 * @param element
+	 * @param driver
+	 * @return
+	 * 
+	 */
+	public static WebDriver actionClass(WebElement element,WebDriver driver)
+	{
+		Actions actions = new Actions(driver);
+		boolean actVal = WebUtil.verifyWebElementExists("WebElement",element);
+		actions.moveToElement(element).click().build().perform();
+		WebUtil.wait(2000);		
+		log.info("Link clicked");
+		ReportUtil.reportWebElement("Verify link is clicked", actVal);
+		return driver;
+	}
+
+	/**Upload the document in the passed browser name
+	 * @param driver
+	 * @param browserName
+	 * @return
+	 * @throws IOException
+	 * 
+	 */
+	public static WebDriver uploadDocumentAsperPassedBrowserName(WebDriver driver,String browserName) 
+	{
+		if(browserName.equalsIgnoreCase("Chrome"))
+		{
+			String path1=System.getProperty("user.dir");
+			String path2="/src/testdata/Templates/Entity_batch_Upload.xlsx";
+			String path3=path2.replace("/", "\\");
+			String path=path1+path3;
+			WebUtil.wait(1000);
+			//String[] autoit={"src/drivers/RFAOnboardBulkUploadForChrome.exe",path};
+			String[] autoit={"src/drivers/UploadDocForChrome.exe",path};
+			try {
+				Runtime.getRuntime().exec(autoit);
+				WebUtil.wait(4000);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			log.info("Uploaded");
+			WebUtil.wait(2000);
+		}
+
+		if(browserName.equalsIgnoreCase("FF")){
+			String[] b= {"src/drivers/UploadDocumentForFF.exe"};
+			try {
+				Runtime.getRuntime().exec(b);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			log.info("Uploaded");
+			WebUtil.wait(20000);
+		}
+		if(browserName.equalsIgnoreCase("IE")){
+			String[] c= {"src/drivers/UploadDocumentForIE.exe"};
+			try {
+				Runtime.getRuntime().exec(c);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			log.info("Uploaded");
+			WebUtil.wait(20000);
+		}
+		return driver;
+	}
+
+
+	/** Sets the iframe for an application
+	 * @param driver
+	 * @param frameName
+	 * @return
+	 */
+	public static WebDriver setFrame(WebDriver driver,String frameName)
+	{
+		driver.switchTo().defaultContent();
+		driver.switchTo().frame(frameName);
+		log.info("Frame has been set to: "+frameName);
+		return driver;
+	}
+
+	/**This method is to verify if a particular property/attribute is present
+	 * for an element
+	 * @param element
+	 * @param attribute
+	 * @return
+	 */
+	public static boolean isAttribtuePresent(WebElement element, String attribute) {
+		boolean result = false;
+		try {
+			String value = element.getAttribute(attribute);
+			if (value != null){
+				result = true;
+			}
+			else
+			{result = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			log.error("Unable to get element attribute"+e.getMessage());
+		}
+		return result;
+	}
+
+
+	/** This method is to verify if element is disabled
+	 * @param pathKey
+	 */
+	public static void verifyElementDisabled(String pathKey){
+		WebElement e= WebUtil.findElement(pathKey, driver);
+		boolean actVal=e.isEnabled();
+		if(actVal){
+			ReportUtil.reportElementException("Element is enabled", LogAs.FAILED);
+		}else{
+			ReportUtil.reportWebElement("Verify element: "+pathKey+" : is Disabled", actVal);
+		}
+	}
+
+
+	/**
+	 * Read the  Text for an element
+	 * @param driver
+	 * @param pathKey
+	 * @return hover text
+	 */
+	public static String readElementText(WebDriver driver,String pathKey) {
+		WebElement elem = WebUtil.findElement(pathKey, driver);
+		String toolTipText=elem.getText();
+		log.info("WebUtil: Read Element Text: "+toolTipText);
+		return toolTipText;
+	}
+
+	/**Extract sub string from passed string
+	 * @param mainString
+	 * @param subString
+	 * @return
+	 */
+	public static String extractaSubString(String mainString,String subString)
+	{String text = mainString.replace(subString,"");
+	log.info("WebUtil: Extract substring- "+text);
+	return text;
+	}
+
+
+	/**Refresh page
+	 * @param driver
+	 * @return
+	 * 
+	 */
+	public static WebDriver refreshURL(WebDriver driver) 
+	{
+		driver.navigate().refresh();
+		WebUtil.wait(10000);
+		return driver;
+	}
+
+	/**Click method using java executor
+	 * @param driver
+	 * @param pathKey
+	 */
+	public static void javaExecuter(WebDriver driver,String pathKey)
+	{
+		WebElement element=WebUtil.findElement(pathKey, driver);
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click();", element);
+	}
+
+	/** Wait method
+	 * @param time
+	 */
+	public static void wait(int time){
+		try {
+			Thread.sleep(time);
+		} catch (InterruptedException e) {
+			log.error("Exception in wait method"+e.getMessage());
+			e.printStackTrace();
+		}
+	}
+
+	/** click using action class
+	 * @param driver
+	 * @param pathKey
+	 * 
+	 */
+	public static void clickedWithAction(WebDriver driver,String pathKey)
+	{
+		String Str = new String(pathKey);
+		String[] locator = Str.split("\\.");
+		WebElement element=WebUtil.findElement(pathKey, driver);
+		boolean actVal = WebUtil.verifyWebElementExists("WebElement",element);
+		Actions actions = new Actions(driver);
+		actions.moveToElement(element).click().perform();
+		log.info("Link clicked"+pathKey);
+		ReportUtil.reportWebElement("Verify link is clicked: "+locator[0]+"_"+locator[2], actVal);
+		WebUtil.wait(2000);
+	}
+
+	/** double click on element by passing key from xpath.prop file
+	 * @param driver
+	 * @param pathKey
+	 * 
+	 */
+	public static void doubleClickonElement(WebDriver driver,String pathKey)
+	{
+		WebElement element=WebUtil.findElement(pathKey, driver);
+		Actions actions = new Actions(driver);
+		actions.moveToElement(element).doubleClick().build().perform();
+		log.info("Double click on Link"+pathKey);
+		WebUtil.wait(2000);
+	}
+
+	/** double click on element by passing an element
+	 * @param driver
+	 * @param element
+	 */
+	public static void doubleClickonElement(WebDriver driver,WebElement element)
+	{
+		Actions actions = new Actions(driver);
+		actions.moveToElement(element).doubleClick().build().perform();
+		log.info("Double click on Link");
+		WebUtil.wait(2000);
+	}
+
+	/**Select value from a drop down as per passed value
+	 * @param driver
+	 * @param pathKey
+	 * @param valueToBeSelected
+	 * @return
+	 * 
+	 */
+	public static String  selectValueFromDropDownAsPerPassedVaule(WebDriver driver,String pathKey,String valueToBeSelected)
+	{
+		WebElement element=WebUtil.findElement(pathKey, driver);
+		Select select= new Select(element);
+		select.selectByValue(valueToBeSelected);
+		WebUtil.wait(3000);
+
+		WebElement elementRead=WebUtil.findElement(pathKey, driver);
+		Select selectRead= new Select(elementRead);
+		String selectedValue=selectRead.getFirstSelectedOption().getText();
+		log.info("Select value from dropdown"+pathKey);
+		WebUtil.wait(2000);
+		return selectedValue;
+	}
+
+
+	/**Select value from a drop down as per passed index
+	 * @param driver
+	 * @param pathKey
+	 * @param indexvalue
+	 * @return
+	 * 
+	 */
+	public static String selectValueFromDropDownAsPerPassedIndex(WebDriver driver,String pathKey,int indexvalue)
+	{
+		WebElement element=WebUtil.findElement(pathKey, driver);
+		Select select= new Select(element);
+		select.selectByIndex(indexvalue);
+
+		WebElement elementRead=WebUtil.findElement(pathKey, driver);
+		Select selectRead= new Select(elementRead);
+		String selectedValue=selectRead.getFirstSelectedOption().getText();
+		log.info("Select value from dropdown"+pathKey);
+		WebUtil.wait(2000);
+		return selectedValue;
+	}
+
+
+	/** select value from any drop down by the text visible
+	 * @param driver
+	 * @param pathKey
+	 * @param text
+	 */
+	public static void selectValueFromDropDownByVisibleText(WebDriver driver,String pathKey,String text)
+	{
+		WebElement element=WebUtil.findElement(pathKey, driver);
+		WebUtil.actionClass(element, driver);
+		Select selectVisibleTextObj= new Select(element);
+		selectVisibleTextObj.selectByVisibleText(text);
+		WebUtil.wait(2000);
+	}
+
+	/**Verify the element exists on the page 
+	 * @param driver
+	 * @param pathKey
+	 * @return
+	 */
+	public static int getSizeOfElement(WebDriver driver,String pathKey){
+		int size=WebUtil.findElements(pathKey, driver).size();
+		log.info("WebUtil: Size of Element"+pathKey);
+		return size;
+	}
+
+	/**Scroll down
+	 * @param driver
+	 * @param pathKey
+	 * 
+	 */
+	public static void scrollDown(WebDriver driver,String pathKey){
+		Actions dragger = new Actions(driver);
+		WebElement draggablePartOfScrollbar = WebUtil.findElement(pathKey, driver);
+		int numberOfPixelsToDragTheScrollbarDown = 25;
+		for (int i=10;i<800;i=i+numberOfPixelsToDragTheScrollbarDown){
+			dragger.moveToElement(draggablePartOfScrollbar).clickAndHold().moveByOffset(0,numberOfPixelsToDragTheScrollbarDown).release().perform();
+			WebUtil.wait(2000);
+		}
+		log.info("Scroll down the page");
+	}
+
+	/** returns the random integer to add to existing string
+	 * @return
+	 */
+	public static int generateRandomNumber(){
+		Random random=new Random();
+		int randomNumber=(random.nextInt(65536)-32768);		
+		return randomNumber;
+	}
+
+	/** Generate random string based on no. 
+	 * of digits and only letters/numbers or combo of both
+	 * @param useLetters
+	 * @param useNumbers
+	 * @param stringLength
+	 * @return String
+	 */
+	public static String generateRandomString(boolean useLetters,boolean useNumbers,int stringLength){
+		String result = RandomStringUtils.random(stringLength, useLetters, useNumbers) ;
+		return result;
+	}
+	/**Returns the current date of the Calendar in requested format
+	 * @param format
+	 * @return
+	 */
+	public static String getTheCurrentDateAsperpassedFormat(String format){
+		DateFormat df = new SimpleDateFormat(format);
+		Date dateobj = new Date();
+		String currentdate=df.format(dateobj);
+		log.info("Date:"+currentdate);
+		return currentdate;
+	}
+
+	/** truncates \n from string
+	 * @param mainString
+	 * @return
+	 */
+	public static String truncateNewLineFromPassedString(String mainString){
+		String FieldValue=mainString.replaceAll("[\n\r]", "");
+		return FieldValue;
+	}
+
+	/** remove passed text from full string
+	 * @param mainString
+	 * @param stringTobeRemoved
+	 * @return
+	 */
+	public static String removeThepassedItemFromString(String mainString,String stringTobeRemoved){
+		String FieldValue=mainString.replace(stringTobeRemoved, "");
+		return FieldValue;
+	}
+
+
+	/**This method is used to click on all the links
+	 * found by findElements for an xpath
+	 * @param driver
+	 * @param pathKey
+	 */
+	public static void clickonListofLinks(WebDriver driver,String pathKey){
+		List<WebElement> AcceptLinks=WebUtil.findElements(pathKey, driver);
+		for (int i=0; i<=AcceptLinks.size()-1; i++){
+			AcceptLinks=WebUtil.findElements(pathKey, driver);
+			WebUtil.wait(5000);
+			AcceptLinks.get(i).click();
+			WebUtil.wait(8000);
+		}
+		log.info("WebUtil: Identified list of links has been clicked");
+	}
+
+	/**Scroll down using Javascript
+	 * getElementbyID
+	 * @param driver
+	 * @param ElementId
+	 * @param verticalPositionPixels
+	 */
+	public static void scrollDownByElemId(WebDriver driver,String ElementId,int verticalPositionPixels ){
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("document.getElementById('"+ElementId+"').scrollTop += "+verticalPositionPixels+";", "");
+		WebUtil.wait(5000);
+		log.info("WebUtil: Scroll down the page by using element id");
+	}
+
+	/**Delete Files from a folder
+	 * @param path
+	 */
+	public static void deleteFilesFromAFloder(String path)
+	{	File file = new File(path);      
+	String[] myFiles;    
+	if(file.isDirectory()){
+		myFiles = file.list();
+		if(myFiles!=null){
+			for (int i=0; i<myFiles.length; i++) {
+				File myFile = new File(file, myFiles[i]); 
+				myFile.delete();
+			}
+		}
+	}
+	}
+
+
+	/**Scroll up the page
+	 * @param driver
+	 */
+	public static void scrollBarUp(WebDriver driver)
+	{	JavascriptExecutor jse = (JavascriptExecutor)driver;
+	jse.executeScript("window.scrollBy(0,-550)", "");
+	WebUtil.wait(2000);
+	log.info("Scroll up the page");
+	}
+
+	/**Returns the requested attribute value
+	 * @param driver
+	 * @param xpathKey
+	 * @param attributeName
+	 * @return
+	 */
+	public static String getAttributeValue(WebDriver driver,String pathKey,String attributeName)
+	{
+		WebElement element=WebUtil.findElement(pathKey, driver);
+		String value=element.getAttribute(attributeName);
+		//log.info("Atribut Value is "+value);
+		return value;
+	}
+
+	/**Verifies if the element is enabled or not then click
+	 * @param driver
+	 * @param pathKey
+	 */
+	public static void ifElementIsEnabledThenClick(WebDriver driver,String pathKey)
+	{
+		WebElement ele=WebUtil.findElement(pathKey, driver);
+		if(ele.isEnabled())
+		{	log.info("Element is enabled");
+		WebUtil.actionClass(ele, driver);
+		log.info("Element is clicked");
+		}
+	}
+
+	/**Deletes all the files from the folder whose path has been passed
+	 * @param path
+	 */
+	public static void emptyAFolder(String path)
+	{      
+		File dir=new File(path);
+		File[] listOfFiles=dir.listFiles();
+		if(listOfFiles!=null){
+			for (File file: listOfFiles) {
+				if (file.isDirectory()) {
+					emptyAFolder(path);			       
+				}else{file.delete();}
+			}
+		}
+	}
+
+
+	/**Returns the Files Name exist in the folder
+	 * @param path
+	 */
+	public static List<java.lang.String> readFilesNameInAFolder(String path)
+	{
+		File folder = new File(path);
+		File[] listOfFiles = folder.listFiles();
+		List<String> fileName = new ArrayList<String>();
+
+		try{
+			if(listOfFiles!=null){	
+				for (File file : listOfFiles) {
+					if (file.isFile()) 
+					{
+						fileName.add(file.getName());
+
+					}
+				}
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return fileName;
+
+	}
+
+	/**verify if element is displayed and report
+	 * @param driver
+	 * @param pathKey
+	 */
+	public static void verifyElementDisplayed(WebDriver driver,String pathKey)
+	{
+		String Str = new String(pathKey);
+		String[] locator = Str.split("\\.");
+		WebElement ele=WebUtil.findElement(pathKey, driver);
+		if(ele.isDisplayed()){
+			ReportUtil.reportWebElement("Verify Element Displayed"+locator[0]+"_"+locator[2], true);	
+		}
+		else{
+			ReportUtil.reportWebElement("Element in NOT Displayed"+locator[0]+"_"+locator[2], false);
+		}
+	}
+
+	/**Writes into a csv file
+	 * @param path
+	 * @param value
+	 */
+	public static void writeCSVfile(String path,String value)
+	{
+		PrintWriter csvWriter = null;
+		String path1=System.getProperty("user.dir");
+		String path3=path;
+		String path2=path1.replace("\\", "/");
+		String absolutePath=path2+path3;
+		System.out.println(absolutePath);
+		try {
+			csvWriter = new PrintWriter(new FileWriter(absolutePath, true));			
+			csvWriter.print(value);
+			csvWriter.append('\n');
+			csvWriter.close();
+		} catch (IOException e) {			
+			e.printStackTrace();
+		}
+	}
+
+
+	/**Eliminate the substring from double quotes
+	 * @param statement
+	 * @return
+	 */
+	public static String extractSubStringBetweenDoubleQuotes(String statement)
+	{
+		Pattern p = Pattern.compile("\"([^\"]*)\"");
+		Matcher m = p.matcher(statement);
+		String extractedValue=null;
+		while (m.find()) {
+			extractedValue=m.group(1);
+		}
+		return extractedValue;
+
+	}
+
+	/**send EnterKey to web Edit field
+	 * @param driver - Webdriver
+	 * @param pathKey -Key to identify web edit defined in xpath.properties
+	 */
+	public static void sendEnterKeyWebEdit(WebDriver driver,String pathKey){
+		String Str = new String(pathKey);
+		String[] locator = Str.split("\\.");
+		WebElement el=WebUtil.findElement(pathKey, driver);
+		el.sendKeys(Keys.ENTER);
+		wait(5000);
+		log.info("Enter Key"+ locator[0]+"_"+locator[2]);
+	}
+
+	/** Returns the folder path as per the current user
+	 * @param driver
+	 * @return - path of the downloads fodler
+	 */
+	public static String downloadFolderPathAsperCurrentUser(WebDriver driver)
+	{
+		String username=System.getProperty("user.name");
+		String path="C:/Users/"+username+"/Downloads";	
+		return path;
+	}
+
+	/** Returns size of the list by just passing the key name
+	 * @param xpath - path key for the element in xpath.properties file
+	 * @return - size of element
+	 */
+	public static int returnSizeOfList(String xpath)
+	{
+		List<WebElement> ele=new ArrayList<WebElement>();
+		ele =WebUtil.findElements(xpath, driver);
+		return ele.size();
+	}
+
+
+	/** Returns true if the element is present
+	 * @param driver
+	 * @param pathKey
+	 * @return
+	 */
+	public static boolean isElementPresent(WebDriver driver,String  pathKey)  
+	{  
+		driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);  
+		boolean value=false;
+		try {  
+			WebElement ele=findElement(pathKey, driver); 
+			if(ele!=null)
+				value=true;
+			else
+				value=false;			
+		}  
+		catch(NoSuchElementException e) {  
+			e.printStackTrace();
+		}  
+		finally {  
+			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);  
+		}  
+		return value;
+	}
+
+
+	/**Returns true if the element is clickable
+	 * @param driver
+	 * @param pathKey
+	 * @return
+	 */
+	public static boolean isElementClickable(WebDriver driver,String  pathKey)  
+	{  
+
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);  
+		boolean value=false;
+		try {  
+			WebElement ele=findElement(pathKey, driver); 
+			if(ele!=null)
+				value=ele.isEnabled();					
+		}  
+		catch(Exception e){  
+			e.printStackTrace();
+		}  
+		finally {  
+			driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);  
+		}  
+		return value;
+	}
+
+	/**Scrolls to the bottom of the page
+	 * @param driver 
+	 */
+	public static void scrollToBottom(WebDriver driver) {
+		((JavascriptExecutor) driver)
+		.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		wait(5000);
+	}
+
+	/** sets path using text by using HTML tag of element and clicks the element
+	 * @param tagName
+	 * @param text
+	 */
+	public static void setContainsXpathAndClick(String tagName,String text)
+	{
+		try{	
+			WebElement xpath=driver.findElement(By.xpath("//"+tagName+"[contains(text(),'"+text+"')]"));
+			boolean actVal = WebUtil.verifyWebElementExists("WebElement",xpath);			
+			if(xpath!=null)
+			{	xpath.click();
+			WebUtil.wait(3000);
+			ReportUtil.reportWebElement("Verify element is clicked: ", actVal);
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();}
+	}
+
+
+	/** gets latest tomorrow date
+	 * @return
+	 */
+	public static String getTommorowDate(){
+		Date now = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(now);
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		Date tomorrow = cal.getTime();
+		String modifiedDate= new SimpleDateFormat("yyyy-MM-dd").format(tomorrow);	
+	    System.out.println(modifiedDate);
+	    return modifiedDate;
+	}
+}
+
